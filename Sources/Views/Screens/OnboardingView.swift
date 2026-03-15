@@ -25,10 +25,10 @@ struct OnboardingView: View {
                 .font(.system(size: 70))
                 .foregroundStyle(.blue.gradient)
 
-            Text("ThingCost")
+            Text("app_name")
                 .font(.largeTitle.bold())
 
-            Text("See the real daily cost\nof everything you own")
+            Text("onboarding_tagline")
                 .font(.title3)
                 .foregroundStyle(.secondary)
                 .multilineTextAlignment(.center)
@@ -38,7 +38,7 @@ struct OnboardingView: View {
             Button {
                 withAnimation { currentPage = 1 }
             } label: {
-                Text("Next")
+                Text("onboarding_next")
                     .font(.headline)
                     .frame(maxWidth: .infinity)
                     .padding(.vertical, 14)
@@ -54,9 +54,15 @@ struct OnboardingView: View {
             Spacer()
 
             VStack(spacing: 24) {
-                stepRow(icon: "plus.circle.fill", color: .blue, title: "Add a purchase", description: "Enter what you bought, how much, and when")
-                stepRow(icon: "chart.line.downtrend.xyaxis", color: .green, title: "Watch the cost drop", description: "Daily cost decreases every day you own it")
-                stepRow(icon: "square.and.arrow.up", color: .purple, title: "Share your stats", description: "Generate beautiful cards for social media")
+                stepRow(icon: "plus.circle.fill", color: .blue,
+                        title: String(localized: "onboarding_step1_title"),
+                        description: String(localized: "onboarding_step1_desc"))
+                stepRow(icon: "chart.line.downtrend.xyaxis", color: .green,
+                        title: String(localized: "onboarding_step2_title"),
+                        description: String(localized: "onboarding_step2_desc"))
+                stepRow(icon: "square.and.arrow.up", color: .purple,
+                        title: String(localized: "onboarding_step3_title"),
+                        description: String(localized: "onboarding_step3_desc"))
             }
             .padding(.horizontal, 32)
 
@@ -65,7 +71,7 @@ struct OnboardingView: View {
             Button {
                 withAnimation { currentPage = 2 }
             } label: {
-                Text("Next")
+                Text("onboarding_next")
                     .font(.headline)
                     .frame(maxWidth: .infinity)
                     .padding(.vertical, 14)
@@ -101,10 +107,10 @@ struct OnboardingView: View {
                 .font(.system(size: 50))
                 .foregroundStyle(.yellow.gradient)
 
-            Text("Ready to start?")
+            Text("onboarding_ready")
                 .font(.title.bold())
 
-            Text("We'll add a sample item\nso you can see how it works")
+            Text("onboarding_sample_desc")
                 .font(.body)
                 .foregroundStyle(.secondary)
                 .multilineTextAlignment(.center)
@@ -114,7 +120,7 @@ struct OnboardingView: View {
             Button {
                 addSampleItemAndFinish()
             } label: {
-                Text("Add Sample & Start")
+                Text("onboarding_add_sample")
                     .font(.headline)
                     .frame(maxWidth: .infinity)
                     .padding(.vertical, 14)
@@ -122,7 +128,7 @@ struct OnboardingView: View {
             .buttonStyle(.borderedProminent)
             .padding(.horizontal, 32)
 
-            Button("Skip") {
+            Button("onboarding_skip") {
                 hasCompletedOnboarding = true
             }
             .foregroundStyle(.secondary)

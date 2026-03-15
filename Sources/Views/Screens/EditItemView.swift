@@ -21,42 +21,42 @@ struct EditItemView: View {
     var body: some View {
         NavigationStack {
             Form {
-                Section("Item Details") {
-                    TextField("Name", text: $name)
+                Section("item_details") {
+                    TextField("item_name", text: $name)
 
                     HStack {
                         Text(currencySymbol)
                             .foregroundStyle(.secondary)
-                        TextField("Price", text: $priceText)
+                        TextField("item_price", text: $priceText)
                             .keyboardType(.decimalPad)
                     }
 
-                    DatePicker("Purchase Date", selection: $purchaseDate, in: ...Date(), displayedComponents: .date)
+                    DatePicker("purchase_date", selection: $purchaseDate, in: ...Date(), displayedComponents: .date)
                 }
 
-                Section("Category") {
-                    Picker("Category", selection: $category) {
+                Section("category") {
+                    Picker("category", selection: $category) {
                         ForEach(ItemCategory.allCases) { cat in
-                            Label(cat.rawValue, systemImage: cat.iconName)
+                            Label { Text(cat.displayName) } icon: { Image(systemName: cat.iconName) }
                                 .tag(cat)
                         }
                     }
                 }
 
                 if let price = Double(priceText), price > 0 {
-                    Section("Current Cost") {
+                    Section("current_cost") {
                         let daysOwned = max(Calendar.current.dateComponents([.day], from: purchaseDate, to: Date()).day ?? 1, 1)
                         let dailyCost = price / Double(daysOwned)
 
                         HStack {
-                            Text("Daily Cost")
+                            Text("daily_cost")
                             Spacer()
                             Text(dailyCost, format: .currency(code: currencyCode))
                                 .bold()
                         }
 
                         HStack {
-                            Text("Days Owned")
+                            Text("days_owned")
                             Spacer()
                             Text(daysOwned.dayLabel)
                                 .foregroundStyle(.secondary)
@@ -64,14 +64,14 @@ struct EditItemView: View {
                     }
                 }
             }
-            .navigationTitle("Edit Item")
+            .navigationTitle("edit_item")
             .navigationBarTitleDisplayMode(.inline)
             .toolbar {
                 ToolbarItem(placement: .cancellationAction) {
-                    Button("Cancel") { dismiss() }
+                    Button("cancel") { dismiss() }
                 }
                 ToolbarItem(placement: .confirmationAction) {
-                    Button("Save") { saveItem() }
+                    Button("save") { saveItem() }
                         .disabled(!isValid)
                         .bold()
                 }

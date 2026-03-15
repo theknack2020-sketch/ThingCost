@@ -1,0 +1,131 @@
+/* App */
+"app_name" = "ThingCost";
+
+/* Onboarding */
+"onboarding_tagline" = "Sahip olduğun her şeyin\ngünlük maliyetini gör";
+"onboarding_next" = "İleri";
+"onboarding_step1_title" = "Bir alışveriş ekle";
+"onboarding_step1_desc" = "Ne aldığını, ne kadara ve ne zaman aldığını gir";
+"onboarding_step2_title" = "Maliyetin düşüşünü izle";
+"onboarding_step2_desc" = "Günlük maliyet, sahip olduğun her gün azalır";
+"onboarding_step3_title" = "İstatistiklerini paylaş";
+"onboarding_step3_desc" = "Sosyal medya için harika kartlar oluştur";
+"onboarding_ready" = "Başlamaya hazır mısın?";
+"onboarding_sample_desc" = "Nasıl çalıştığını görebilmen için\nbir örnek ürün ekleyeceğiz";
+"onboarding_add_sample" = "Örnek Ekle ve Başla";
+"onboarding_skip" = "Atla";
+
+/* Item List */
+"total_daily_cost" = "Toplam Günlük Maliyet";
+"items_count %lld" = "%lld ürün";
+"free_count %lld" = "%lld/3 ücretsiz";
+"per_month" = "/ay";
+"items_section" = "Ürünler";
+"no_items_title" = "Henüz Ürün Yok";
+"no_items_desc" = "Günlük maliyetini görmek için ilk alışverişini ekle.";
+"add_item" = "Ürün Ekle";
+
+/* Sort */
+"sort_daily_high" = "Günlük Maliyet ↓";
+"sort_daily_low" = "Günlük Maliyet ↑";
+"sort_price_high" = "Fiyat ↓";
+"sort_price_low" = "Fiyat ↑";
+"sort_newest" = "En Yeni";
+"sort_oldest" = "En Eski";
+"sort_name" = "İsim A-Z";
+
+/* Add/Edit Item */
+"item_details" = "Ürün Bilgileri";
+"item_name" = "İsim";
+"item_price" = "Fiyat";
+"purchase_date" = "Alış Tarihi";
+"category" = "Kategori";
+"preview" = "Önizleme";
+"current_cost" = "Güncel Maliyet";
+"daily_cost" = "Günlük Maliyet";
+"days_owned" = "Sahip Olunan Gün";
+"cancel" = "İptal";
+"add" = "Ekle";
+"save" = "Kaydet";
+"edit" = "Düzenle";
+"delete" = "Sil";
+"edit_item" = "Ürünü Düzenle";
+
+/* Categories */
+"cat_electronics" = "Elektronik";
+"cat_clothing" = "Giyim";
+"cat_furniture" = "Mobilya";
+"cat_vehicle" = "Araç";
+"cat_sports" = "Spor";
+"cat_kitchen" = "Mutfak";
+"cat_accessories" = "Aksesuar";
+"cat_other" = "Diğer";
+
+/* Detail View */
+"per_day" = "günlük";
+"cost_breakdown" = "Maliyet Detayı";
+"purchase_price" = "Alış Fiyatı";
+"daily" = "Günlük";
+"monthly" = "Aylık";
+"yearly" = "Yıllık";
+"cost_over_time" = "Zaman İçinde Maliyet";
+"chart_day" = "Gün";
+"chart_cost" = "Maliyet";
+"today" = "Bugün";
+"chart_days_axis" = "Gün";
+"chart_cost_axis" = "Maliyet/Gün";
+"future_projections" = "Gelecek Tahminleri";
+
+/* Milestones */
+"milestone_1month" = "1 ay";
+"milestone_3months" = "3 ay";
+"milestone_6months" = "6 ay";
+"milestone_1year" = "1 yıl";
+"milestone_2years" = "2 yıl";
+"milestone_3years" = "3 yıl";
+
+/* Share Card */
+"share_card" = "Paylaşım Kartı";
+"style_minimal" = "Minimal";
+"style_bold" = "Cesur";
+"style_gradient" = "Gradyan";
+"share" = "Paylaş";
+"done" = "Tamam";
+"bought_for" = "Alış fiyatı";
+"owned_for" = "Sahiplik süresi";
+"costs_me" = "bana maliyeti";
+"purchase_price_label" = "alış fiyatı";
+"owned_label" = "sahiplik";
+"price_label" = "Fiyat";
+"days_label" = "Gün";
+"monthly_label" = "Aylık";
+
+/* Paywall */
+"paywall_title" = "Sınırsız Ürün Aç";
+"paywall_desc" = "3 ürünü ücretsiz ekledin.\nTek seferlik satın almayla sınırsız takip aç.";
+"paywall_unlimited" = "Sınırsız ürün";
+"paywall_share" = "Tüm paylaşım kartı stilleri";
+"paywall_widget" = "Widget desteği";
+"paywall_support" = "Bağımsız geliştiriciyi destekle";
+"paywall_unlock %@" = "%@ ile Aç";
+"paywall_loading" = "Yükleniyor...";
+"paywall_restore" = "Satın Alımları Geri Yükle";
+
+/* Settings */
+"settings" = "Ayarlar";
+"appearance" = "Görünüm";
+"theme" = "Tema";
+"theme_system" = "Sistem";
+"theme_light" = "Açık";
+"theme_dark" = "Koyu";
+"about" = "Hakkında";
+"version" = "Sürüm";
+"rate_app" = "ThingCost'u Puanla";
+"contact_us" = "Bize Ulaşın";
+
+/* Days */
+"day_singular %lld" = "%lld gün";
+"day_plural %lld" = "%lld gün";
+
+/* Row */
+"per_day_short" = "/gün";

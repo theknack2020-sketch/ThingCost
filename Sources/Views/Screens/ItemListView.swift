@@ -7,6 +7,7 @@ struct ItemListView: View {
     @Environment(StoreService.self) private var store
     @State private var showingAddSheet = false
     @State private var showingPaywall = false
+    @State private var showingSettings = false
     @State private var sortOption: SortOption = .dailyCostHigh
     @State private var editingItem: Item?
     @State private var selectedItem: Item?
@@ -39,11 +40,19 @@ struct ItemListView: View {
                     itemList
                 }
             }
-            .navigationTitle("ThingCost")
+            .navigationTitle("app_name")
             .toolbar {
                 ToolbarItem(placement: .topBarLeading) {
-                    if !items.isEmpty {
-                        sortMenu
+                    HStack(spacing: 4) {
+                        if !items.isEmpty {
+                            sortMenu
+                        }
+                        Button {
+                            showingSettings = true
+                        } label: {
+                            Image(systemName: "gearshape")
+                        }
+                        .accessibilityIdentifier("settingsButton")
                     }
                 }
                 ToolbarItem(placement: .topBarTrailing) {
@@ -57,6 +66,7 @@ struct ItemListView: View {
                         Image(systemName: "plus.circle.fill")
                             .font(.title3)
                     }
+                    .accessibilityIdentifier("addButton")
                 }
             }
             .sheet(isPresented: $showingAddSheet) {
@@ -67,6 +77,9 @@ struct ItemListView: View {
             }
             .sheet(isPresented: $showingPaywall) {
                 PaywallView(store: store)
+            }
+            .sheet(isPresented: $showingSettings) {
+                SettingsView()
             }
             .navigationDestination(item: $selectedItem) { item in
                 ItemDetailView(item: item)
@@ -81,24 +94,25 @@ struct ItemListView: View {
                     withAnimation { sortOption = option }
                 } label: {
                     if sortOption == option {
-                        Label(option.rawValue, systemImage: "checkmark")
+                        Label { Text(option.displayName) } icon: { Image(systemName: "checkmark") }
                     } else {
-                        Text(option.rawValue)
+                        Text(option.displayName)
                     }
                 }
             }
         } label: {
             Image(systemName: "arrow.up.arrow.down")
         }
+        .accessibilityIdentifier("sortButton")
     }
 
     private var emptyState: some View {
         ContentUnavailableView {
-            Label("No Items Yet", systemImage: "bag")
+            Label("no_items_title", systemImage: "bag")
         } description: {
-            Text("Add your first purchase to see its daily cost.")
+            Text("no_items_desc")
         } actions: {
-            Button("Add Item") {
+            Button("add_item") {
                 if store.canAddItem(currentCount: items.count) {
                     showingAddSheet = true
                 } else {
@@ -120,7 +134,7 @@ struct ItemListView: View {
         Section {
             HStack {
                 VStack(alignment: .leading, spacing: 4) {
-                    Text("Total Daily Cost")
+                    Text("total_daily_cost")
                         .font(.subheadline)
                         .foregroundStyle(.secondary)
                     Text(totalDailyCost.compactCurrency(code: currencyCode))
@@ -131,15 +145,15 @@ struct ItemListView: View {
                 Spacer()
                 VStack(alignment: .trailing, spacing: 4) {
                     if store.isUnlimited {
-                        Text("\(items.count) items")
+                        Text("items_count \(items.count)")
                             .font(.subheadline)
                             .foregroundStyle(.secondary)
                     } else {
-                        Text("\(items.count)/3 free")
+                        Text("free_count \(items.count)")
                             .font(.subheadline)
                             .foregroundStyle(items.count >= 3 ? .orange : .secondary)
                     }
-                    Text("\(totalMonthly.compactCurrency(code: currencyCode))/mo")
+                    Text("\(totalMonthly.compactCurrency(code: currencyCode))\(String(localized: "per_month"))")
                         .font(.callout)
                         .foregroundStyle(.secondary)
                         .lineLimit(1)
@@ -151,7 +165,7 @@ struct ItemListView: View {
     }
 
     private var itemsSection: some View {
-        Section("Items") {
+        Section("items_section") {
             ForEach(sortedItems) { item in
                 ItemRowView(item: item)
                     .contentShape(Rectangle())
@@ -164,14 +178,14 @@ struct ItemListView: View {
                                 modelContext.delete(item)
                             }
                         } label: {
-                            Label("Delete", systemImage: "trash")
+                            Label("delete", systemImage: "trash")
                         }
                     }
                     .swipeActions(edge: .leading) {
                         Button {
                             editingItem = item
                         } label: {
-                            Label("Edit", systemImage: "pencil")
+                            Label("edit", systemImage: "pencil")
                         }
                         .tint(.blue)
                     }

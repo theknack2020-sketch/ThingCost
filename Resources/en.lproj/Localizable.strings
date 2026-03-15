@@ -1,0 +1,131 @@
+/* App */
+"app_name" = "ThingCost";
+
+/* Onboarding */
+"onboarding_tagline" = "See the real daily cost\nof everything you own";
+"onboarding_next" = "Next";
+"onboarding_step1_title" = "Add a purchase";
+"onboarding_step1_desc" = "Enter what you bought, how much, and when";
+"onboarding_step2_title" = "Watch the cost drop";
+"onboarding_step2_desc" = "Daily cost decreases every day you own it";
+"onboarding_step3_title" = "Share your stats";
+"onboarding_step3_desc" = "Generate beautiful cards for social media";
+"onboarding_ready" = "Ready to start?";
+"onboarding_sample_desc" = "We'll add a sample item\nso you can see how it works";
+"onboarding_add_sample" = "Add Sample & Start";
+"onboarding_skip" = "Skip";
+
+/* Item List */
+"total_daily_cost" = "Total Daily Cost";
+"items_count %lld" = "%lld items";
+"free_count %lld" = "%lld/3 free";
+"per_month" = "/mo";
+"items_section" = "Items";
+"no_items_title" = "No Items Yet";
+"no_items_desc" = "Add your first purchase to see its daily cost.";
+"add_item" = "Add Item";
+
+/* Sort */
+"sort_daily_high" = "Daily Cost ↓";
+"sort_daily_low" = "Daily Cost ↑";
+"sort_price_high" = "Price ↓";
+"sort_price_low" = "Price ↑";
+"sort_newest" = "Newest First";
+"sort_oldest" = "Oldest First";
+"sort_name" = "Name A-Z";
+
+/* Add/Edit Item */
+"item_details" = "Item Details";
+"item_name" = "Name";
+"item_price" = "Price";
+"purchase_date" = "Purchase Date";
+"category" = "Category";
+"preview" = "Preview";
+"current_cost" = "Current Cost";
+"daily_cost" = "Daily Cost";
+"days_owned" = "Days Owned";
+"cancel" = "Cancel";
+"add" = "Add";
+"save" = "Save";
+"edit" = "Edit";
+"delete" = "Delete";
+"edit_item" = "Edit Item";
+
+/* Categories */
+"cat_electronics" = "Electronics";
+"cat_clothing" = "Clothing";
+"cat_furniture" = "Furniture";
+"cat_vehicle" = "Vehicle";
+"cat_sports" = "Sports";
+"cat_kitchen" = "Kitchen";
+"cat_accessories" = "Accessories";
+"cat_other" = "Other";
+
+/* Detail View */
+"per_day" = "per day";
+"cost_breakdown" = "Cost Breakdown";
+"purchase_price" = "Purchase Price";
+"daily" = "Daily";
+"monthly" = "Monthly";
+"yearly" = "Yearly";
+"cost_over_time" = "Cost Over Time";
+"chart_day" = "Day";
+"chart_cost" = "Cost";
+"today" = "Today";
+"chart_days_axis" = "Days";
+"chart_cost_axis" = "Cost/Day";
+"future_projections" = "Future Projections";
+
+/* Milestones */
+"milestone_1month" = "1 month";
+"milestone_3months" = "3 months";
+"milestone_6months" = "6 months";
+"milestone_1year" = "1 year";
+"milestone_2years" = "2 years";
+"milestone_3years" = "3 years";
+
+/* Share Card */
+"share_card" = "Share Card";
+"style_minimal" = "Minimal";
+"style_bold" = "Bold";
+"style_gradient" = "Gradient";
+"share" = "Share";
+"done" = "Done";
+"bought_for" = "Bought for";
+"owned_for" = "Owned for";
+"costs_me" = "costs me";
+"purchase_price_label" = "purchase price";
+"owned_label" = "owned";
+"price_label" = "Price";
+"days_label" = "Days";
+"monthly_label" = "Monthly";
+
+/* Paywall */
+"paywall_title" = "Unlock Unlimited Items";
+"paywall_desc" = "You've added 3 items for free.\nUnlock unlimited tracking with a one-time purchase.";
+"paywall_unlimited" = "Unlimited items";
+"paywall_share" = "All share card styles";
+"paywall_widget" = "Widget support";
+"paywall_support" = "Support indie development";
+"paywall_unlock %@" = "Unlock for %@";
+"paywall_loading" = "Loading...";
+"paywall_restore" = "Restore Purchases";
+
+/* Settings */
+"settings" = "Settings";
+"appearance" = "Appearance";
+"theme" = "Theme";
+"theme_system" = "System";
+"theme_light" = "Light";
+"theme_dark" = "Dark";
+"about" = "About";
+"version" = "Version";
+"rate_app" = "Rate ThingCost";
+"contact_us" = "Contact Us";
+
+/* Days */
+"day_singular %lld" = "%lld day";
+"day_plural %lld" = "%lld days";
+
+/* Row */
+"per_day_short" = "/day";

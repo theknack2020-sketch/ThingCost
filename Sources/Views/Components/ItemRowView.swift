@@ -30,7 +30,7 @@ struct ItemRowView: View {
                     .font(.body.bold())
                     .foregroundStyle(.primary)
                     .lineLimit(1)
-                Text("/day")
+                Text("per_day_short")
                     .font(.caption2)
                     .foregroundStyle(.secondary)
             }

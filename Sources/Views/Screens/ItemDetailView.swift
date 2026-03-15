@@ -31,7 +31,7 @@ struct ItemDetailView: View {
                     } label: {
                         Image(systemName: "square.and.arrow.up")
                     }
-                    Button("Edit") {
+                    Button("edit") {
                         showingEditSheet = true
                     }
                 }
@@ -59,7 +59,7 @@ struct ItemDetailView: View {
             Text(item.dailyCost, format: .currency(code: currencyCode))
                 .font(.system(size: 44, weight: .bold, design: .rounded))
 
-            Text("per day")
+            Text("per_day")
                 .font(.subheadline)
                 .foregroundStyle(.secondary)
         }
@@ -72,21 +72,21 @@ struct ItemDetailView: View {
 
     private var costBreakdownCard: some View {
         VStack(alignment: .leading, spacing: 12) {
-            Text("Cost Breakdown")
+            Text("cost_breakdown")
                 .font(.headline)
 
-            costRow("Purchase Price", value: item.price)
-            costRow("Days Owned", text: item.daysOwned.dayLabel)
+            costRow("purchase_price", value: item.price)
+            costRow("days_owned", text: item.daysOwned.dayLabel)
             Divider()
-            costRow("Daily", value: item.dailyCost)
-            costRow("Monthly", value: item.monthlyCost)
-            costRow("Yearly", value: item.yearlyCost)
+            costRow("daily", value: item.dailyCost)
+            costRow("monthly", value: item.monthlyCost)
+            costRow("yearly", value: item.yearlyCost)
         }
         .padding()
         .background(.ultraThinMaterial, in: RoundedRectangle(cornerRadius: 16))
     }
 
-    private func costRow(_ label: String, value: Double) -> some View {
+    private func costRow(_ label: LocalizedStringKey, value: Double) -> some View {
         HStack {
             Text(label)
                 .foregroundStyle(.secondary)
@@ -96,7 +96,7 @@ struct ItemDetailView: View {
         }
     }
 
-    private func costRow(_ label: String, text: String) -> some View {
+    private func costRow(_ label: LocalizedStringKey, text: String) -> some View {
         HStack {
             Text(label)
                 .foregroundStyle(.secondary)
@@ -110,40 +110,40 @@ struct ItemDetailView: View {
 
     private var costChartCard: some View {
         VStack(alignment: .leading, spacing: 12) {
-            Text("Cost Over Time")
+            Text("cost_over_time")
                 .font(.headline)
 
             Chart(chartData, id: \.day) { point in
                 LineMark(
-                    x: .value("Day", point.day),
-                    y: .value("Cost", point.cost)
+                    x: .value(String(localized: "chart_day"), point.day),
+                    y: .value(String(localized: "chart_cost"), point.cost)
                 )
                 .foregroundStyle(item.category.color.gradient)
                 .interpolationMethod(.catmullRom)
 
                 AreaMark(
-                    x: .value("Day", point.day),
-                    y: .value("Cost", point.cost)
+                    x: .value(String(localized: "chart_day"), point.day),
+                    y: .value(String(localized: "chart_cost"), point.cost)
                 )
                 .foregroundStyle(item.category.color.opacity(0.1).gradient)
                 .interpolationMethod(.catmullRom)
 
                 if point.day == item.daysOwned {
                     PointMark(
-                        x: .value("Day", point.day),
-                        y: .value("Cost", point.cost)
+                        x: .value(String(localized: "chart_day"), point.day),
+                        y: .value(String(localized: "chart_cost"), point.cost)
                     )
                     .foregroundStyle(item.category.color)
                     .symbolSize(60)
                     .annotation(position: .top) {
-                        Text("Today")
+                        Text("today")
                             .font(.caption2)
                             .foregroundStyle(.secondary)
                     }
                 }
             }
-            .chartXAxisLabel("Days")
-            .chartYAxisLabel("Cost/Day")
+            .chartXAxisLabel(String(localized: "chart_days_axis"))
+            .chartYAxisLabel(String(localized: "chart_cost_axis"))
             .frame(height: 200)
         }
         .padding()
@@ -159,7 +159,6 @@ struct ItemDetailView: View {
             points.append(CostPoint(day: day, cost: item.price / Double(day)))
         }
 
-        // Ensure current day is included
         if !points.contains(where: { $0.day == item.daysOwned }) {
             points.append(CostPoint(day: item.daysOwned, cost: item.dailyCost))
             points.sort { $0.day < $1.day }
@@ -174,7 +173,7 @@ struct ItemDetailView: View {
         Group {
             if !item.costMilestones.isEmpty {
                 VStack(alignment: .leading, spacing: 12) {
-                    Text("Future Projections")
+                    Text("future_projections")
                         .font(.headline)
 
                     ForEach(item.costMilestones, id: \.days) { milestone in
@@ -184,7 +183,7 @@ struct ItemDetailView: View {
                             Spacer()
                             Text(milestone.cost, format: .currency(code: currencyCode))
                                 .fontWeight(.medium)
-                            Text("/day")
+                            Text("per_day")
                                 .font(.caption)
                                 .foregroundStyle(.secondary)
                         }
@@ -195,7 +194,6 @@ struct ItemDetailView: View {
             }
         }
     }
-
 }
 
 struct CostPoint {

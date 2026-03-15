@@ -1,5 +1,6 @@
 import Foundation
 import SwiftData
+import SwiftUI
 
 @Model
 final class Item {
@@ -49,31 +50,44 @@ final class Item {
 
     /// Cost per day at various future milestones
     var costMilestones: [(label: String, days: Int, cost: Double)] {
-        let milestones: [(String, Int)] = [
-            ("1 month", 30),
-            ("3 months", 90),
-            ("6 months", 180),
-            ("1 year", 365),
-            ("2 years", 730),
-            ("3 years", 1095),
+        let milestones: [(LocalizedStringResource, Int)] = [
+            ("milestone_1month", 30),
+            ("milestone_3months", 90),
+            ("milestone_6months", 180),
+            ("milestone_1year", 365),
+            ("milestone_2years", 730),
+            ("milestone_3years", 1095),
         ]
         return milestones
             .filter { $0.1 > daysOwned }
-            .map { (label: $0.0, days: $0.1, cost: projectedDailyCost(afterTotalDays: $0.1)) }
+            .map { (label: String(localized: $0.0), days: $0.1, cost: projectedDailyCost(afterTotalDays: $0.1)) }
     }
 }
 
 enum ItemCategory: String, Codable, CaseIterable, Identifiable {
-    case electronics = "Electronics"
-    case clothing = "Clothing"
-    case furniture = "Furniture"
-    case vehicle = "Vehicle"
-    case sports = "Sports"
-    case kitchen = "Kitchen"
-    case accessories = "Accessories"
-    case other = "Other"
+    case electronics
+    case clothing
+    case furniture
+    case vehicle
+    case sports
+    case kitchen
+    case accessories
+    case other
 
     var id: String { rawValue }
+
+    var displayName: LocalizedStringResource {
+        switch self {
+        case .electronics: "cat_electronics"
+        case .clothing: "cat_clothing"
+        case .furniture: "cat_furniture"
+        case .vehicle: "cat_vehicle"
+        case .sports: "cat_sports"
+        case .kitchen: "cat_kitchen"
+        case .accessories: "cat_accessories"
+        case .other: "cat_other"
+        }
+    }
 
     var iconName: String {
         switch self {

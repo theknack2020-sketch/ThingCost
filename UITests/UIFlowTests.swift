@@ -6,7 +6,7 @@ final class UIFlowTests: XCTestCase {
     override func setUpWithError() throws {
         continueAfterFailure = false
         app = XCUIApplication()
-        app.launchArguments = ["--reset-onboarding", "--reset-data"]
+        app.launchArguments = ["--reset-onboarding", "--reset-data", "-AppleLanguages", "(en)", "-AppleLocale", "en_US"]
         app.launch()
     }
 
@@ -35,7 +35,7 @@ final class UIFlowTests: XCTestCase {
         XCTAssertTrue(app.staticTexts["1/3 free"].exists, "Free counter at 1")
 
         // === STEP 5: ADD ITEM ===
-        app.navigationBars["ThingCost"].buttons.element(boundBy: 1).tap() // + button (rightmost)
+        app.buttons["addButton"].firstMatch.tap() // + button (rightmost)
         sleep(1)
 
         XCTAssertTrue(app.navigationBars["Add Item"].waitForExistence(timeout: 3), "Add sheet")
@@ -111,7 +111,7 @@ final class UIFlowTests: XCTestCase {
         sleep(1)
 
         // === STEP 11: ADD 3rd ITEM ===
-        app.navigationBars["ThingCost"].buttons.element(boundBy: 1).tap()
+        app.buttons["addButton"].firstMatch.tap()
         sleep(1)
 
         let nameField3 = app.textFields["Name"]
@@ -128,7 +128,7 @@ final class UIFlowTests: XCTestCase {
         XCTAssertTrue(app.staticTexts["3/3 free"].waitForExistence(timeout: 3), "Counter at 3")
 
         // === STEP 12: PAYWALL (4th item) ===
-        app.navigationBars["ThingCost"].buttons.element(boundBy: 1).tap()
+        app.buttons["addButton"].firstMatch.tap()
         sleep(1)
 
         XCTAssertTrue(app.staticTexts["Unlock Unlimited Items"].waitForExistence(timeout: 3), "Paywall shown")
@@ -142,8 +142,7 @@ final class UIFlowTests: XCTestCase {
         sleep(1)
 
         // === STEP 13: SORT MENU ===
-        // Sort button is the left toolbar button
-        app.navigationBars["ThingCost"].buttons.element(boundBy: 0).tap()
+        app.buttons["sortButton"].firstMatch.tap()
         sleep(1)
 
         let sortOption = app.buttons["Name A-Z"]

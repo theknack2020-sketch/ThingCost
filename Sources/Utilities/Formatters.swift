@@ -1,9 +1,14 @@
 import Foundation
+import SwiftUI
 
 extension Int {
-    /// "1 day", "5 days"
+    /// Localized "1 day", "5 days" / "1 gün", "5 gün"
     var dayLabel: String {
-        "\(self) \(self == 1 ? "day" : "days")"
+        if self == 1 {
+            return String(localized: "day_singular \(self)")
+        } else {
+            return String(localized: "day_plural \(self)")
+        }
     }
 }
 
@@ -15,8 +20,6 @@ extension Double {
         formatter.currencyCode = code
         if self >= 10000 {
             formatter.maximumFractionDigits = 0
-        } else if self >= 100 {
-            formatter.maximumFractionDigits = 2
         } else {
             formatter.maximumFractionDigits = 2
         }

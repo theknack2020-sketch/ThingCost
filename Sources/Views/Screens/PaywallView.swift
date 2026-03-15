@@ -9,36 +9,32 @@ struct PaywallView: View {
             VStack(spacing: 24) {
                 Spacer()
 
-                // Icon
                 Image(systemName: "lock.open.fill")
                     .font(.system(size: 50))
                     .foregroundStyle(.blue.gradient)
 
-                // Title
                 VStack(spacing: 8) {
-                    Text("Unlock Unlimited Items")
+                    Text("paywall_title")
                         .font(.title.bold())
 
-                    Text("You've added 3 items for free.\nUnlock unlimited tracking with a one-time purchase.")
+                    Text("paywall_desc")
                         .font(.body)
                         .foregroundStyle(.secondary)
                         .multilineTextAlignment(.center)
                         .padding(.horizontal)
                 }
 
-                // Features
                 VStack(alignment: .leading, spacing: 12) {
-                    featureRow(icon: "infinity", text: "Unlimited items")
-                    featureRow(icon: "square.and.arrow.up", text: "All share card styles")
-                    featureRow(icon: "widget.small", text: "Widget support")
-                    featureRow(icon: "heart.fill", text: "Support indie development")
+                    featureRow(icon: "infinity", text: String(localized: "paywall_unlimited"))
+                    featureRow(icon: "square.and.arrow.up", text: String(localized: "paywall_share"))
+                    featureRow(icon: "widget.small", text: String(localized: "paywall_widget"))
+                    featureRow(icon: "heart.fill", text: String(localized: "paywall_support"))
                 }
                 .padding(.horizontal, 32)
                 .padding(.vertical, 16)
 
                 Spacer()
 
-                // Purchase button
                 VStack(spacing: 12) {
                     Button {
                         Task { await store.purchase() }
@@ -48,10 +44,10 @@ struct PaywallView: View {
                                 ProgressView()
                                     .tint(.white)
                             } else if let product = store.product {
-                                Text("Unlock for \(product.displayPrice)")
+                                Text("paywall_unlock \(product.displayPrice)")
                                     .font(.headline)
                             } else {
-                                Text("Loading...")
+                                Text("paywall_loading")
                                     .font(.headline)
                             }
                         }
@@ -61,7 +57,7 @@ struct PaywallView: View {
                     .buttonStyle(.borderedProminent)
                     .disabled(store.product == nil || isPurchasing)
 
-                    Button("Restore Purchases") {
+                    Button("paywall_restore") {
                         Task { await store.restore() }
                     }
                     .font(.callout)
@@ -80,7 +76,7 @@ struct PaywallView: View {
             .navigationBarTitleDisplayMode(.inline)
             .toolbar {
                 ToolbarItem(placement: .cancellationAction) {
-                    Button("Cancel") { dismiss() }
+                    Button("cancel") { dismiss() }
                 }
             }
             .onChange(of: store.isUnlimited) { _, isUnlimited in

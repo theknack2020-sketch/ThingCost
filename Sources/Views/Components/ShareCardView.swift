@@ -1,11 +1,19 @@
 import SwiftUI
 
 enum ShareCardStyle: String, CaseIterable, Identifiable {
-    case minimal = "Minimal"
-    case bold = "Bold"
-    case gradient = "Gradient"
+    case minimal
+    case bold
+    case gradient
 
     var id: String { rawValue }
+
+    var displayName: LocalizedStringResource {
+        switch self {
+        case .minimal: "style_minimal"
+        case .bold: "style_bold"
+        case .gradient: "style_gradient"
+        }
+    }
 }
 
 struct ShareCardView: View {
@@ -56,7 +64,7 @@ struct ShareCardView: View {
                     .font(.system(size: 56, weight: .bold, design: .rounded))
                     .foregroundStyle(.primary)
 
-                Text("per day")
+                Text("per_day")
                     .font(.body)
                     .foregroundStyle(.secondary)
             }
@@ -65,7 +73,7 @@ struct ShareCardView: View {
 
             HStack {
                 VStack(alignment: .leading, spacing: 2) {
-                    Text("Bought for")
+                    Text("bought_for")
                         .font(.caption)
                         .foregroundStyle(.tertiary)
                     Text(item.price, format: .currency(code: currencyCode))
@@ -76,7 +84,7 @@ struct ShareCardView: View {
                 Spacer()
 
                 VStack(alignment: .trailing, spacing: 2) {
-                    Text("Owned for")
+                    Text("owned_for")
                         .font(.caption)
                         .foregroundStyle(.tertiary)
                     Text(item.daysOwned.dayLabel)
@@ -101,7 +109,6 @@ struct ShareCardView: View {
 
     private var boldCard: some View {
         VStack(spacing: 0) {
-            // Top accent bar
             Rectangle()
                 .fill(item.category.color.gradient)
                 .frame(height: 8)
@@ -120,7 +127,7 @@ struct ShareCardView: View {
                 Text(item.name)
                     .font(.title2.weight(.bold))
 
-                Text("costs me")
+                Text("costs_me")
                     .font(.body)
                     .foregroundStyle(.secondary)
 
@@ -128,7 +135,7 @@ struct ShareCardView: View {
                     .font(.system(size: 64, weight: .heavy, design: .rounded))
                     .foregroundStyle(item.category.color)
 
-                Text("per day")
+                Text("per_day")
                     .font(.title3.weight(.medium))
                     .foregroundStyle(.secondary)
             }
@@ -136,9 +143,9 @@ struct ShareCardView: View {
             Spacer()
 
             HStack(spacing: 32) {
-                statBubble(label: "Price", value: item.price, format: .currency(code: currencyCode))
-                statBubble(label: "Days", text: item.daysOwned.dayLabel)
-                statBubble(label: "Monthly", value: item.monthlyCost, format: .currency(code: currencyCode))
+                statBubble(label: String(localized: "price_label"), value: item.price, format: .currency(code: currencyCode))
+                statBubble(label: String(localized: "days_label"), text: item.daysOwned.dayLabel)
+                statBubble(label: String(localized: "monthly_label"), value: item.monthlyCost, format: .currency(code: currencyCode))
             }
             .padding(.horizontal, 20)
 
@@ -204,7 +211,7 @@ struct ShareCardView: View {
                     .font(.system(size: 60, weight: .bold, design: .rounded))
                     .foregroundStyle(.white)
 
-                Text("per day")
+                Text("per_day")
                     .font(.body.weight(.medium))
                     .foregroundStyle(.white.opacity(0.8))
             }
@@ -216,7 +223,7 @@ struct ShareCardView: View {
                     Text(item.price, format: .currency(code: currencyCode))
                         .font(.callout.weight(.semibold))
                         .foregroundStyle(.white)
-                    Text("purchase price")
+                    Text("purchase_price_label")
                         .font(.caption2)
                         .foregroundStyle(.white.opacity(0.6))
                 }
@@ -227,7 +234,7 @@ struct ShareCardView: View {
                     Text(item.daysOwned.dayLabel)
                         .font(.callout.weight(.semibold))
                         .foregroundStyle(.white)
-                    Text("owned")
+                    Text("owned_label")
                         .font(.caption2)
                         .foregroundStyle(.white.opacity(0.6))
                 }
@@ -250,7 +257,6 @@ struct ShareCardView: View {
             )
         )
     }
-
 }
 
 #Preview("Minimal") {

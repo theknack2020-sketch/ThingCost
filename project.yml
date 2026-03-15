@@ -6,6 +6,10 @@ options:
   xcodeVersion: "26.3"
   createIntermediateGroups: true
   generateEmptyDirectories: true
+  developmentLanguage: en
+  knownRegions:
+    - en
+    - tr
 
 settings:
   base:
@@ -20,8 +24,8 @@ targets:
     platform: iOS
     sources:
       - Sources
-    resources:
-      - Resources
+      - path: Resources
+        buildPhase: resources
     info:
       path: Sources/Info.plist
       properties:
