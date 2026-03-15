@@ -24,6 +24,7 @@ struct OnboardingView: View {
             Image(systemName: "tag.fill")
                 .font(.system(size: 70))
                 .foregroundStyle(.blue.gradient)
+                .scaleEffect(x: -1, y: 1)
 
             Text("app_name")
                 .font(.largeTitle.bold())
