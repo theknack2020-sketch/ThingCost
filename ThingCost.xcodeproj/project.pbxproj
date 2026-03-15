@@ -74,7 +74,6 @@
 		6BF466AD836D3E8EC693CDD7 /* ThingCostWidgetExtension.appex */ = {isa = PBXFileReference; includeInIndex = 0; lastKnownFileType = "wrapper.app-extension"; path = ThingCostWidgetExtension.appex; sourceTree = BUILT_PRODUCTS_DIR; };
 		6F535D8BB8696E7B315D202D /* PaywallView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PaywallView.swift; sourceTree = "<group>"; };
 		7264E4269BE936F9E1D57451 /* ThingCostApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ThingCostApp.swift; sourceTree = "<group>"; };
-		8B9719C04FC87B741AE49A98 /* ThingCostWidget.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = ThingCostWidget.entitlements; sourceTree = "<group>"; };
 		94ECB6AFDB4487E41D5434A3 /* EditItemView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditItemView.swift; sourceTree = "<group>"; };
 		9C1E0F07F878A3327CB2F77A /* ItemListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ItemListView.swift; sourceTree = "<group>"; };
 		A473E87306DE9CF0AA2CEE7A /* ShareCardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShareCardView.swift; sourceTree = "<group>"; };
@@ -179,7 +178,6 @@
 			isa = PBXGroup;
 			children = (
 				1C6D5A600EF7E4D3CC2E7820 /* Info.plist */,
-				8B9719C04FC87B741AE49A98 /* ThingCostWidget.entitlements */,
 				BE85771ADFC8CAF4C3CCF9DF /* ThingCostWidget.swift */,
 				4F98BC5B69924FD39370FFE5 /* Resources */,
 				671DB8E761445E4C5070569F /* Sources */,
@@ -473,7 +471,6 @@
 		7904BC48F29D38FB87B8798D /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				CODE_SIGN_ENTITLEMENTS = Widget/ThingCostWidget.entitlements;
 				INFOPLIST_FILE = Widget/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -597,7 +594,6 @@
 		FE3B6804004E7341FF9A5497 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				CODE_SIGN_ENTITLEMENTS = Widget/ThingCostWidget.entitlements;
 				INFOPLIST_FILE = Widget/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",

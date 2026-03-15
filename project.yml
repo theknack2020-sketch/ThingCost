@@ -50,8 +50,6 @@ targets:
     settings:
       base:
         PRODUCT_BUNDLE_IDENTIFIER: com.ufukozdemir.thingcost.widget
-    entitlements:
-      path: Widget/ThingCostWidget.entitlements
 
   ThingCostTests:
     type: bundle.unit-test
