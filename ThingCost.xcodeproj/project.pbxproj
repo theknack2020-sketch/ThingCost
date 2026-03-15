@@ -24,6 +24,7 @@
 		8C622B6B885EBEDCF629E1FA /* ShareService.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC9295A0A24616827F2E3F7C /* ShareService.swift */; };
 		B4795BB6B50A6721BAFD2036 /* SortOption.swift in Sources */ = {isa = PBXBuildFile; fileRef = 59EC925E990A922C6D43A220 /* SortOption.swift */; };
 		B5EF99C50AC0C1C3E58F77FD /* ItemDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA330F9A9A3824DDC0164374 /* ItemDetailView.swift */; };
+		BBA523CAFC4107961BDB93D5 /* ScreenshotTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 61A029FD00C8C51B46DC2E88 /* ScreenshotTests.swift */; };
 		BD22BC6F77CCA101C399C248 /* EdgeCaseTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = E66F05C875B43F6A79EB0A05 /* EdgeCaseTests.swift */; };
 		BF63C7703EE9A43A93887C12 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 11C109C35F861B93E969E4F1 /* ContentView.swift */; };
 		C3859E229B44E9936075A945 /* StoreService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23AC4ED869ADC3AB2A3216A1 /* StoreService.swift */; };
@@ -65,6 +66,7 @@
 		572A61CBCF2A50F202A60097 /* OnboardingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingView.swift; sourceTree = "<group>"; };
 		59EC925E990A922C6D43A220 /* SortOption.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SortOption.swift; sourceTree = "<group>"; };
 		5F3245279B340D08D7B09AFD /* ThingCostUITests.xctest */ = {isa = PBXFileReference; includeInIndex = 0; lastKnownFileType = wrapper.cfbundle; path = ThingCostUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		61A029FD00C8C51B46DC2E88 /* ScreenshotTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScreenshotTests.swift; sourceTree = "<group>"; };
 		6C176EAEAFC13771D5BCDB44 /* tr */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = tr; path = tr.lproj/Localizable.strings; sourceTree = "<group>"; };
 		6F535D8BB8696E7B315D202D /* PaywallView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PaywallView.swift; sourceTree = "<group>"; };
 		7264E4269BE936F9E1D57451 /* ThingCostApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ThingCostApp.swift; sourceTree = "<group>"; };
@@ -173,6 +175,7 @@
 		754185A23155C4853976D84B /* UITests */ = {
 			isa = PBXGroup;
 			children = (
+				61A029FD00C8C51B46DC2E88 /* ScreenshotTests.swift */,
 				B483883E12222E15E17C1859 /* UIFlowTests.swift */,
 				F7C198E4C6A7D895B5055362 /* VisualQATests.swift */,
 			);
@@ -345,6 +348,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				BBA523CAFC4107961BDB93D5 /* ScreenshotTests.swift in Sources */,
 				F35663161775C15A1C7976E7 /* UIFlowTests.swift in Sources */,
 				4DA858C51512A3D574757F3E /* VisualQATests.swift in Sources */,
 			);

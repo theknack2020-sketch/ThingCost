@@ -21,3 +21,5 @@ Packages/
 .DS_Store
 *.swp
 *~
+AppStore/screenshots/
+AppStore/screenshot_*.png

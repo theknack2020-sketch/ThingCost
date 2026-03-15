@@ -14,6 +14,9 @@ struct ThingCostApp: App {
             let url = URL.applicationSupportDirectory.appending(path: "default.store")
             try? FileManager.default.removeItem(at: url)
         }
+        if CommandLine.arguments.contains("--skip-onboarding") {
+            UserDefaults.standard.set(true, forKey: "hasCompletedOnboarding")
+        }
     }
 
     private var selectedTheme: AppTheme {
