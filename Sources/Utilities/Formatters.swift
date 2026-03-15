@@ -13,12 +13,13 @@ extension Int {
 }
 
 extension Double {
-    /// Compact currency: "₺85.000" for large, "₺361,11" for medium, "₺3,80" for small
+    /// Compact currency: no decimals for whole numbers, 2 decimals otherwise
     func compactCurrency(code: String) -> String {
         let formatter = NumberFormatter()
         formatter.numberStyle = .currency
         formatter.currencyCode = code
-        if self >= 10000 {
+        // If the value is effectively a whole number, skip decimals
+        if self >= 100 && self.truncatingRemainder(dividingBy: 1) < 0.01 {
             formatter.maximumFractionDigits = 0
         } else {
             formatter.maximumFractionDigits = 2
