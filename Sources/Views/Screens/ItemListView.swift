@@ -7,6 +7,7 @@ struct ItemListView: View {
     @State private var showingAddSheet = false
     @State private var sortOption: SortOption = .dailyCostHigh
     @State private var editingItem: Item?
+    @State private var selectedItem: Item?
 
     private var sortedItems: [Item] {
         switch sortOption {
@@ -57,6 +58,9 @@ struct ItemListView: View {
             }
             .sheet(item: $editingItem) { item in
                 EditItemView(item: item)
+            }
+            .navigationDestination(item: $selectedItem) { item in
+                ItemDetailView(item: item)
             }
         }
     }
@@ -129,7 +133,7 @@ struct ItemListView: View {
                 ItemRowView(item: item)
                     .contentShape(Rectangle())
                     .onTapGesture {
-                        editingItem = item
+                        selectedItem = item
                     }
                     .swipeActions(edge: .trailing, allowsFullSwipe: true) {
                         Button(role: .destructive) {
