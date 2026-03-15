@@ -4,6 +4,7 @@ import Charts
 struct ItemDetailView: View {
     let item: Item
     @State private var showingEditSheet = false
+    @State private var showingShareSheet = false
     @Environment(\.dismiss) private var dismiss
 
     private var currencyCode: String {
@@ -24,13 +25,23 @@ struct ItemDetailView: View {
         .navigationBarTitleDisplayMode(.inline)
         .toolbar {
             ToolbarItem(placement: .topBarTrailing) {
-                Button("Edit") {
-                    showingEditSheet = true
+                HStack(spacing: 12) {
+                    Button {
+                        showingShareSheet = true
+                    } label: {
+                        Image(systemName: "square.and.arrow.up")
+                    }
+                    Button("Edit") {
+                        showingEditSheet = true
+                    }
                 }
             }
         }
         .sheet(isPresented: $showingEditSheet) {
             EditItemView(item: item)
+        }
+        .sheet(isPresented: $showingShareSheet) {
+            ShareCardPreviewView(item: item)
         }
     }
 
