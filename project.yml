@@ -62,6 +62,17 @@ targets:
     dependencies:
       - target: ThingCost
 
+  ThingCostUITests:
+    type: bundle.ui-testing
+    platform: iOS
+    sources:
+      - UITests
+    settings:
+      base:
+        GENERATE_INFOPLIST_FILE: YES
+    dependencies:
+      - target: ThingCost
+
 schemes:
   ThingCost:
     build:
@@ -69,9 +80,11 @@ schemes:
         ThingCost: all
         ThingCostWidgetExtension: all
         ThingCostTests: [test]
+        ThingCostUITests: [test]
     run:
       config: Debug
       storeKitConfiguration: Resources/Store.storekit
     test:
       targets:
         - ThingCostTests
+        - ThingCostUITests

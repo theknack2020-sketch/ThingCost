@@ -58,7 +58,7 @@ struct EditItemView: View {
                         HStack {
                             Text("Days Owned")
                             Spacer()
-                            Text("\(daysOwned)")
+                            Text(daysOwned.dayLabel)
                                 .foregroundStyle(.secondary)
                         }
                     }

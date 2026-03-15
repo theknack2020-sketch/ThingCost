@@ -17,7 +17,7 @@ struct ItemRowView: View {
             VStack(alignment: .leading, spacing: 2) {
                 Text(item.name)
                     .font(.body.weight(.medium))
-                Text("\(item.daysOwned) days")
+                Text(item.daysOwned.dayLabel)
                     .font(.caption)
                     .foregroundStyle(.secondary)
             }
@@ -26,9 +26,10 @@ struct ItemRowView: View {
 
             // Daily cost
             VStack(alignment: .trailing, spacing: 2) {
-                Text(item.dailyCost, format: .currency(code: currencyCode))
+                Text(item.dailyCost.compactCurrency(code: currencyCode))
                     .font(.body.bold())
                     .foregroundStyle(.primary)
+                    .lineLimit(1)
                 Text("/day")
                     .font(.caption2)
                     .foregroundStyle(.secondary)

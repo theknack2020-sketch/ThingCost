@@ -76,7 +76,7 @@ struct ItemDetailView: View {
                 .font(.headline)
 
             costRow("Purchase Price", value: item.price)
-            costRow("Days Owned", text: "\(item.daysOwned)")
+            costRow("Days Owned", text: item.daysOwned.dayLabel)
             Divider()
             costRow("Daily", value: item.dailyCost)
             costRow("Monthly", value: item.monthlyCost)

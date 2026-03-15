@@ -123,8 +123,10 @@ struct ItemListView: View {
                     Text("Total Daily Cost")
                         .font(.subheadline)
                         .foregroundStyle(.secondary)
-                    Text(totalDailyCost, format: .currency(code: currencyCode))
+                    Text(totalDailyCost.compactCurrency(code: currencyCode))
                         .font(.title.bold())
+                        .lineLimit(1)
+                        .minimumScaleFactor(0.6)
                 }
                 Spacer()
                 VStack(alignment: .trailing, spacing: 4) {
@@ -137,9 +139,11 @@ struct ItemListView: View {
                             .font(.subheadline)
                             .foregroundStyle(items.count >= 3 ? .orange : .secondary)
                     }
-                    Text("\(totalMonthly, format: .currency(code: currencyCode))/mo")
+                    Text("\(totalMonthly.compactCurrency(code: currencyCode))/mo")
                         .font(.callout)
                         .foregroundStyle(.secondary)
+                        .lineLimit(1)
+                        .minimumScaleFactor(0.7)
                 }
             }
             .padding(.vertical, 4)

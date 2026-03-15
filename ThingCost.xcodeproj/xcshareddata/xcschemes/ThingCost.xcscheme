@@ -37,6 +37,20 @@
          </BuildActionEntry>
          <BuildActionEntry
             buildForTesting = "YES"
+            buildForRunning = "NO"
+            buildForProfiling = "NO"
+            buildForArchiving = "NO"
+            buildForAnalyzing = "NO">
+            <BuildableReference
+               BuildableIdentifier = "primary"
+               BlueprintIdentifier = "15D3E8B50F6221121E4C5624"
+               BuildableName = "ThingCostUITests.xctest"
+               BlueprintName = "ThingCostUITests"
+               ReferencedContainer = "container:ThingCost.xcodeproj">
+            </BuildableReference>
+         </BuildActionEntry>
+         <BuildActionEntry
+            buildForTesting = "YES"
             buildForRunning = "YES"
             buildForProfiling = "YES"
             buildForArchiving = "YES"
@@ -75,6 +89,17 @@
                BlueprintIdentifier = "41A8857387A06EA90404B641"
                BuildableName = "ThingCostTests.xctest"
                BlueprintName = "ThingCostTests"
+               ReferencedContainer = "container:ThingCost.xcodeproj">
+            </BuildableReference>
+         </TestableReference>
+         <TestableReference
+            skipped = "NO"
+            parallelizable = "NO">
+            <BuildableReference
+               BuildableIdentifier = "primary"
+               BlueprintIdentifier = "15D3E8B50F6221121E4C5624"
+               BuildableName = "ThingCostUITests.xctest"
+               BlueprintName = "ThingCostUITests"
                ReferencedContainer = "container:ThingCost.xcodeproj">
             </BuildableReference>
          </TestableReference>

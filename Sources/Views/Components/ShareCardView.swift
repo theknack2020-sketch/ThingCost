@@ -79,7 +79,7 @@ struct ShareCardView: View {
                     Text("Owned for")
                         .font(.caption)
                         .foregroundStyle(.tertiary)
-                    Text("\(item.daysOwned) days")
+                    Text(item.daysOwned.dayLabel)
                         .font(.callout.weight(.medium))
                         .foregroundStyle(.secondary)
                 }
@@ -137,7 +137,7 @@ struct ShareCardView: View {
 
             HStack(spacing: 32) {
                 statBubble(label: "Price", value: item.price, format: .currency(code: currencyCode))
-                statBubble(label: "Days", text: "\(item.daysOwned)")
+                statBubble(label: "Days", text: item.daysOwned.dayLabel)
                 statBubble(label: "Monthly", value: item.monthlyCost, format: .currency(code: currencyCode))
             }
             .padding(.horizontal, 20)
@@ -224,7 +224,7 @@ struct ShareCardView: View {
                 Spacer()
 
                 VStack(alignment: .trailing, spacing: 2) {
-                    Text("\(item.daysOwned) days")
+                    Text(item.daysOwned.dayLabel)
                         .font(.callout.weight(.semibold))
                         .foregroundStyle(.white)
                     Text("owned")
