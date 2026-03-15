@@ -42,7 +42,7 @@ This milestone is complete only when all are true:
 - [x] **S01: Core Data Model + Item List** `risk:medium` `depends:[]`
   > After this: user can add items with name/price/date, see them in a list with daily costs, edit and delete items. All persisted with SwiftData.
 
-- [ ] **S02: Item Detail + Cost Visualization** `risk:low` `depends:[S01]`
+- [x] **S02: Item Detail + Cost Visualization** `risk:low` `depends:[S01]`
   > After this: user can tap an item to see detailed cost breakdown, cost-over-time graph, and projected future costs.
 
 - [ ] **S03: Share Cards + Viral Loop** `risk:high` `depends:[S01]`
