@@ -3,8 +3,29 @@ import SwiftData
 
 struct ItemListView: View {
     @Environment(\.modelContext) private var modelContext
-    @Query(sort: \Item.price, order: .reverse) private var items: [Item]
+    @Query(sort: \Item.createdAt, order: .reverse) private var items: [Item]
     @State private var showingAddSheet = false
+    @State private var sortOption: SortOption = .dailyCostHigh
+    @State private var editingItem: Item?
+
+    private var sortedItems: [Item] {
+        switch sortOption {
+        case .dailyCostHigh:
+            items.sorted { $0.dailyCost > $1.dailyCost }
+        case .dailyCostLow:
+            items.sorted { $0.dailyCost < $1.dailyCost }
+        case .priceHigh:
+            items.sorted { $0.price > $1.price }
+        case .priceLow:
+            items.sorted { $0.price < $1.price }
+        case .newest:
+            items.sorted { $0.purchaseDate > $1.purchaseDate }
+        case .oldest:
+            items.sorted { $0.purchaseDate < $1.purchaseDate }
+        case .name:
+            items.sorted { $0.name.localizedCompare($1.name) == .orderedAscending }
+        }
+    }
 
     var body: some View {
         NavigationStack {
@@ -17,6 +38,11 @@ struct ItemListView: View {
             }
             .navigationTitle("ThingCost")
             .toolbar {
+                ToolbarItem(placement: .topBarLeading) {
+                    if !items.isEmpty {
+                        sortMenu
+                    }
+                }
                 ToolbarItem(placement: .topBarTrailing) {
                     Button {
                         showingAddSheet = true
@@ -29,6 +55,27 @@ struct ItemListView: View {
             .sheet(isPresented: $showingAddSheet) {
                 AddItemView()
             }
+            .sheet(item: $editingItem) { item in
+                EditItemView(item: item)
+            }
+        }
+    }
+
+    private var sortMenu: some View {
+        Menu {
+            ForEach(SortOption.allCases) { option in
+                Button {
+                    withAnimation { sortOption = option }
+                } label: {
+                    if sortOption == option {
+                        Label(option.rawValue, systemImage: "checkmark")
+                    } else {
+                        Text(option.rawValue)
+                    }
+                }
+            }
+        } label: {
+            Image(systemName: "arrow.up.arrow.down")
         }
     }
 
@@ -78,12 +125,30 @@ struct ItemListView: View {
 
     private var itemsSection: some View {
         Section("Items") {
-            ForEach(items) { item in
-                NavigationLink(value: item) {
-                    ItemRowView(item: item)
-                }
+            ForEach(sortedItems) { item in
+                ItemRowView(item: item)
+                    .contentShape(Rectangle())
+                    .onTapGesture {
+                        editingItem = item
+                    }
+                    .swipeActions(edge: .trailing, allowsFullSwipe: true) {
+                        Button(role: .destructive) {
+                            withAnimation {
+                                modelContext.delete(item)
+                            }
+                        } label: {
+                            Label("Delete", systemImage: "trash")
+                        }
+                    }
+                    .swipeActions(edge: .leading) {
+                        Button {
+                            editingItem = item
+                        } label: {
+                            Label("Edit", systemImage: "pencil")
+                        }
+                        .tint(.blue)
+                    }
             }
-            .onDelete(perform: deleteItems)
         }
     }
 
@@ -97,12 +162,6 @@ struct ItemListView: View {
 
     private var currencyCode: String {
         Locale.current.currency?.identifier ?? "USD"
-    }
-
-    private func deleteItems(at offsets: IndexSet) {
-        for index in offsets {
-            modelContext.delete(items[index])
-        }
     }
 }
 
