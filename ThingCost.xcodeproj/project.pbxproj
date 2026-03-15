@@ -8,19 +8,25 @@
 
 /* Begin PBXBuildFile section */
 		07114384E721B89F343CCD3E /* ItemTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F397969A38BD44D2305390A /* ItemTests.swift */; };
+		0BC7983F81BCFF648015DDE2 /* ThingCostWidget.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE85771ADFC8CAF4C3CCF9DF /* ThingCostWidget.swift */; };
+		1445C1175215FE0B87D9867F /* OnboardingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 572A61CBCF2A50F202A60097 /* OnboardingView.swift */; };
 		245EDCE153E8AE33E56EE5B5 /* PaywallView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6F535D8BB8696E7B315D202D /* PaywallView.swift */; };
 		5B95A2D8D64AA7C8DA7EACF0 /* ItemRowView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EABC6B6D56125317D729DF91 /* ItemRowView.swift */; };
+		69B109772FD00A39CF700A86 /* CategoryColor.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5D4F02FF3F501A642125323 /* CategoryColor.swift */; };
 		6A75396B1AFC1A787DFEFE39 /* ThingCostApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7264E4269BE936F9E1D57451 /* ThingCostApp.swift */; };
 		6F5ECA7914E0DF319ED6ED93 /* EditItemView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 94ECB6AFDB4487E41D5434A3 /* EditItemView.swift */; };
 		7157E0CFFDCF89269E6B4E39 /* Item.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30990BFC05C2E6D78ED89CDE /* Item.swift */; };
 		758BF994CA52C7D920A33782 /* ItemListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C1E0F07F878A3327CB2F77A /* ItemListView.swift */; };
 		8C622B6B885EBEDCF629E1FA /* ShareService.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC9295A0A24616827F2E3F7C /* ShareService.swift */; };
+		AC95ED83C02199A57779C40E /* ThingCostWidgetExtension.appex in Embed Foundation Extensions */ = {isa = PBXBuildFile; fileRef = 6BF466AD836D3E8EC693CDD7 /* ThingCostWidgetExtension.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
+		AE949C3FEBF1600368D50768 /* Item.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30990BFC05C2E6D78ED89CDE /* Item.swift */; };
 		B4795BB6B50A6721BAFD2036 /* SortOption.swift in Sources */ = {isa = PBXBuildFile; fileRef = 59EC925E990A922C6D43A220 /* SortOption.swift */; };
 		B5EF99C50AC0C1C3E58F77FD /* ItemDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA330F9A9A3824DDC0164374 /* ItemDetailView.swift */; };
 		BF63C7703EE9A43A93887C12 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 11C109C35F861B93E969E4F1 /* ContentView.swift */; };
 		C3859E229B44E9936075A945 /* StoreService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23AC4ED869ADC3AB2A3216A1 /* StoreService.swift */; };
 		E4F4F36DC5C0781F78E97B16 /* ShareCardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A473E87306DE9CF0AA2CEE7A /* ShareCardView.swift */; };
 		EDE2529B0E06449B018165EB /* ShareCardPreviewView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 046121EB9294B9BD8DBECF9D /* ShareCardPreviewView.swift */; };
+		FD0D1E1AF82D518373B07842 /* SortOption.swift in Sources */ = {isa = PBXBuildFile; fileRef = 59EC925E990A922C6D43A220 /* SortOption.swift */; };
 		FD62850E8D9C4D27037C37FD /* AddItemView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C7285155F42051BFA802E699 /* AddItemView.swift */; };
 /* End PBXBuildFile section */
 
@@ -32,22 +38,49 @@
 			remoteGlobalIDString = 875FD62AA9FD8D0A6732C53F;
 			remoteInfo = ThingCost;
 		};
+		AF5EE60021EF8FB335975051 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = DE31B3453B5ED24E76D2A151 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 966A1298EF3A07A1FA9EFD5D;
+			remoteInfo = ThingCostWidgetExtension;
+		};
 /* End PBXContainerItemProxy section */
+
+/* Begin PBXCopyFilesBuildPhase section */
+		C7DB2453809338FCAFB328E4 /* Embed Foundation Extensions */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 13;
+			files = (
+				AC95ED83C02199A57779C40E /* ThingCostWidgetExtension.appex in Embed Foundation Extensions */,
+			);
+			name = "Embed Foundation Extensions";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
 		046121EB9294B9BD8DBECF9D /* ShareCardPreviewView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShareCardPreviewView.swift; sourceTree = "<group>"; };
 		11C109C35F861B93E969E4F1 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
+		1C6D5A600EF7E4D3CC2E7820 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
 		1F397969A38BD44D2305390A /* ItemTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ItemTests.swift; sourceTree = "<group>"; };
 		23AC4ED869ADC3AB2A3216A1 /* StoreService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StoreService.swift; sourceTree = "<group>"; };
 		30990BFC05C2E6D78ED89CDE /* Item.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Item.swift; sourceTree = "<group>"; };
 		34AD46C5D9905CA845B43977 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
+		572A61CBCF2A50F202A60097 /* OnboardingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingView.swift; sourceTree = "<group>"; };
 		59EC925E990A922C6D43A220 /* SortOption.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SortOption.swift; sourceTree = "<group>"; };
+		6BF466AD836D3E8EC693CDD7 /* ThingCostWidgetExtension.appex */ = {isa = PBXFileReference; includeInIndex = 0; lastKnownFileType = "wrapper.app-extension"; path = ThingCostWidgetExtension.appex; sourceTree = BUILT_PRODUCTS_DIR; };
 		6F535D8BB8696E7B315D202D /* PaywallView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PaywallView.swift; sourceTree = "<group>"; };
 		7264E4269BE936F9E1D57451 /* ThingCostApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ThingCostApp.swift; sourceTree = "<group>"; };
+		8B9719C04FC87B741AE49A98 /* ThingCostWidget.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = ThingCostWidget.entitlements; sourceTree = "<group>"; };
 		94ECB6AFDB4487E41D5434A3 /* EditItemView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditItemView.swift; sourceTree = "<group>"; };
 		9C1E0F07F878A3327CB2F77A /* ItemListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ItemListView.swift; sourceTree = "<group>"; };
 		A473E87306DE9CF0AA2CEE7A /* ShareCardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShareCardView.swift; sourceTree = "<group>"; };
+		B5D4F02FF3F501A642125323 /* CategoryColor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoryColor.swift; sourceTree = "<group>"; };
 		BA330F9A9A3824DDC0164374 /* ItemDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ItemDetailView.swift; sourceTree = "<group>"; };
+		BE85771ADFC8CAF4C3CCF9DF /* ThingCostWidget.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ThingCostWidget.swift; sourceTree = "<group>"; };
 		C7285155F42051BFA802E699 /* AddItemView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddItemView.swift; sourceTree = "<group>"; };
 		DFCA3060EE1ABD1B9488BC17 /* ThingCostTests.xctest */ = {isa = PBXFileReference; includeInIndex = 0; lastKnownFileType = wrapper.cfbundle; path = ThingCostTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		E4A3A6F9134EC04C5ABF5218 /* ThingCost.app */ = {isa = PBXFileReference; includeInIndex = 0; lastKnownFileType = wrapper.application; path = ThingCost.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -61,6 +94,7 @@
 			children = (
 				E4A3A6F9134EC04C5ABF5218 /* ThingCost.app */,
 				DFCA3060EE1ABD1B9488BC17 /* ThingCostTests.xctest */,
+				6BF466AD836D3E8EC693CDD7 /* ThingCostWidgetExtension.appex */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -104,6 +138,13 @@
 			path = Services;
 			sourceTree = "<group>";
 		};
+		4F98BC5B69924FD39370FFE5 /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Resources;
+			sourceTree = "<group>";
+		};
 		590C5E30CEB15852A9A4C818 /* Views */ = {
 			isa = PBXGroup;
 			children = (
@@ -113,6 +154,13 @@
 			path = Views;
 			sourceTree = "<group>";
 		};
+		671DB8E761445E4C5070569F /* Sources */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Sources;
+			sourceTree = "<group>";
+		};
 		7445CD290A8CD9BD3300F130 /* Screens */ = {
 			isa = PBXGroup;
 			children = (
@@ -120,10 +168,23 @@
 				94ECB6AFDB4487E41D5434A3 /* EditItemView.swift */,
 				BA330F9A9A3824DDC0164374 /* ItemDetailView.swift */,
 				9C1E0F07F878A3327CB2F77A /* ItemListView.swift */,
+				572A61CBCF2A50F202A60097 /* OnboardingView.swift */,
 				6F535D8BB8696E7B315D202D /* PaywallView.swift */,
 				046121EB9294B9BD8DBECF9D /* ShareCardPreviewView.swift */,
 			);
 			path = Screens;
+			sourceTree = "<group>";
+		};
+		79B47C2038BEDA6CEF42D5DA /* Widget */ = {
+			isa = PBXGroup;
+			children = (
+				1C6D5A600EF7E4D3CC2E7820 /* Info.plist */,
+				8B9719C04FC87B741AE49A98 /* ThingCostWidget.entitlements */,
+				BE85771ADFC8CAF4C3CCF9DF /* ThingCostWidget.swift */,
+				4F98BC5B69924FD39370FFE5 /* Resources */,
+				671DB8E761445E4C5070569F /* Sources */,
+			);
+			path = Widget;
 			sourceTree = "<group>";
 		};
 		845D2F2E4F5D0CB6FAA99E5B /* Models */ = {
@@ -140,6 +201,7 @@
 			children = (
 				3D41D60888A73F25933ED845 /* Sources */,
 				F664F438F5BD9E7C870163FB /* Tests */,
+				79B47C2038BEDA6CEF42D5DA /* Widget */,
 				021D5211AB3CA30EBDE550E8 /* Products */,
 			);
 			sourceTree = "<group>";
@@ -147,6 +209,7 @@
 		B75910246442D47CF5DBB4D5 /* Utilities */ = {
 			isa = PBXGroup;
 			children = (
+				B5D4F02FF3F501A642125323 /* CategoryColor.swift */,
 			);
 			path = Utilities;
 			sourceTree = "<group>";
@@ -194,10 +257,12 @@
 			buildConfigurationList = 429EFDE47DFE26B8037DF005 /* Build configuration list for PBXNativeTarget "ThingCost" */;
 			buildPhases = (
 				3264D32A3F863BDC2FF6E2D4 /* Sources */,
+				C7DB2453809338FCAFB328E4 /* Embed Foundation Extensions */,
 			);
 			buildRules = (
 			);
 			dependencies = (
+				23C8342B425946AB1FD13816 /* PBXTargetDependency */,
 			);
 			name = ThingCost;
 			packageProductDependencies = (
@@ -205,6 +270,23 @@
 			productName = ThingCost;
 			productReference = E4A3A6F9134EC04C5ABF5218 /* ThingCost.app */;
 			productType = "com.apple.product-type.application";
+		};
+		966A1298EF3A07A1FA9EFD5D /* ThingCostWidgetExtension */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 6A7A51072D1D86D5DB4FBDE8 /* Build configuration list for PBXNativeTarget "ThingCostWidgetExtension" */;
+			buildPhases = (
+				08AB4215FD9CD1BC94EBD53A /* Sources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = ThingCostWidgetExtension;
+			packageProductDependencies = (
+			);
+			productName = ThingCostWidgetExtension;
+			productReference = 6BF466AD836D3E8EC693CDD7 /* ThingCostWidgetExtension.appex */;
+			productType = "com.apple.product-type.app-extension";
 		};
 /* End PBXNativeTarget section */
 
@@ -219,6 +301,9 @@
 						DevelopmentTeam = 99H9NJ6Z6J;
 					};
 					875FD62AA9FD8D0A6732C53F = {
+						DevelopmentTeam = 99H9NJ6Z6J;
+					};
+					966A1298EF3A07A1FA9EFD5D = {
 						DevelopmentTeam = 99H9NJ6Z6J;
 					};
 				};
@@ -239,22 +324,35 @@
 			targets = (
 				875FD62AA9FD8D0A6732C53F /* ThingCost */,
 				41A8857387A06EA90404B641 /* ThingCostTests */,
+				966A1298EF3A07A1FA9EFD5D /* ThingCostWidgetExtension */,
 			);
 		};
 /* End PBXProject section */
 
 /* Begin PBXSourcesBuildPhase section */
+		08AB4215FD9CD1BC94EBD53A /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				AE949C3FEBF1600368D50768 /* Item.swift in Sources */,
+				FD0D1E1AF82D518373B07842 /* SortOption.swift in Sources */,
+				0BC7983F81BCFF648015DDE2 /* ThingCostWidget.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		3264D32A3F863BDC2FF6E2D4 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 				FD62850E8D9C4D27037C37FD /* AddItemView.swift in Sources */,
+				69B109772FD00A39CF700A86 /* CategoryColor.swift in Sources */,
 				BF63C7703EE9A43A93887C12 /* ContentView.swift in Sources */,
 				6F5ECA7914E0DF319ED6ED93 /* EditItemView.swift in Sources */,
 				7157E0CFFDCF89269E6B4E39 /* Item.swift in Sources */,
 				B5EF99C50AC0C1C3E58F77FD /* ItemDetailView.swift in Sources */,
 				758BF994CA52C7D920A33782 /* ItemListView.swift in Sources */,
 				5B95A2D8D64AA7C8DA7EACF0 /* ItemRowView.swift in Sources */,
+				1445C1175215FE0B87D9867F /* OnboardingView.swift in Sources */,
 				245EDCE153E8AE33E56EE5B5 /* PaywallView.swift in Sources */,
 				EDE2529B0E06449B018165EB /* ShareCardPreviewView.swift in Sources */,
 				E4F4F36DC5C0781F78E97B16 /* ShareCardView.swift in Sources */,
@@ -276,6 +374,11 @@
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXTargetDependency section */
+		23C8342B425946AB1FD13816 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 966A1298EF3A07A1FA9EFD5D /* ThingCostWidgetExtension */;
+			targetProxy = AF5EE60021EF8FB335975051 /* PBXContainerItemProxy */;
+		};
 		AF662868EF2E63CD4CDC3BE9 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
 			target = 875FD62AA9FD8D0A6732C53F /* ThingCost */;
@@ -364,6 +467,22 @@
 				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_VERSION = 6.0;
+			};
+			name = Debug;
+		};
+		7904BC48F29D38FB87B8798D /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_ENTITLEMENTS = Widget/ThingCostWidget.entitlements;
+				INFOPLIST_FILE = Widget/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@executable_path/../../Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.ufukozdemir.thingcost.widget;
+				SDKROOT = iphoneos;
+				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Debug;
 		};
@@ -475,6 +594,22 @@
 			};
 			name = Release;
 		};
+		FE3B6804004E7341FF9A5497 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_ENTITLEMENTS = Widget/ThingCostWidget.entitlements;
+				INFOPLIST_FILE = Widget/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@executable_path/../../Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.ufukozdemir.thingcost.widget;
+				SDKROOT = iphoneos;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
@@ -483,6 +618,15 @@
 			buildConfigurations = (
 				DAF4344A591F972D4B6561FA /* Debug */,
 				EB457F76A40554D26050EB08 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Debug;
+		};
+		6A7A51072D1D86D5DB4FBDE8 /* Build configuration list for PBXNativeTarget "ThingCostWidgetExtension" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				7904BC48F29D38FB87B8798D /* Debug */,
+				FE3B6804004E7341FF9A5497 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Debug;

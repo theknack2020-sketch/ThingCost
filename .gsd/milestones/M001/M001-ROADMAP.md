@@ -48,10 +48,10 @@ This milestone is complete only when all are true:
 - [x] **S03: Share Cards + Viral Loop** `risk:high` `depends:[S01]`
   > After this: user can generate beautiful share card images and share them via the system share sheet to Instagram/TikTok/any app.
 
-- [ ] **S04: Freemium IAP** `risk:medium` `depends:[S01]`
+- [x] **S04: Freemium IAP** `risk:medium` `depends:[S01]`
   > After this: app enforces 3-item free limit, offers $2.99 one-time purchase for unlimited items, handles restore purchases.
 
-- [ ] **S05: Widget + Polish** `risk:low` `depends:[S01,S02]`
+- [x] **S05: Widget + Polish** `risk:low` `depends:[S01,S02]`
   > After this: home screen widget (small + medium) shows top items with daily costs. App has onboarding, app icon, and launch polish.
 
 ## Boundary Map
