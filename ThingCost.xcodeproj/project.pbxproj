@@ -9,8 +9,6 @@
 /* Begin PBXBuildFile section */
 		07114384E721B89F343CCD3E /* ItemTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F397969A38BD44D2305390A /* ItemTests.swift */; };
 		08E5B4E586497874D95A792A /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 28633DD280EFD3BA0F43FA08 /* Localizable.strings */; };
-		094EF96973805A89D20ABBB1 /* AppTheme.swift in Sources */ = {isa = PBXBuildFile; fileRef = A2F88C24D77A05EDCBC63AEF /* AppTheme.swift */; };
-		0BC7983F81BCFF648015DDE2 /* ThingCostWidget.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE85771ADFC8CAF4C3CCF9DF /* ThingCostWidget.swift */; };
 		1445C1175215FE0B87D9867F /* OnboardingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 572A61CBCF2A50F202A60097 /* OnboardingView.swift */; };
 		245EDCE153E8AE33E56EE5B5 /* PaywallView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6F535D8BB8696E7B315D202D /* PaywallView.swift */; };
 		280761B9927224A293896917 /* SettingsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 324CCB11539D7CA251D4B50B /* SettingsView.swift */; };
@@ -24,8 +22,6 @@
 		7157E0CFFDCF89269E6B4E39 /* Item.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30990BFC05C2E6D78ED89CDE /* Item.swift */; };
 		758BF994CA52C7D920A33782 /* ItemListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C1E0F07F878A3327CB2F77A /* ItemListView.swift */; };
 		8C622B6B885EBEDCF629E1FA /* ShareService.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC9295A0A24616827F2E3F7C /* ShareService.swift */; };
-		AC95ED83C02199A57779C40E /* ThingCostWidgetExtension.appex in Embed Foundation Extensions */ = {isa = PBXBuildFile; fileRef = 6BF466AD836D3E8EC693CDD7 /* ThingCostWidgetExtension.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
-		AE949C3FEBF1600368D50768 /* Item.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30990BFC05C2E6D78ED89CDE /* Item.swift */; };
 		B4795BB6B50A6721BAFD2036 /* SortOption.swift in Sources */ = {isa = PBXBuildFile; fileRef = 59EC925E990A922C6D43A220 /* SortOption.swift */; };
 		B5EF99C50AC0C1C3E58F77FD /* ItemDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA330F9A9A3824DDC0164374 /* ItemDetailView.swift */; };
 		BD22BC6F77CCA101C399C248 /* EdgeCaseTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = E66F05C875B43F6A79EB0A05 /* EdgeCaseTests.swift */; };
@@ -36,7 +32,6 @@
 		E4F4F36DC5C0781F78E97B16 /* ShareCardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A473E87306DE9CF0AA2CEE7A /* ShareCardView.swift */; };
 		EDE2529B0E06449B018165EB /* ShareCardPreviewView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 046121EB9294B9BD8DBECF9D /* ShareCardPreviewView.swift */; };
 		F35663161775C15A1C7976E7 /* UIFlowTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = B483883E12222E15E17C1859 /* UIFlowTests.swift */; };
-		FD0D1E1AF82D518373B07842 /* SortOption.swift in Sources */ = {isa = PBXBuildFile; fileRef = 59EC925E990A922C6D43A220 /* SortOption.swift */; };
 		FD62850E8D9C4D27037C37FD /* AddItemView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C7285155F42051BFA802E699 /* AddItemView.swift */; };
 /* End PBXBuildFile section */
 
@@ -55,34 +50,12 @@
 			remoteGlobalIDString = 875FD62AA9FD8D0A6732C53F;
 			remoteInfo = ThingCost;
 		};
-		AF5EE60021EF8FB335975051 /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = DE31B3453B5ED24E76D2A151 /* Project object */;
-			proxyType = 1;
-			remoteGlobalIDString = 966A1298EF3A07A1FA9EFD5D;
-			remoteInfo = ThingCostWidgetExtension;
-		};
 /* End PBXContainerItemProxy section */
-
-/* Begin PBXCopyFilesBuildPhase section */
-		C7DB2453809338FCAFB328E4 /* Embed Foundation Extensions */ = {
-			isa = PBXCopyFilesBuildPhase;
-			buildActionMask = 2147483647;
-			dstPath = "";
-			dstSubfolderSpec = 13;
-			files = (
-				AC95ED83C02199A57779C40E /* ThingCostWidgetExtension.appex in Embed Foundation Extensions */,
-			);
-			name = "Embed Foundation Extensions";
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-/* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
 		046121EB9294B9BD8DBECF9D /* ShareCardPreviewView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShareCardPreviewView.swift; sourceTree = "<group>"; };
 		11C109C35F861B93E969E4F1 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
 		14C0C0AB30F716AB7CD6A03E /* Store.storekit */ = {isa = PBXFileReference; path = Store.storekit; sourceTree = "<group>"; };
-		1C6D5A600EF7E4D3CC2E7820 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
 		1E1BB12EC1E456102F94042A /* Formatters.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Formatters.swift; sourceTree = "<group>"; };
 		1F397969A38BD44D2305390A /* ItemTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ItemTests.swift; sourceTree = "<group>"; };
 		23AC4ED869ADC3AB2A3216A1 /* StoreService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StoreService.swift; sourceTree = "<group>"; };
@@ -92,7 +65,6 @@
 		572A61CBCF2A50F202A60097 /* OnboardingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingView.swift; sourceTree = "<group>"; };
 		59EC925E990A922C6D43A220 /* SortOption.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SortOption.swift; sourceTree = "<group>"; };
 		5F3245279B340D08D7B09AFD /* ThingCostUITests.xctest */ = {isa = PBXFileReference; includeInIndex = 0; lastKnownFileType = wrapper.cfbundle; path = ThingCostUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
-		6BF466AD836D3E8EC693CDD7 /* ThingCostWidgetExtension.appex */ = {isa = PBXFileReference; includeInIndex = 0; lastKnownFileType = "wrapper.app-extension"; path = ThingCostWidgetExtension.appex; sourceTree = BUILT_PRODUCTS_DIR; };
 		6C176EAEAFC13771D5BCDB44 /* tr */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = tr; path = tr.lproj/Localizable.strings; sourceTree = "<group>"; };
 		6F535D8BB8696E7B315D202D /* PaywallView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PaywallView.swift; sourceTree = "<group>"; };
 		7264E4269BE936F9E1D57451 /* ThingCostApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ThingCostApp.swift; sourceTree = "<group>"; };
@@ -105,7 +77,6 @@
 		B483883E12222E15E17C1859 /* UIFlowTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIFlowTests.swift; sourceTree = "<group>"; };
 		B5D4F02FF3F501A642125323 /* CategoryColor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoryColor.swift; sourceTree = "<group>"; };
 		BA330F9A9A3824DDC0164374 /* ItemDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ItemDetailView.swift; sourceTree = "<group>"; };
-		BE85771ADFC8CAF4C3CCF9DF /* ThingCostWidget.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ThingCostWidget.swift; sourceTree = "<group>"; };
 		C7285155F42051BFA802E699 /* AddItemView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddItemView.swift; sourceTree = "<group>"; };
 		DFCA3060EE1ABD1B9488BC17 /* ThingCostTests.xctest */ = {isa = PBXFileReference; includeInIndex = 0; lastKnownFileType = wrapper.cfbundle; path = ThingCostTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		E4A3A6F9134EC04C5ABF5218 /* ThingCost.app */ = {isa = PBXFileReference; includeInIndex = 0; lastKnownFileType = wrapper.application; path = ThingCost.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -122,7 +93,6 @@
 				E4A3A6F9134EC04C5ABF5218 /* ThingCost.app */,
 				DFCA3060EE1ABD1B9488BC17 /* ThingCostTests.xctest */,
 				5F3245279B340D08D7B09AFD /* ThingCostUITests.xctest */,
-				6BF466AD836D3E8EC693CDD7 /* ThingCostWidgetExtension.appex */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -176,13 +146,6 @@
 			path = Resources;
 			sourceTree = "<group>";
 		};
-		4F98BC5B69924FD39370FFE5 /* Resources */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = Resources;
-			sourceTree = "<group>";
-		};
 		590C5E30CEB15852A9A4C818 /* Views */ = {
 			isa = PBXGroup;
 			children = (
@@ -190,13 +153,6 @@
 				7445CD290A8CD9BD3300F130 /* Screens */,
 			);
 			path = Views;
-			sourceTree = "<group>";
-		};
-		671DB8E761445E4C5070569F /* Sources */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = Sources;
 			sourceTree = "<group>";
 		};
 		7445CD290A8CD9BD3300F130 /* Screens */ = {
@@ -223,17 +179,6 @@
 			path = UITests;
 			sourceTree = "<group>";
 		};
-		79B47C2038BEDA6CEF42D5DA /* Widget */ = {
-			isa = PBXGroup;
-			children = (
-				1C6D5A600EF7E4D3CC2E7820 /* Info.plist */,
-				BE85771ADFC8CAF4C3CCF9DF /* ThingCostWidget.swift */,
-				4F98BC5B69924FD39370FFE5 /* Resources */,
-				671DB8E761445E4C5070569F /* Sources */,
-			);
-			path = Widget;
-			sourceTree = "<group>";
-		};
 		845D2F2E4F5D0CB6FAA99E5B /* Models */ = {
 			isa = PBXGroup;
 			children = (
@@ -251,7 +196,6 @@
 				3D41D60888A73F25933ED845 /* Sources */,
 				F664F438F5BD9E7C870163FB /* Tests */,
 				754185A23155C4853976D84B /* UITests */,
-				79B47C2038BEDA6CEF42D5DA /* Widget */,
 				021D5211AB3CA30EBDE550E8 /* Products */,
 			);
 			sourceTree = "<group>";
@@ -328,12 +272,10 @@
 			buildPhases = (
 				3264D32A3F863BDC2FF6E2D4 /* Sources */,
 				1AF8D80DE0AC8BDC955FBA0B /* Resources */,
-				C7DB2453809338FCAFB328E4 /* Embed Foundation Extensions */,
 			);
 			buildRules = (
 			);
 			dependencies = (
-				23C8342B425946AB1FD13816 /* PBXTargetDependency */,
 			);
 			name = ThingCost;
 			packageProductDependencies = (
@@ -341,23 +283,6 @@
 			productName = ThingCost;
 			productReference = E4A3A6F9134EC04C5ABF5218 /* ThingCost.app */;
 			productType = "com.apple.product-type.application";
-		};
-		966A1298EF3A07A1FA9EFD5D /* ThingCostWidgetExtension */ = {
-			isa = PBXNativeTarget;
-			buildConfigurationList = 6A7A51072D1D86D5DB4FBDE8 /* Build configuration list for PBXNativeTarget "ThingCostWidgetExtension" */;
-			buildPhases = (
-				08AB4215FD9CD1BC94EBD53A /* Sources */,
-			);
-			buildRules = (
-			);
-			dependencies = (
-			);
-			name = ThingCostWidgetExtension;
-			packageProductDependencies = (
-			);
-			productName = ThingCostWidgetExtension;
-			productReference = 6BF466AD836D3E8EC693CDD7 /* ThingCostWidgetExtension.appex */;
-			productType = "com.apple.product-type.app-extension";
 		};
 /* End PBXNativeTarget section */
 
@@ -376,9 +301,6 @@
 						DevelopmentTeam = 99H9NJ6Z6J;
 					};
 					875FD62AA9FD8D0A6732C53F = {
-						DevelopmentTeam = 99H9NJ6Z6J;
-					};
-					966A1298EF3A07A1FA9EFD5D = {
 						DevelopmentTeam = 99H9NJ6Z6J;
 					};
 				};
@@ -401,7 +323,6 @@
 				875FD62AA9FD8D0A6732C53F /* ThingCost */,
 				41A8857387A06EA90404B641 /* ThingCostTests */,
 				15D3E8B50F6221121E4C5624 /* ThingCostUITests */,
-				966A1298EF3A07A1FA9EFD5D /* ThingCostWidgetExtension */,
 			);
 		};
 /* End PBXProject section */
@@ -420,17 +341,6 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
-		08AB4215FD9CD1BC94EBD53A /* Sources */ = {
-			isa = PBXSourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				094EF96973805A89D20ABBB1 /* AppTheme.swift in Sources */,
-				AE949C3FEBF1600368D50768 /* Item.swift in Sources */,
-				FD0D1E1AF82D518373B07842 /* SortOption.swift in Sources */,
-				0BC7983F81BCFF648015DDE2 /* ThingCostWidget.swift in Sources */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
 		168A3458A52BD023AAABA9A6 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -478,11 +388,6 @@
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXTargetDependency section */
-		23C8342B425946AB1FD13816 /* PBXTargetDependency */ = {
-			isa = PBXTargetDependency;
-			target = 966A1298EF3A07A1FA9EFD5D /* ThingCostWidgetExtension */;
-			targetProxy = AF5EE60021EF8FB335975051 /* PBXContainerItemProxy */;
-		};
 		AF662868EF2E63CD4CDC3BE9 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
 			target = 875FD62AA9FD8D0A6732C53F /* ThingCost */;
@@ -588,21 +493,6 @@
 				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_VERSION = 6.0;
-			};
-			name = Debug;
-		};
-		7904BC48F29D38FB87B8798D /* Debug */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				INFOPLIST_FILE = Widget/Info.plist;
-				LD_RUNPATH_SEARCH_PATHS = (
-					"$(inherited)",
-					"@executable_path/Frameworks",
-					"@executable_path/../../Frameworks",
-				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.ufukozdemir.thingcost.widget;
-				SDKROOT = iphoneos;
-				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Debug;
 		};
@@ -748,21 +638,6 @@
 			};
 			name = Release;
 		};
-		FE3B6804004E7341FF9A5497 /* Release */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				INFOPLIST_FILE = Widget/Info.plist;
-				LD_RUNPATH_SEARCH_PATHS = (
-					"$(inherited)",
-					"@executable_path/Frameworks",
-					"@executable_path/../../Frameworks",
-				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.ufukozdemir.thingcost.widget;
-				SDKROOT = iphoneos;
-				TARGETED_DEVICE_FAMILY = "1,2";
-			};
-			name = Release;
-		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
@@ -771,15 +646,6 @@
 			buildConfigurations = (
 				DAF4344A591F972D4B6561FA /* Debug */,
 				EB457F76A40554D26050EB08 /* Release */,
-			);
-			defaultConfigurationIsVisible = 0;
-			defaultConfigurationName = Debug;
-		};
-		6A7A51072D1D86D5DB4FBDE8 /* Build configuration list for PBXNativeTarget "ThingCostWidgetExtension" */ = {
-			isa = XCConfigurationList;
-			buildConfigurations = (
-				7904BC48F29D38FB87B8798D /* Debug */,
-				FE3B6804004E7341FF9A5497 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Debug;

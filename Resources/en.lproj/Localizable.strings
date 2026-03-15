@@ -105,7 +105,6 @@
 "paywall_desc" = "You've added 3 items for free.\nUnlock unlimited tracking with a one-time purchase.";
 "paywall_unlimited" = "Unlimited items";
 "paywall_share" = "All share card styles";
-"paywall_widget" = "Widget support";
 "paywall_support" = "Support indie development";
 "paywall_unlock %@" = "Unlock for %@";
 "paywall_loading" = "Loading...";

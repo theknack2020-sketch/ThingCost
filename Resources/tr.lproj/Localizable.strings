@@ -105,7 +105,6 @@
 "paywall_desc" = "3 ürünü ücretsiz ekledin.\nTek seferlik satın almayla sınırsız takip aç.";
 "paywall_unlimited" = "Sınırsız ürün";
 "paywall_share" = "Tüm paylaşım kartı stilleri";
-"paywall_widget" = "Widget desteği";
 "paywall_support" = "Bağımsız geliştiriciyi destekle";
 "paywall_unlock %@" = "%@ ile Aç";
 "paywall_loading" = "Yükleniyor...";

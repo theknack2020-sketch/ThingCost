@@ -27,7 +27,6 @@ struct PaywallView: View {
                 VStack(alignment: .leading, spacing: 12) {
                     featureRow(icon: "infinity", text: String(localized: "paywall_unlimited"))
                     featureRow(icon: "square.and.arrow.up", text: String(localized: "paywall_share"))
-                    featureRow(icon: "widget.small", text: String(localized: "paywall_widget"))
                     featureRow(icon: "heart.fill", text: String(localized: "paywall_support"))
                 }
                 .padding(.horizontal, 32)
