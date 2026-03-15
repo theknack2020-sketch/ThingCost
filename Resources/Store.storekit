@@ -1,0 +1,84 @@
+{
+  "identifier" : "C26CC95A-A5D2-4066-B9D2-1DA4FF2A3C42",
+  "nonRenewingSubscriptions" : [
+
+  ],
+  "products" : [
+    {
+      "displayPrice" : "2.99",
+      "familyShareable" : true,
+      "internalID" : "F1D4E3B2-8A7C-4E6F-9B5D-2C1A0F3E8D7B",
+      "localizations" : [
+        {
+          "description" : "Add unlimited items and track all your purchases",
+          "displayName" : "Unlimited Items",
+          "locale" : "en_US"
+        }
+      ],
+      "productID" : "com.ufukozdemir.thingcost.unlimited",
+      "referenceName" : "Unlimited Items",
+      "type" : "NonConsumable"
+    }
+  ],
+  "settings" : {
+    "_applicationInternalID" : "6739488576",
+    "_developerTeamID" : "99H9NJ6Z6J",
+    "_failTransactionsEnabled" : false,
+    "_lastSynchronizedDate" : 733074497.45961106,
+    "_locale" : "en_US",
+    "_storeKitErrors" : [
+      {
+        "current" : null,
+        "enabled" : false,
+        "name" : "Load Products"
+      },
+      {
+        "current" : null,
+        "enabled" : false,
+        "name" : "Purchase"
+      },
+      {
+        "current" : null,
+        "enabled" : false,
+        "name" : "Verification"
+      },
+      {
+        "current" : null,
+        "enabled" : false,
+        "name" : "App Store Sync"
+      },
+      {
+        "current" : null,
+        "enabled" : false,
+        "name" : "Subscription Status"
+      },
+      {
+        "current" : null,
+        "enabled" : false,
+        "name" : "App Transaction"
+      },
+      {
+        "current" : null,
+        "enabled" : false,
+        "name" : "Manage Subscriptions Sheet"
+      },
+      {
+        "current" : null,
+        "enabled" : false,
+        "name" : "Refund Request Sheet"
+      },
+      {
+        "current" : null,
+        "enabled" : false,
+        "name" : "Offer Code Redeem Sheet"
+      }
+    ]
+  },
+  "subscriptionGroups" : [
+
+  ],
+  "version" : {
+    "major" : 4,
+    "minor" : 0
+  }
+}

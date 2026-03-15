@@ -45,7 +45,7 @@ This milestone is complete only when all are true:
 - [x] **S02: Item Detail + Cost Visualization** `risk:low` `depends:[S01]`
   > After this: user can tap an item to see detailed cost breakdown, cost-over-time graph, and projected future costs.
 
-- [ ] **S03: Share Cards + Viral Loop** `risk:high` `depends:[S01]`
+- [x] **S03: Share Cards + Viral Loop** `risk:high` `depends:[S01]`
   > After this: user can generate beautiful share card images and share them via the system share sheet to Instagram/TikTok/any app.
 
 - [ ] **S04: Freemium IAP** `risk:medium` `depends:[S01]`

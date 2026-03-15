@@ -4,7 +4,9 @@ import SwiftData
 struct ItemListView: View {
     @Environment(\.modelContext) private var modelContext
     @Query(sort: \Item.createdAt, order: .reverse) private var items: [Item]
+    @Environment(StoreService.self) private var store
     @State private var showingAddSheet = false
+    @State private var showingPaywall = false
     @State private var sortOption: SortOption = .dailyCostHigh
     @State private var editingItem: Item?
     @State private var selectedItem: Item?
@@ -46,7 +48,11 @@ struct ItemListView: View {
                 }
                 ToolbarItem(placement: .topBarTrailing) {
                     Button {
-                        showingAddSheet = true
+                        if store.canAddItem(currentCount: items.count) {
+                            showingAddSheet = true
+                        } else {
+                            showingPaywall = true
+                        }
                     } label: {
                         Image(systemName: "plus.circle.fill")
                             .font(.title3)
@@ -58,6 +64,9 @@ struct ItemListView: View {
             }
             .sheet(item: $editingItem) { item in
                 EditItemView(item: item)
+            }
+            .sheet(isPresented: $showingPaywall) {
+                PaywallView(store: store)
             }
             .navigationDestination(item: $selectedItem) { item in
                 ItemDetailView(item: item)
@@ -90,7 +99,11 @@ struct ItemListView: View {
             Text("Add your first purchase to see its daily cost.")
         } actions: {
             Button("Add Item") {
-                showingAddSheet = true
+                if store.canAddItem(currentCount: items.count) {
+                    showingAddSheet = true
+                } else {
+                    showingPaywall = true
+                }
             }
             .buttonStyle(.borderedProminent)
         }
@@ -115,9 +128,15 @@ struct ItemListView: View {
                 }
                 Spacer()
                 VStack(alignment: .trailing, spacing: 4) {
-                    Text("\(items.count) items")
-                        .font(.subheadline)
-                        .foregroundStyle(.secondary)
+                    if store.isUnlimited {
+                        Text("\(items.count) items")
+                            .font(.subheadline)
+                            .foregroundStyle(.secondary)
+                    } else {
+                        Text("\(items.count)/3 free")
+                            .font(.subheadline)
+                            .foregroundStyle(items.count >= 3 ? .orange : .secondary)
+                    }
                     Text("\(totalMonthly, format: .currency(code: currencyCode))/mo")
                         .font(.callout)
                         .foregroundStyle(.secondary)
@@ -171,5 +190,6 @@ struct ItemListView: View {
 
 #Preview {
     ItemListView()
+        .environment(StoreService.shared)
         .modelContainer(for: Item.self, inMemory: true)
 }
