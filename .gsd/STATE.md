@@ -1,12 +1,12 @@
 # GSD State
 
-**Active Milestone:** M001 — MVP Launch ✅ COMPLETE
-**Active Slice:** (all complete)
-**Active Task:** (none)
-**Phase:** complete
-**Slice Branch:** gsd/M001/S05
+**Active Milestone:** M002 — Comprehensive QA & Bug Fix
+**Active Slice:** S01
+**Active Task:** T01
+**Phase:** execution
+**Slice Branch:** main (QA work directly on main)
 **Active Workspace:** /Users/ufuk/Desktop/IOS/ThingCost
-**Next Action:** Merge branches to main, visual verification by user
+**Next Action:** Start S01/T01 — Screenshot detail view sections
 **Last Updated:** 2026-03-16
 
 ## Recent Decisions
@@ -18,6 +18,8 @@
 - D005: Share cards rendered as images from SwiftUI views
 - D006: Widget reads SwiftData directly, 6hr refresh
 - D007: Category color centralized as extension on ItemCategory
+- D008: EN/TR localization via .strings files
+- D009: Theme system/light/dark with @AppStorage persistence
 
 ## Blockers
 
