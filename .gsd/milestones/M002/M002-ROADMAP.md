@@ -34,11 +34,11 @@ This milestone is complete only when all are true:
 
 ## Slices
 
-- [ ] **S01: Share Card Quality & Visual Verification** `risk:high` `depends:[]`
+- [x] **S01: Share Card Quality & Visual Verification** `risk:high` `depends:[]`
   > After this: all 3 share card styles verified to render beautifully with real data, screenshots captured as evidence.
 
-- [ ] **S02: Widget, Lifecycle & Theme Verification** `risk:medium` `depends:[]`
+- [x] **S02: Widget, Lifecycle & Theme Verification** `risk:medium` `depends:[]`
   > After this: widget shows correct data, app survives kill/relaunch, theme switching works in settings.
 
-- [ ] **S03: Edge Cases & Stress Test** `risk:medium` `depends:[]`
+- [x] **S03: Edge Cases & Stress Test** `risk:medium` `depends:[]`
   > After this: app handles empty input, huge values, special characters, rapid actions without crashes. All edge case tests pass.
