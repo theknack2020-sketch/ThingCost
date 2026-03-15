@@ -53,7 +53,7 @@ struct ItemDetailView: View {
                 .font(.system(size: 40))
                 .foregroundStyle(.white)
                 .frame(width: 80, height: 80)
-                .background(categoryColor.gradient)
+                .background(item.category.color.gradient)
                 .clipShape(RoundedRectangle(cornerRadius: 20))
 
             Text(item.dailyCost, format: .currency(code: currencyCode))
@@ -118,14 +118,14 @@ struct ItemDetailView: View {
                     x: .value("Day", point.day),
                     y: .value("Cost", point.cost)
                 )
-                .foregroundStyle(categoryColor.gradient)
+                .foregroundStyle(item.category.color.gradient)
                 .interpolationMethod(.catmullRom)
 
                 AreaMark(
                     x: .value("Day", point.day),
                     y: .value("Cost", point.cost)
                 )
-                .foregroundStyle(categoryColor.opacity(0.1).gradient)
+                .foregroundStyle(item.category.color.opacity(0.1).gradient)
                 .interpolationMethod(.catmullRom)
 
                 if point.day == item.daysOwned {
@@ -133,7 +133,7 @@ struct ItemDetailView: View {
                         x: .value("Day", point.day),
                         y: .value("Cost", point.cost)
                     )
-                    .foregroundStyle(categoryColor)
+                    .foregroundStyle(item.category.color)
                     .symbolSize(60)
                     .annotation(position: .top) {
                         Text("Today")
@@ -196,18 +196,6 @@ struct ItemDetailView: View {
         }
     }
 
-    private var categoryColor: Color {
-        switch item.category {
-        case .electronics: return .blue
-        case .clothing: return .purple
-        case .furniture: return .orange
-        case .vehicle: return .red
-        case .sports: return .green
-        case .kitchen: return .yellow
-        case .accessories: return .pink
-        case .other: return .gray
-        }
-    }
 }
 
 struct CostPoint {

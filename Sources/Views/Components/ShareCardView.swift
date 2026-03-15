@@ -103,7 +103,7 @@ struct ShareCardView: View {
         VStack(spacing: 0) {
             // Top accent bar
             Rectangle()
-                .fill(categoryColor.gradient)
+                .fill(item.category.color.gradient)
                 .frame(height: 8)
 
             Spacer()
@@ -113,9 +113,9 @@ struct ShareCardView: View {
                     .font(.system(size: 44))
                     .foregroundStyle(.white)
                     .frame(width: 80, height: 80)
-                    .background(categoryColor.gradient)
+                    .background(item.category.color.gradient)
                     .clipShape(RoundedRectangle(cornerRadius: 20))
-                    .shadow(color: categoryColor.opacity(0.4), radius: 12, y: 6)
+                    .shadow(color: item.category.color.opacity(0.4), radius: 12, y: 6)
 
                 Text(item.name)
                     .font(.title2.weight(.bold))
@@ -126,7 +126,7 @@ struct ShareCardView: View {
 
                 Text(item.dailyCost, format: .currency(code: currencyCode))
                     .font(.system(size: 64, weight: .heavy, design: .rounded))
-                    .foregroundStyle(categoryColor)
+                    .foregroundStyle(item.category.color)
 
                 Text("per day")
                     .font(.title3.weight(.medium))
@@ -244,27 +244,13 @@ struct ShareCardView: View {
         .frame(maxWidth: .infinity, maxHeight: .infinity)
         .background(
             LinearGradient(
-                colors: [categoryColor, categoryColor.opacity(0.7), categoryColor.opacity(0.5)],
+                colors: [item.category.color, item.category.color.opacity(0.7), item.category.color.opacity(0.5)],
                 startPoint: .topLeading,
                 endPoint: .bottomTrailing
             )
         )
     }
 
-    // MARK: - Helpers
-
-    private var categoryColor: Color {
-        switch item.category {
-        case .electronics: return .blue
-        case .clothing: return .purple
-        case .furniture: return .orange
-        case .vehicle: return .red
-        case .sports: return .green
-        case .kitchen: return .yellow
-        case .accessories: return .pink
-        case .other: return .gray
-        }
-    }
 }
 
 #Preview("Minimal") {

@@ -10,7 +10,7 @@ struct ItemRowView: View {
                 .font(.title3)
                 .foregroundStyle(.white)
                 .frame(width: 40, height: 40)
-                .background(categoryColor.gradient)
+                .background(item.category.color.gradient)
                 .clipShape(RoundedRectangle(cornerRadius: 10))
 
             // Name and date
@@ -41,16 +41,5 @@ struct ItemRowView: View {
         Locale.current.currency?.identifier ?? "USD"
     }
 
-    private var categoryColor: Color {
-        switch item.category {
-        case .electronics: return .blue
-        case .clothing: return .purple
-        case .furniture: return .orange
-        case .vehicle: return .red
-        case .sports: return .green
-        case .kitchen: return .yellow
-        case .accessories: return .pink
-        case .other: return .gray
-        }
-    }
+
 }

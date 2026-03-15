@@ -35,6 +35,20 @@
                ReferencedContainer = "container:ThingCost.xcodeproj">
             </BuildableReference>
          </BuildActionEntry>
+         <BuildActionEntry
+            buildForTesting = "YES"
+            buildForRunning = "YES"
+            buildForProfiling = "YES"
+            buildForArchiving = "YES"
+            buildForAnalyzing = "YES">
+            <BuildableReference
+               BuildableIdentifier = "primary"
+               BlueprintIdentifier = "966A1298EF3A07A1FA9EFD5D"
+               BuildableName = "ThingCostWidgetExtension.appex"
+               BlueprintName = "ThingCostWidgetExtension"
+               ReferencedContainer = "container:ThingCost.xcodeproj">
+            </BuildableReference>
+         </BuildActionEntry>
       </BuildActionEntries>
    </BuildAction>
    <TestAction

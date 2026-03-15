@@ -32,6 +32,26 @@ targets:
     settings:
       base:
         PRODUCT_BUNDLE_IDENTIFIER: com.ufukozdemir.thingcost
+    dependencies:
+      - target: ThingCostWidgetExtension
+
+  ThingCostWidgetExtension:
+    type: app-extension
+    platform: iOS
+    sources:
+      - path: Widget
+      - path: Sources/Models
+    info:
+      path: Widget/Info.plist
+      properties:
+        CFBundleDisplayName: ThingCost Widget
+        NSExtension:
+          NSExtensionPointIdentifier: com.apple.widgetkit-extension
+    settings:
+      base:
+        PRODUCT_BUNDLE_IDENTIFIER: com.ufukozdemir.thingcost.widget
+    entitlements:
+      path: Widget/ThingCostWidget.entitlements
 
   ThingCostTests:
     type: bundle.unit-test
@@ -49,6 +69,7 @@ schemes:
     build:
       targets:
         ThingCost: all
+        ThingCostWidgetExtension: all
         ThingCostTests: [test]
     run:
       config: Debug
