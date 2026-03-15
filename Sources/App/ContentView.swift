@@ -8,5 +8,6 @@ struct ContentView: View {
 
 #Preview {
     ContentView()
+        .environment(StoreService.shared)
         .modelContainer(for: Item.self, inMemory: true)
 }

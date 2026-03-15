@@ -52,6 +52,7 @@ schemes:
         ThingCostTests: [test]
     run:
       config: Debug
+      storeKitConfiguration: Resources/Store.storekit
     test:
       targets:
         - ThingCostTests
