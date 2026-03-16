@@ -15,7 +15,7 @@
           "locale" : "en_US"
         }
       ],
-      "productID" : "com.ufukozdemir.thingcost.unlimited",
+      "productID" : "com.ufukozdemir.thingcost.unlimited.v2",
       "referenceName" : "Unlimited Items",
       "type" : "NonConsumable"
     }
