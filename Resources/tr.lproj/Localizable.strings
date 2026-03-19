@@ -121,6 +121,12 @@
 "version" = "Sürüm";
 "rate_app" = "ThingCost'u Puanla";
 "contact_us" = "Bize Ulaşın";
+"privacy_policy" = "Gizlilik Politikası";
+"terms_of_use" = "Kullanım Koşulları";
+"settings_legal" = "Yasal";
+"settings_purchases" = "Satın Alımlar";
+"settings_purchase" = "Yükselt";
+"settings_unlock" = "Sınırsız Ürüne Geç";
 
 /* Days */
 "day_singular %lld" = "%lld gün";

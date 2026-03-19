@@ -163,6 +163,33 @@ final class UIFlowTests: XCTestCase {
 
         XCTAssertFalse(app.staticTexts["Nike Shoes"].exists, "Nike deleted")
         XCTAssertTrue(app.staticTexts["2/3 free"].waitForExistence(timeout: 3), "Counter back to 2")
+
+        // === STEP 15: SETTINGS ===
+        app.buttons["settingsButton"].firstMatch.tap()
+        sleep(1)
+
+        XCTAssertTrue(app.navigationBars["Settings"].waitForExistence(timeout: 3), "Settings sheet")
+
+        // Appearance section
+        XCTAssertTrue(app.staticTexts["Theme"].exists, "Theme setting")
+
+        // Purchase section
+        XCTAssertTrue(app.staticTexts["Unlock Unlimited Items"].exists, "Unlock button in settings")
+
+        // Purchases section
+        XCTAssertTrue(app.buttons["Restore Purchases"].exists, "Restore in settings")
+
+        // Legal section
+        XCTAssertTrue(app.buttons["Privacy Policy"].exists, "Privacy Policy link")
+        XCTAssertTrue(app.buttons["Terms of Use"].exists, "Terms of Use link")
+        XCTAssertTrue(app.buttons["Contact Us"].exists, "Contact Us link")
+
+        // About section
+        XCTAssertTrue(app.staticTexts["1.0.0"].exists, "Version number")
+
+        // Dismiss settings
+        app.buttons["Done"].tap()
+        sleep(1)
     }
 }
 

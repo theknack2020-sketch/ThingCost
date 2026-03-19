@@ -121,6 +121,12 @@
 "version" = "Version";
 "rate_app" = "Rate ThingCost";
 "contact_us" = "Contact Us";
+"privacy_policy" = "Privacy Policy";
+"terms_of_use" = "Terms of Use";
+"settings_legal" = "Legal";
+"settings_purchases" = "Purchases";
+"settings_purchase" = "Upgrade";
+"settings_unlock" = "Unlock Unlimited Items";
 
 /* Days */
 "day_singular %lld" = "%lld day";

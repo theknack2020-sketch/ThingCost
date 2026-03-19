@@ -84,6 +84,9 @@ struct ItemListView: View {
             .navigationDestination(item: $selectedItem) { item in
                 ItemDetailView(item: item)
             }
+            .onReceive(NotificationCenter.default.publisher(for: .showPaywall)) { _ in
+                showingPaywall = true
+            }
         }
     }
 
