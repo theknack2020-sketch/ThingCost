@@ -39,6 +39,14 @@ Build and upload to TestFlight
 
 Archive only (no upload)
 
+### ios submit_review
+
+```sh
+[bundle exec] fastlane ios submit_review
+```
+
+Submit for App Store review
+
 ----
 
 This README.md is auto-generated and will be re-generated every time [_fastlane_](https://fastlane.tools) is run.

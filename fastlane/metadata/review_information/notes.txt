@@ -1,0 +1,31 @@
+1. APP FUNCTIONALITY:
+ThingCost launches to a 3-page onboarding flow. After onboarding, the user lands on the main item list. Tap "+" to add items (name, price, purchase date, category). Core flow: Add → View daily cost → Tap item for detail (chart, cost breakdown, future projections) → Share card → Edit/Delete via swipe.
+
+No account system, no login, no user-generated content, no camera/microphone/location access. No prompts requesting sensitive data.
+
+Purchase flow: Free users can track up to 3 items. Adding a 4th item shows a paywall offering a one-time $2.99 Non-Consumable purchase ("Unlimited Items") via StoreKit 2. "Restore Purchases" is available from the paywall and from Settings.
+
+2. APP PURPOSE & VALUE:
+ThingCost helps users understand the true daily cost of their purchases. Users enter an item name, price, and purchase date — the app calculates the daily cost (price ÷ days owned), which decreases every day. This helps users make more mindful purchasing decisions.
+
+Key features: Daily/monthly/yearly cost breakdown, interactive cost-over-time chart, future cost projections, shareable cost cards (3 styles), sorting, Light/Dark/System theme, English and Turkish localization.
+
+3. REVIEW INSTRUCTIONS:
+- Launch → Complete 3-page onboarding (tap "Next" twice, then "Add Sample & Start" or "Skip")
+- On main screen, tap "+" to add items
+- Tap any item to see detail view with chart and projections
+- Tap share icon on detail view for share cards
+- Swipe left to delete, swipe right to edit
+- After adding 3 items, tap "+" to see paywall
+- Tap gear icon (⚙️) for Settings → Theme, Restore Purchases, Privacy Policy, Terms of Use, Contact
+
+No login or test credentials required.
+
+4. EXTERNAL SERVICES:
+ThingCost uses NO external services, APIs, SDKs, or third-party libraries. Built entirely with Apple frameworks: SwiftUI, SwiftData, StoreKit 2, Swift Charts. All data stored locally on-device. No data transmitted to any server.
+
+5. REGIONAL DIFFERENCES:
+None. The app functions consistently across all regions. Localized in English and Turkish with identical features.
+
+6. REGULATED INDUSTRY:
+Not applicable. ThingCost is a personal finance utility/calculator. It does not provide financial advice, process payments, or handle sensitive financial data.
