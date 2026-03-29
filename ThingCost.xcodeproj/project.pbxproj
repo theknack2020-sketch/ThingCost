@@ -627,7 +627,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.theknack.thingcost;
+				PRODUCT_BUNDLE_IDENTIFIER = com.ufukozdemir.thingcost;
 				SDKROOT = iphoneos;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
@@ -702,7 +702,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.theknack.thingcost;
+				PRODUCT_BUNDLE_IDENTIFIER = com.ufukozdemir.thingcost;
 				SDKROOT = iphoneos;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};

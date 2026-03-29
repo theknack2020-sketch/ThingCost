@@ -1,6 +1,6 @@
 name: ThingCost
 options:
-  bundleIdPrefix: com.theknack
+  bundleIdPrefix: com.ufukozdemir
   deploymentTarget:
     iOS: "17.0"
   xcodeVersion: "26.3"
@@ -48,7 +48,7 @@ targets:
           - UIInterfaceOrientationLandscapeRight
     settings:
       base:
-        PRODUCT_BUNDLE_IDENTIFIER: com.theknack.thingcost
+        PRODUCT_BUNDLE_IDENTIFIER: com.ufukozdemir.thingcost
 
   ThingCostTests:
     type: bundle.unit-test
