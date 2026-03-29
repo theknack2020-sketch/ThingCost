@@ -11,7 +11,7 @@ final class StoreService {
     private(set) var product: Product?
     private(set) var purchaseState: PurchaseState = .idle
 
-    private let productID = "com.theknack.thingcost.unlimited"
+    private let productID = "com.ufukozdemir.thingcost.unlimited.v2"
     private let freeItemLimit = 5
 
     /// Convenience alias — true when the user owns the lifetime unlock
