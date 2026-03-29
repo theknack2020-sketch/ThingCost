@@ -69,6 +69,10 @@ enum Analytics {
         TelemetryDeck.signal("export.csv")
     }
 
+    static func useLogged(itemName: String) {
+        TelemetryDeck.signal("item.useLogged", parameters: ["item": itemName])
+    }
+
     // MARK: - Onboarding
 
     static func onboardingCompleted(addedSample: Bool) {

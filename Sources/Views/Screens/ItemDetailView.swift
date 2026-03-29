@@ -271,6 +271,9 @@ struct ItemDetailView: View {
                         logUseScale = 1.0
                     }
                     try? modelContext.save()
+                    // Retention: logging use counts as daily activity
+                    StreakManager.shared.recordActivity()
+                    Analytics.useLogged(itemName: item.name)
                 } label: {
                     HStack(spacing: 8) {
                         Image(systemName: "hand.tap.fill")

@@ -332,6 +332,9 @@ struct EditItemView: View {
         do {
             try modelContext.save()
             Analytics.itemEdited()
+            // Retention: editing an item counts as daily activity
+            StreakManager.shared.recordActivity()
+            NotificationManager.shared.scheduleStreakAtRisk()
         } catch {
             showError = true
             errorMessage = "Couldn't update your item. Please try again."
