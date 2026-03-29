@@ -3,14 +3,14 @@ import SwiftUI
 extension ItemCategory {
     var color: Color {
         switch self {
-        case .electronics: return .blue
-        case .clothing: return .purple
-        case .furniture: return .orange
-        case .vehicle: return .red
-        case .sports: return .green
-        case .kitchen: return .yellow
-        case .accessories: return .pink
-        case .other: return .gray
+        case .electronics: .blue
+        case .clothing: .purple
+        case .furniture: .orange
+        case .vehicle: .red
+        case .sports: .green
+        case .kitchen: .yellow
+        case .accessories: .pink
+        case .other: .gray
         }
     }
 }

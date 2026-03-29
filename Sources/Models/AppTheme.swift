@@ -5,7 +5,9 @@ enum AppTheme: String, CaseIterable, Identifiable {
     case light
     case dark
 
-    var id: String { rawValue }
+    var id: String {
+        rawValue
+    }
 
     var displayName: LocalizedStringResource {
         switch self {
@@ -28,6 +30,14 @@ enum AppTheme: String, CaseIterable, Identifiable {
         case .system: "circle.lefthalf.filled"
         case .light: "sun.max.fill"
         case .dark: "moon.fill"
+        }
+    }
+
+    /// Free users get system and light; dark requires Pro
+    var isProOnly: Bool {
+        switch self {
+        case .system, .light: false
+        case .dark: true
         }
     }
 }

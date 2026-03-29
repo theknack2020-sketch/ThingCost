@@ -1,1 +1,1 @@
-ThingCost
+ThingCost - Daily Cost Tracker

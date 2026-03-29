@@ -1,5 +1,7 @@
-import SwiftUI
 import SwiftData
+import SwiftUI
+import TelemetryDeck
+import TipKit
 
 @main
 struct ThingCostApp: App {
@@ -7,6 +9,10 @@ struct ThingCostApp: App {
     @AppStorage("appTheme") private var appTheme: String = AppTheme.system.rawValue
 
     init() {
+        Analytics.configure()
+        try? Tips.configure([
+            .datastoreLocation(.applicationDefault),
+        ])
         if CommandLine.arguments.contains("--reset-onboarding") {
             UserDefaults.standard.removeObject(forKey: "hasCompletedOnboarding")
         }
@@ -34,6 +40,13 @@ struct ThingCostApp: App {
                 }
                 .task {
                     await store.listenForTransactions()
+                }
+                .onAppear {
+                    StreakManager.shared.recordActivity()
+                    ReviewManager.shared.recordAppOpen()
+                    if UserDefaults.standard.bool(forKey: "streakAlertsEnabled") {
+                        NotificationManager.shared.scheduleStreakAtRisk()
+                    }
                 }
         }
         .modelContainer(for: Item.self)

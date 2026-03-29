@@ -14,16 +14,22 @@
 "onboarding_sample_desc" = "We'll add a sample item\nso you can see how it works";
 "onboarding_add_sample" = "Add Sample & Start";
 "onboarding_skip" = "Skip";
+"onboarding_notifications_title" = "Stay on Track";
+"onboarding_notifications_desc" = "Get reminded to check your daily costs and keep your streak alive.";
+"onboarding_enable_reminders" = "Enable Reminders";
+"onboarding_maybe_later" = "Maybe Later";
+"onboarding_notifications_enabled" = "Notifications enabled!";
 
 /* Item List */
 "total_daily_cost" = "Total Daily Cost";
 "items_count %lld" = "%lld items";
-"free_count %lld" = "%lld/3 free";
+"free_count %lld" = "%lld/5 free";
 "per_month" = "/mo";
 "items_section" = "Items";
 "no_items_title" = "No Items Yet";
 "no_items_desc" = "Add your first purchase to see its daily cost.";
 "add_item" = "Add Item";
+"add_first_item" = "Add your first item";
 
 /* Sort */
 "sort_daily_high" = "Daily Cost ↓";
@@ -75,6 +81,7 @@
 "chart_days_axis" = "Days";
 "chart_cost_axis" = "Cost/Day";
 "future_projections" = "Future Projections";
+"unlock_all_projections" = "Unlock all projections";
 
 /* Milestones */
 "milestone_1month" = "1 month";
@@ -99,16 +106,36 @@
 "price_label" = "Price";
 "days_label" = "Days";
 "monthly_label" = "Monthly";
+"pro_style" = "Pro Style";
+"unlock" = "Unlock";
 
 /* Paywall */
-"paywall_title" = "Unlock Unlimited Items";
-"paywall_desc" = "You've added 3 items for free.\nUnlock unlimited tracking with a one-time purchase.";
+"paywall_title" = "Unlock Everything";
+"paywall_subtitle" = "Pay once, own forever. No subscription.";
+"paywall_desc" = "You've added 5 items for free.\nUnlock unlimited tracking with a one-time purchase.";
 "paywall_unlimited" = "Unlimited items";
 "paywall_share" = "All share card styles";
 "paywall_support" = "Support indie development";
 "paywall_unlock %@" = "Unlock for %@";
+"paywall_unlock_pro" = "Unlock Pro";
 "paywall_loading" = "Loading...";
 "paywall_restore" = "Restore Purchases";
+"paywall_one_time" = "One-time purchase";
+"paywall_no_subscription" = "No subscription. Pay once, own forever.";
+"paywall_feature" = "Feature";
+"paywall_free" = "Free";
+"paywall_pro" = "Pro";
+"paywall_feat_items" = "Items";
+"paywall_feat_share" = "Share Cards";
+"paywall_feat_themes" = "Themes";
+"paywall_feat_charts" = "Charts";
+"paywall_feat_export" = "CSV Export";
+"paywall_feat_projections" = "Projections";
+"paywall_feat_categories" = "Categories";
+"paywall_feat_support" = "Priority Support";
+"paywall_purchase_restored" = "Purchase restored successfully!";
+"paywall_no_purchase_found" = "No previous purchase found.";
+"paywall_restore_failed" = "Restore failed. Check your connection and try again.";
 
 /* Settings */
 "settings" = "Settings";
@@ -127,6 +154,45 @@
 "settings_purchases" = "Purchases";
 "settings_purchase" = "Upgrade";
 "settings_unlock" = "Unlock Unlimited Items";
+"settings_progress" = "Progress";
+"settings_current_streak" = "Current Streak";
+"settings_longest_streak" = "Longest Streak";
+"settings_achievements" = "Achievements";
+"settings_streak_days %lld" = "%lld days";
+"settings_achievement_count %lld %lld" = "%lld/%lld";
+"settings_notifications" = "Notifications";
+"settings_daily_reminder" = "Daily Reminder";
+"settings_streak_alerts" = "Streak Alerts";
+"settings_notifications_disabled" = "Notifications may be disabled in Settings";
+
+/* Achievement */
+"achievement_unlocked" = "Achievement Unlocked!";
+"achievement_awesome" = "Awesome!";
+"achievement_first_item" = "First Purchase";
+"achievement_first_item_desc" = "Added your first item";
+"achievement_five_items" = "Collector";
+"achievement_five_items_desc" = "Tracked 5 items";
+"achievement_ten_items" = "Hoarder";
+"achievement_ten_items_desc" = "Tracked 10 items";
+"achievement_week_streak" = "Week Warrior";
+"achievement_week_streak_desc" = "7-day streak";
+"achievement_month_streak" = "Monthly Master";
+"achievement_month_streak_desc" = "30-day streak";
+"achievement_shared_card" = "Social Butterfly";
+"achievement_shared_card_desc" = "Shared a cost card";
+"achievement_cheapest_day" = "Penny Pincher";
+"achievement_cheapest_day_desc" = "Found your cheapest daily cost";
+"achievement_all_categories" = "Diversified";
+"achievement_all_categories_desc" = "Used all 8 categories";
+
+/* Errors */
+"error_title" = "Oops";
+"error_ok" = "OK";
+"error_delete_failed" = "Couldn't delete this item. Please try again.";
+"error_save_failed" = "Couldn't save your item. Please try again.";
+"error_update_failed" = "Couldn't update your item. Please try again.";
+"error_export_title" = "Export Failed";
+"error_export_failed" = "Couldn't create the export file. Please try again.";
 
 /* Days */
 "day_singular %lld" = "%lld day";
@@ -134,3 +200,27 @@
 
 /* Row */
 "per_day_short" = "/day";
+"per_use_short" = "/use";
+
+/* Worth Score */
+"worth_amazing" = "Amazing";
+"worth_great" = "Great Value";
+"worth_decent" = "Decent";
+"worth_meh" = "Meh";
+"worth_poor" = "Rethink It";
+
+/* Cost Per Use */
+"cost_per_use_label" = "Cost Per Use";
+
+/* Paywall - New features */
+"paywall_feat_photos" = "Item Photos";
+"paywall_feat_usage" = "Use Tracking";
+"paywall_feat_widget" = "Widgets";
+
+/* Notification Content */
+"notification_daily_title" = "How much did your stuff cost today?";
+"notification_daily_body" = "Check your daily costs and keep your streak alive!";
+"notification_streak_title" = "Your streak is at risk! 🔥";
+"notification_streak_body %lld" = "Don't lose your %lld-day streak. Open ThingCost to keep it going.";
+"notification_milestone_title %@" = "🎉 %@ hit a milestone!";
+"notification_milestone_body %@ %@" = "After %@, it only costs you %@/day";

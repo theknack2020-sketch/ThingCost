@@ -1,1 +1,1 @@
-daily cost,price tracker,cost per day,spending,purchase,money,finance,budget,value,ownership cost
+expense,savings,price,spending,money,finance,budget,per use,ownership,depreciation,item,value,log

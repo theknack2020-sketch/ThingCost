@@ -1,12 +1,12 @@
-import Testing
 import Foundation
+import Testing
 @testable import ThingCost
 
 @Suite("Item Cost Calculation")
 struct ItemCostTests {
     @Test("Daily cost: price / days owned")
     func dailyCost() {
-        let tenDaysAgo = Calendar.current.date(byAdding: .day, value: -10, to: Date())!
+        let tenDaysAgo = Calendar.current.date(byAdding: .day, value: -10, to: Date()) ?? Date()
         let item = Item(name: "Test", price: 1000, purchaseDate: tenDaysAgo)
         #expect(item.daysOwned == 10)
         #expect(abs(item.dailyCost - 100.0) < 0.01)
@@ -21,21 +21,21 @@ struct ItemCostTests {
 
     @Test("Monthly cost is dailyCost × 30")
     func monthlyCost() {
-        let date = Calendar.current.date(byAdding: .day, value: -100, to: Date())!
+        let date = Calendar.current.date(byAdding: .day, value: -100, to: Date()) ?? Date()
         let item = Item(name: "Test", price: 3000, purchaseDate: date)
         #expect(abs(item.monthlyCost - item.dailyCost * 30) < 0.01)
     }
 
     @Test("Yearly cost is dailyCost × 365")
     func yearlyCost() {
-        let date = Calendar.current.date(byAdding: .day, value: -100, to: Date())!
+        let date = Calendar.current.date(byAdding: .day, value: -100, to: Date()) ?? Date()
         let item = Item(name: "Test", price: 3000, purchaseDate: date)
         #expect(abs(item.yearlyCost - item.dailyCost * 365) < 0.01)
     }
 
     @Test("Projected cost: price / totalDays")
     func projectedCost() {
-        let date = Calendar.current.date(byAdding: .day, value: -10, to: Date())!
+        let date = Calendar.current.date(byAdding: .day, value: -10, to: Date()) ?? Date()
         let item = Item(name: "Test", price: 365, purchaseDate: date)
         let projected = item.projectedDailyCost(afterTotalDays: 365)
         #expect(abs(projected - 1.0) < 0.01)
@@ -50,12 +50,33 @@ struct ItemCostTests {
 
     @Test("Cost milestones only include future dates")
     func milestonesAreFuture() {
-        let date = Calendar.current.date(byAdding: .day, value: -10, to: Date())!
+        let date = Calendar.current.date(byAdding: .day, value: -10, to: Date()) ?? Date()
         let item = Item(name: "Test", price: 1000, purchaseDate: date)
         for milestone in item.costMilestones {
             #expect(milestone.days > item.daysOwned)
             #expect(milestone.cost < item.dailyCost)
         }
+    }
+
+    @Test("Worth score is between 0 and 100")
+    func worthScoreRange() {
+        let date = Calendar.current.date(byAdding: .day, value: -90, to: Date()) ?? Date()
+        let item = Item(name: "Test", price: 500, purchaseDate: date)
+        #expect(item.worthScore >= 0)
+        #expect(item.worthScore <= 100)
+    }
+
+    @Test("Cost per use returns nil with zero uses")
+    func costPerUseNil() {
+        let item = Item(name: "Test", price: 100, purchaseDate: Date())
+        #expect(item.costPerUse == nil)
+    }
+
+    @Test("Cost per use calculates correctly")
+    func costPerUseCalculation() {
+        let item = Item(name: "Test", price: 100, purchaseDate: Date())
+        item.useCount = 10
+        #expect(item.costPerUse == 10.0)
     }
 }
 

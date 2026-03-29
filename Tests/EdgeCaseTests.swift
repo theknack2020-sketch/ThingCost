@@ -1,12 +1,12 @@
-import Testing
 import Foundation
+import Testing
 @testable import ThingCost
 
 @Suite("Edge Case: Extreme Values")
 struct ExtremeValueTests {
     @Test("Very large price: 999,999,999")
     func veryLargePrice() {
-        let date = Calendar.current.date(byAdding: .day, value: -30, to: Date())!
+        let date = Calendar.current.date(byAdding: .day, value: -30, to: Date()) ?? Date()
         let item = Item(name: "Yacht", price: 999_999_999, purchaseDate: date)
         #expect(item.dailyCost > 0)
         #expect(item.dailyCost == 999_999_999.0 / 30.0)
@@ -16,18 +16,18 @@ struct ExtremeValueTests {
 
     @Test("Very small price: 0.01")
     func verySmallPrice() {
-        let date = Calendar.current.date(byAdding: .day, value: -365, to: Date())!
+        let date = Calendar.current.date(byAdding: .day, value: -365, to: Date()) ?? Date()
         let item = Item(name: "Penny", price: 0.01, purchaseDate: date)
         #expect(item.dailyCost > 0)
-        #expect(item.dailyCost < 0.001) // < 0.001 per day
+        #expect(item.dailyCost < 0.001)
     }
 
     @Test("Very old purchase: 10 years ago")
     func veryOldPurchase() {
-        let date = Calendar.current.date(byAdding: .year, value: -10, to: Date())!
+        let date = Calendar.current.date(byAdding: .year, value: -10, to: Date()) ?? Date()
         let item = Item(name: "Antique", price: 1000, purchaseDate: date)
-        #expect(item.daysOwned > 3600) // ~3650 days
-        #expect(item.dailyCost < 1) // should be very low
+        #expect(item.daysOwned > 3600)
+        #expect(item.dailyCost < 1)
     }
 
     @Test("Purchase 1 second ago: minimum 1 day")
@@ -75,7 +75,6 @@ struct CompactCurrencyTests {
     @Test("Day label: singular")
     func dayLabelSingular() {
         let label = 1.dayLabel
-        // Should contain "1" and a day word
         #expect(label.contains("1"))
     }
 
@@ -96,9 +95,8 @@ struct CompactCurrencyTests {
 struct MilestoneEdgeCaseTests {
     @Test("Item purchased 2 years ago: few milestones left")
     func oldItemFewMilestones() {
-        let date = Calendar.current.date(byAdding: .year, value: -2, to: Date())!
+        let date = Calendar.current.date(byAdding: .year, value: -2, to: Date()) ?? Date()
         let item = Item(name: "Old Item", price: 1000, purchaseDate: date)
-        // 2 years = ~730 days, so only 3-year milestone should remain
         let milestones = item.costMilestones
         #expect(milestones.count == 1)
         #expect(milestones.first?.days == 1095)
@@ -106,7 +104,7 @@ struct MilestoneEdgeCaseTests {
 
     @Test("Item purchased 5 years ago: no milestones")
     func veryOldItemNoMilestones() {
-        let date = Calendar.current.date(byAdding: .year, value: -5, to: Date())!
+        let date = Calendar.current.date(byAdding: .year, value: -5, to: Date()) ?? Date()
         let item = Item(name: "Very Old", price: 1000, purchaseDate: date)
         #expect(item.costMilestones.isEmpty)
     }
@@ -123,7 +121,6 @@ struct CategoryEdgeCaseTests {
     @Test("Each category has a valid color")
     func allCategoriesHaveColors() {
         for category in ItemCategory.allCases {
-            // Accessing .color shouldn't crash
             _ = category.color
         }
     }

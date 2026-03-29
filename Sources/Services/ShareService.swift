@@ -6,8 +6,7 @@ struct ShareService {
     static func renderShareCard(item: Item, style: ShareCardStyle) -> UIImage? {
         let renderer = ImageRenderer(content:
             ShareCardView(item: item, style: style)
-                .frame(width: 390, height: 500)
-        )
+                .frame(width: 390, height: 500))
         renderer.scale = UIScreen.main.scale
         return renderer.uiImage
     }
@@ -19,7 +18,8 @@ struct ShareService {
         )
 
         guard let windowScene = UIApplication.shared.connectedScenes.first as? UIWindowScene,
-              let rootVC = windowScene.windows.first?.rootViewController else {
+              let rootVC = windowScene.windows.first?.rootViewController
+        else {
             return
         }
 

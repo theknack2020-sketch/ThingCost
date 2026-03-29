@@ -24,3 +24,14 @@ Packages/
 AppStore/screenshots/
 AppStore/screenshot_*.png
 api_key.json
+
+# Secrets
+AuthKey_*.p8
+*.p8
+*.p12
+*.pem
+.env
+*.secret
+
+# App Store screenshots (large PNGs, don't track in git)
+fastlane/screenshots/

@@ -1,6 +1,6 @@
 import Foundation
-import StoreKit
 import Observation
+import StoreKit
 
 @Observable
 @MainActor
@@ -11,10 +11,15 @@ final class StoreService {
     private(set) var product: Product?
     private(set) var purchaseState: PurchaseState = .idle
 
-    private let productID = "com.ufukozdemir.thingcost.unlimited.v2"
-    private let freeItemLimit = 3
+    private let productID = "com.theknack.thingcost.unlimited"
+    private let freeItemLimit = 5
 
-    enum PurchaseState {
+    /// Convenience alias — true when the user owns the lifetime unlock
+    var isPro: Bool {
+        isUnlimited
+    }
+
+    enum PurchaseState: Equatable {
         case idle
         case purchasing
         case purchased
@@ -23,18 +28,68 @@ final class StoreService {
 
     private init() {}
 
-    // MARK: - Public API
+    // MARK: - Public API — Item Limit
 
     func canAddItem(currentCount: Int) -> Bool {
-        isUnlimited || currentCount < freeItemLimit
+        isPro || currentCount < freeItemLimit
     }
 
     var remainingFreeItems: Int {
-        max(freeItemLimit - 0, 0) // Will be called with actual count
+        max(freeItemLimit - 0, 0)
     }
 
     func remainingFreeSlots(currentCount: Int) -> Int {
-        isUnlimited ? .max : max(freeItemLimit - currentCount, 0)
+        isPro ? .max : max(freeItemLimit - currentCount, 0)
+    }
+
+    // MARK: - Pro Feature Gates
+
+    /// Share card styles: minimal is free, bold & gradient require Pro
+    func isShareStyleAvailable(_ style: ShareCardStyle) -> Bool {
+        if isPro { return true }
+        return style == .minimal
+    }
+
+    /// Themes: system & light are free, everything else requires Pro
+    func isThemeAvailable(_ theme: AppTheme) -> Bool {
+        if isPro { return true }
+        return !theme.isProOnly
+    }
+
+    /// CSV export requires Pro
+    var canExportCSV: Bool {
+        isPro
+    }
+
+    /// Cost projection milestones: free users see up to 6 months (180 days)
+    func isMilestoneAvailable(days: Int) -> Bool {
+        if isPro { return true }
+        return days <= 180
+    }
+
+    /// Advanced charts require Pro
+    var canAccessAdvancedCharts: Bool {
+        isPro
+    }
+
+    /// Custom categories require Pro
+    var canUseCustomCategories: Bool {
+        isPro
+    }
+
+    /// Multiple currency support requires Pro
+    var canUseMultipleCurrencies: Bool {
+        isPro
+    }
+
+    /// Use logging requires Pro (free users see the score but can't log uses)
+    var canLogUses: Bool {
+        isPro
+    }
+
+    /// Photo attachment requires Pro
+    var canAttachPhoto: Bool {
+        isPro
     }
 
     // MARK: - Load Products
@@ -58,7 +113,7 @@ final class StoreService {
         do {
             let result = try await product.purchase()
             switch result {
-            case .success(let verification):
+            case let .success(verification):
                 let transaction = try checkVerified(verification)
                 isUnlimited = true
                 purchaseState = .purchased
@@ -77,25 +132,40 @@ final class StoreService {
 
     // MARK: - Restore
 
+    var showRestoreResult = false
+    var restoreResultMessage = ""
+
     func restore() async {
         do {
             try await AppStore.sync()
             await checkEntitlements()
+            if isUnlimited {
+                restoreResultMessage = String(localized: "paywall_purchase_restored")
+                Analytics.restoreCompleted(found: true)
+            } else {
+                restoreResultMessage = String(localized: "paywall_no_purchase_found")
+                Analytics.restoreCompleted(found: false)
+            }
+            showRestoreResult = true
         } catch {
-            print("[StoreService] Restore failed: \(error)")
+            restoreResultMessage = String(localized: "paywall_restore_failed")
+            showRestoreResult = true
         }
     }
 
     // MARK: - Check Entitlements
 
     func checkEntitlements() async {
+        var foundEntitlement = false
         for await result in Transaction.currentEntitlements {
             if let transaction = try? checkVerified(result),
-               transaction.productID == productID {
-                isUnlimited = true
-                return
+               transaction.productID == productID,
+               transaction.revocationDate == nil
+            {
+                foundEntitlement = true
             }
         }
+        isUnlimited = foundEntitlement
     }
 
     // MARK: - Transaction Updates
@@ -103,8 +173,13 @@ final class StoreService {
     func listenForTransactions() async {
         for await result in Transaction.updates {
             if let transaction = try? checkVerified(result),
-               transaction.productID == productID {
-                isUnlimited = true
+               transaction.productID == productID
+            {
+                if transaction.revocationDate == nil {
+                    isUnlimited = true
+                } else {
+                    isUnlimited = false
+                }
                 await transaction.finish()
             }
         }
@@ -114,9 +189,9 @@ final class StoreService {
 
     private func checkVerified<T>(_ result: VerificationResult<T>) throws -> T {
         switch result {
-        case .unverified(_, let error):
+        case let .unverified(_, error):
             throw error
-        case .verified(let item):
+        case let .verified(item):
             return item
         }
     }

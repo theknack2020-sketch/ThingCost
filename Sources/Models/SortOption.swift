@@ -10,7 +10,9 @@ enum SortOption: String, CaseIterable, Identifiable {
     case oldest
     case name
 
-    var id: String { rawValue }
+    var id: String {
+        rawValue
+    }
 
     var displayName: LocalizedStringResource {
         switch self {

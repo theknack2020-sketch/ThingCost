@@ -5,7 +5,9 @@ enum ShareCardStyle: String, CaseIterable, Identifiable {
     case bold
     case gradient
 
-    var id: String { rawValue }
+    var id: String {
+        rawValue
+    }
 
     var displayName: LocalizedStringResource {
         switch self {
@@ -93,6 +95,10 @@ struct ShareCardView: View {
                 }
             }
             .padding(.horizontal, 32)
+
+            // Worth badge
+            WorthBadge(score: item.worthScore, label: item.worthLabel, color: item.worthColor)
+                .padding(.top, 4)
 
             Spacer()
 
@@ -261,7 +267,7 @@ struct ShareCardView: View {
 
 #Preview("Minimal") {
     ShareCardView(
-        item: Item(name: "iPhone 15 Pro", price: 64999, purchaseDate: Calendar.current.date(byAdding: .day, value: -180, to: Date())!, category: .electronics),
+        item: Item(name: "iPhone 15 Pro", price: 64999, purchaseDate: Calendar.current.date(byAdding: .day, value: -180, to: Date()) ?? Date(), category: .electronics),
         style: .minimal
     )
     .padding()
@@ -270,7 +276,7 @@ struct ShareCardView: View {
 
 #Preview("Bold") {
     ShareCardView(
-        item: Item(name: "Nike Air Max", price: 4999, purchaseDate: Calendar.current.date(byAdding: .day, value: -90, to: Date())!, category: .clothing),
+        item: Item(name: "Nike Air Max", price: 4999, purchaseDate: Calendar.current.date(byAdding: .day, value: -90, to: Date()) ?? Date(), category: .clothing),
         style: .bold
     )
     .padding()
@@ -279,7 +285,7 @@ struct ShareCardView: View {
 
 #Preview("Gradient") {
     ShareCardView(
-        item: Item(name: "MacBook Pro", price: 84999, purchaseDate: Calendar.current.date(byAdding: .day, value: -365, to: Date())!, category: .electronics),
+        item: Item(name: "MacBook Pro", price: 84999, purchaseDate: Calendar.current.date(byAdding: .day, value: -365, to: Date()) ?? Date(), category: .electronics),
         style: .gradient
     )
     .padding()

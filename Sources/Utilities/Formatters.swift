@@ -5,9 +5,9 @@ extension Int {
     /// Localized "1 day", "5 days" / "1 gün", "5 gün"
     var dayLabel: String {
         if self == 1 {
-            return String(localized: "day_singular \(self)")
+            String(localized: "day_singular \(self)")
         } else {
-            return String(localized: "day_plural \(self)")
+            String(localized: "day_plural \(self)")
         }
     }
 }
@@ -19,7 +19,7 @@ extension Double {
         formatter.numberStyle = .currency
         formatter.currencyCode = code
         // If the value is effectively a whole number, skip decimals
-        if self >= 100 && self.truncatingRemainder(dividingBy: 1) < 0.01 {
+        if self >= 100, truncatingRemainder(dividingBy: 1) < 0.01 {
             formatter.maximumFractionDigits = 0
         } else {
             formatter.maximumFractionDigits = 2
