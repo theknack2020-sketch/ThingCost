@@ -1,31 +1,43 @@
-1. APP FUNCTIONALITY:
-ThingCost launches to a 3-page onboarding flow. After onboarding, the user lands on the main item list. Tap "+" to add items (name, price, purchase date, category). Core flow: Add → View daily cost → Tap item for detail (chart, cost breakdown, future projections) → Share card → Edit/Delete via swipe.
+1. APP FUNCTIONALITY (with screen recording description):
+ThingCost launches to a 4-page onboarding flow. After onboarding, the user lands on the Items tab with an empty state. Tap "+" to add items (name, price, purchase date, category). The app calculates and displays the daily cost of each item.
 
-No account system, no login, no user-generated content, no camera/microphone/location access. No prompts requesting sensitive data.
+Core user flow:
+- Add Item → Enter name + price + date + category → Tap "Add"
+- Items List → Summary card shows total daily cost, streak, monthly cost
+- Tap any item → Detail view with Worth It Score (0-100), cost chart, future projections
+- Share button → Generate social media share card (3 styles: Minimal, Bold, Gradient)
+- Swipe left → Delete item, Swipe right → Edit item
+- Dashboard tab → Category breakdown chart, Worth It Overview, Most Expensive list
+- Settings tab → Appearance (System/Light/Dark), Notifications, Legal links, Cross-promo
 
-Purchase flow: Free users can track up to 3 items. Adding a 4th item shows a paywall offering a one-time $2.99 Non-Consumable purchase ("Unlimited Items") via StoreKit 2. "Restore Purchases" is available from the paywall and from Settings.
+No account system. No login required. No user-generated content. No camera, microphone, or location access. No prompts requesting sensitive data.
+
+Purchase flow: Free users can track up to 5 items. When attempting to add a 6th item, a paywall appears offering a one-time Non-Consumable purchase ("ThingCost Pro") via StoreKit 2. "Restore Purchases" is available on the paywall and in Settings.
 
 2. APP PURPOSE & VALUE:
-ThingCost helps users understand the true daily cost of their purchases. Users enter an item name, price, and purchase date — the app calculates the daily cost (price ÷ days owned), which decreases every day. This helps users make more mindful purchasing decisions.
+ThingCost helps users understand the true daily cost of their purchases. Users enter an item name, price, and purchase date — the app calculates the daily cost (price ÷ days owned), which decreases every day. The unique "Worth It Score" (0-100) rates each purchase based on ownership duration and daily cost trajectory.
 
-Key features: Daily/monthly/yearly cost breakdown, interactive cost-over-time chart, future cost projections, shareable cost cards (3 styles), sorting, Light/Dark/System theme, English and Turkish localization.
+This helps users make more mindful purchasing decisions by visualizing how cost amortizes over time. Example: a $1,000 phone bought a year ago costs $2.74/day — and dropping.
 
 3. REVIEW INSTRUCTIONS:
-- Launch → Complete 3-page onboarding (tap "Next" twice, then "Add Sample & Start" or "Skip")
-- On main screen, tap "+" to add items
-- Tap any item to see detail view with chart and projections
-- Tap share icon on detail view for share cards
-- Swipe left to delete, swipe right to edit
-- After adding 3 items, tap "+" to see paywall
-- Tap gear icon (⚙️) for Settings → Theme, Restore Purchases, Privacy Policy, Terms of Use, Contact
+- Launch → Complete 4-page onboarding (tap "Next" three times, then "Skip" or "Add Your First Item")
+- On Items tab, tap "+" to add items (enter any name, price, and date)
+- Tap any item row to see detail view with Worth It Score, cost chart, and future projections
+- Tap share icon on detail view to see share card preview
+- Swipe left on item to delete, swipe right to edit
+- Tap Dashboard tab for analytics overview
+- Tap Settings tab for Appearance, Notifications, Legal, Restore Purchases
+- After adding 5 items, tap "+" to see paywall
 
-No login or test credentials required.
+No login or test credentials required. All features are accessible without an account.
 
 4. EXTERNAL SERVICES:
-ThingCost uses NO external services, APIs, SDKs, or third-party libraries. Built entirely with Apple frameworks: SwiftUI, SwiftData, StoreKit 2, Swift Charts. All data stored locally on-device. No data transmitted to any server.
+- TelemetryDeck (privacy-first analytics) — anonymous, aggregated usage data only. No personal data, device IDs, or IP addresses collected. GDPR/CCPA compliant. https://telemetrydeck.com
+- Apple StoreKit 2 — in-app purchase processing (handled by Apple)
+- No other external services, APIs, or third-party libraries
 
 5. REGIONAL DIFFERENCES:
-None. The app functions consistently across all regions. Localized in English and Turkish with identical features.
+None. The app functions identically across all regions. English only. Currency formatting adapts to the user's locale automatically via iOS system settings.
 
 6. REGULATED INDUSTRY:
-Not applicable. ThingCost is a personal finance utility/calculator. It does not provide financial advice, process payments, or handle sensitive financial data.
+Not applicable. ThingCost is a personal finance utility/calculator. It does not provide financial advice, process payments, or handle regulated financial data.
