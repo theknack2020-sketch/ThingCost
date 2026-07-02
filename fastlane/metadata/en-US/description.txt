@@ -19,7 +19,6 @@ ThingCost's unique Worth It Score rates every purchase from 0 to 100. It factors
 • Smart Dashboard — See total daily cost, category breakdown, and worth overview at a glance
 • Share Cards — Generate stunning social media cards in 3 styles to share your stats
 • Smart Categories — Organize items by Electronics, Clothing, Furniture, Vehicle, Sports, Kitchen & more
-• Home Screen Widget — See your total daily cost at a glance without opening the app
 • Streak Tracking — Build a daily streak and unlock achievements as you track
 • Multiple Sort Options — Sort by daily cost, price, date, or name
 • Dark Mode — Full dark mode support with automatic system detection
@@ -33,7 +32,7 @@ ThingCost changes how you think about money. Expensive purchases feel better ove
 
 ▸ FREE TO START
 
-Track up to 5 items for free. Unlock unlimited tracking, photos, use logging, all share card styles, premium charts, CSV export, and every widget size with a single one-time purchase — no subscriptions, no recurring charges, ever.
+Track up to 5 items for free. Unlock unlimited tracking, photos, use logging, all share card styles, premium charts, and CSV export with a single one-time purchase — no subscriptions, no recurring charges, ever.
 
 ▸ SHARE YOUR STATS
 

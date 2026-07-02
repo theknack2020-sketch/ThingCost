@@ -46,4 +46,4 @@ Free (with in-app purchase)
 
 ## In-App Purchase
 - ThingCost Pro — one-time purchase
-  Unlock unlimited item tracking, photos, use logging, all share card styles, premium charts, CSV export, all widget sizes, and priority support.
+  Unlock unlimited item tracking, photos, use logging, all share card styles, premium charts, CSV export, and priority support.
