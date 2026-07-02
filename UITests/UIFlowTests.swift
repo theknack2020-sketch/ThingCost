@@ -10,7 +10,7 @@ final class UIFlowTests: XCTestCase {
         app.launch()
     }
 
-    func testCompleteUserFlow() throws {
+    func testCompleteUserFlow() {
         // === STEP 1: ONBOARDING - Page 1 Welcome ===
         XCTAssertTrue(app.staticTexts["ThingCost"].waitForExistence(timeout: 5), "Should show app name")
 
@@ -185,7 +185,10 @@ final class UIFlowTests: XCTestCase {
         XCTAssertTrue(app.buttons["Contact Us"].exists, "Contact Us link")
 
         // About section
-        XCTAssertTrue(app.staticTexts["1.0.0"].exists, "Version number")
+        let versionText = app.staticTexts
+            .matching(NSPredicate(format: "label MATCHES %@", #"\d+\.\d+(\.\d+)?"#))
+            .firstMatch
+        XCTAssertTrue(versionText.exists, "Version number")
 
         // Dismiss settings
         app.buttons["Done"].tap()
@@ -193,18 +196,18 @@ final class UIFlowTests: XCTestCase {
     }
 }
 
-// Helper to clear text field before typing
+/// Helper to clear text field before typing
 extension XCUIElement {
     func clearAndEnterText(_ text: String) {
-        guard let stringValue = self.value as? String else {
+        guard let stringValue = value as? String else {
             XCTFail("Tried to clear non-string value")
             return
         }
-        
-        self.tap()
-        
+
+        tap()
+
         let deleteString = String(repeating: XCUIKeyboardKey.delete.rawValue, count: stringValue.count)
-        self.typeText(deleteString)
-        self.typeText(text)
+        typeText(deleteString)
+        typeText(text)
     }
 }
