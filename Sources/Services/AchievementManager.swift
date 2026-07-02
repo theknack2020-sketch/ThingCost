@@ -96,7 +96,8 @@ final class AchievementManager {
         hasSharedCard = true
     }
 
-    func checkAndUnlock(itemCount: Int, streak: Int, categoryCount: Int) -> Achievement? {
+    func checkAndUnlock(itemCount: Int, streak: Int, categoryCount: Int, cheapestDailyCost: Double? = nil) -> Achievement? {
+        let hasCheapItem = if let cost = cheapestDailyCost { cost < 1.0 && cost > 0 } else { false }
         let checks: [(Achievement, Bool)] = [
             (.firstItem, itemCount >= 1),
             (.fiveItems, itemCount >= 5),
@@ -104,6 +105,7 @@ final class AchievementManager {
             (.weekStreak, streak >= 7),
             (.monthStreak, streak >= 30),
             (.sharedCard, hasSharedCard),
+            (.cheapestDay, hasCheapItem),
             (.allCategories, categoryCount >= ItemCategory.allCases.count),
         ]
 

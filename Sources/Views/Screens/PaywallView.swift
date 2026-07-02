@@ -27,7 +27,7 @@ struct PaywallView: View {
         ComparisonRow(feature: "paywall_feat_export", icon: "arrow.down.doc.fill", freeValue: "—", proValue: "✓", freeIsLimited: true),
         ComparisonRow(feature: "paywall_feat_projections", icon: "sparkles", freeValue: "6 mo", proValue: "∞", freeIsLimited: true),
         ComparisonRow(feature: "paywall_feat_categories", icon: "folder.fill", freeValue: "Standard", proValue: "+ Custom", freeIsLimited: true),
-        ComparisonRow(feature: "paywall_feat_widget", icon: "widget.small", freeValue: "Basic", proValue: "All sizes", freeIsLimited: true),
+        ComparisonRow(feature: "paywall_feat_currencies", icon: "dollarsign.circle.fill", freeValue: "1", proValue: "All", freeIsLimited: true),
         ComparisonRow(feature: "paywall_feat_support", icon: "bolt.heart.fill", freeValue: "—", proValue: "✓", freeIsLimited: true),
     ]
 
@@ -35,6 +35,7 @@ struct PaywallView: View {
         NavigationStack {
             ZStack {
                 // MARK: - Rich Background
+
                 backgroundLayers
 
                 ScrollView(.vertical, showsIndicators: false) {

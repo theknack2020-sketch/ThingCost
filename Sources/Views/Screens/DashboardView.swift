@@ -5,6 +5,7 @@ import SwiftUI
 struct DashboardView: View {
     @Query(sort: \Item.createdAt, order: .reverse) private var items: [Item]
     @Environment(StoreService.self) private var store
+    @Environment(\.accessibilityReduceMotion) private var reduceMotion
 
     private let streakManager = StreakManager.shared
     @State private var appeared = false
@@ -21,19 +22,19 @@ struct DashboardView: View {
                         emptyDashboard
                     } else {
                         heroCard
-                            .cardEntrance(appeared: appeared, delay: 0)
+                            .cardEntrance(appeared: appeared, delay: 0, reduceMotion: reduceMotion)
 
                         warrantyAlertCard
-                            .cardEntrance(appeared: appeared, delay: 0.08)
+                            .cardEntrance(appeared: appeared, delay: 0.08, reduceMotion: reduceMotion)
 
                         categoryBreakdownCard
-                            .cardEntrance(appeared: appeared, delay: 0.14)
+                            .cardEntrance(appeared: appeared, delay: 0.14, reduceMotion: reduceMotion)
 
                         worthOverviewCard
-                            .cardEntrance(appeared: appeared, delay: 0.20)
+                            .cardEntrance(appeared: appeared, delay: 0.20, reduceMotion: reduceMotion)
 
                         topCostliestCard
-                            .cardEntrance(appeared: appeared, delay: 0.26)
+                            .cardEntrance(appeared: appeared, delay: 0.26, reduceMotion: reduceMotion)
                     }
                 }
                 .padding()
@@ -288,14 +289,14 @@ struct DashboardView: View {
                     .fill(count > 0 ? color.opacity(0.12) : Color.clear)
                     .frame(width: 36, height: 36)
                 Image(systemName: icon)
-                    .font(.system(size: 14))
+                    .font(.caption)
                     .foregroundStyle(count > 0 ? color : Color.gray.opacity(0.3))
             }
             Text("\(count)")
                 .font(.title3.bold().monospacedDigit())
                 .foregroundStyle(count > 0 ? .primary : .secondary)
             Text(label)
-                .font(.system(size: 9))
+                .font(.caption2)
                 .foregroundStyle(.secondary)
         }
         .frame(maxWidth: .infinity)
@@ -349,7 +350,7 @@ struct DashboardView: View {
                         Text(item.dailyCost.compactCurrency(code: currencyCode))
                             .font(.subheadline.bold().monospacedDigit())
                         Text("/day")
-                            .font(.system(size: 9))
+                            .font(.caption2)
                             .foregroundStyle(.tertiary)
                     }
                 }
@@ -454,10 +455,10 @@ private extension View {
             }
     }
 
-    func cardEntrance(appeared: Bool, delay: Double) -> some View {
+    func cardEntrance(appeared: Bool, delay: Double, reduceMotion: Bool = false) -> some View {
         opacity(appeared ? 1 : 0)
-            .offset(y: appeared ? 0 : 24)
-            .animation(.spring(response: 0.5, dampingFraction: 0.8).delay(delay), value: appeared)
+            .offset(y: reduceMotion ? 0 : (appeared ? 0 : 24))
+            .animation(reduceMotion ? nil : .spring(response: 0.5, dampingFraction: 0.8).delay(delay), value: appeared)
     }
 }
 

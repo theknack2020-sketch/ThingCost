@@ -286,7 +286,7 @@ struct EditItemView: View {
             } message: {
                 Text(errorMessage)
             }
-            .sheet(isPresented: $showingPaywall) {
+            .fullScreenCover(isPresented: $showingPaywall) {
                 PaywallView(store: store)
             }
         }

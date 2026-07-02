@@ -12,7 +12,6 @@ struct AddItemView: View {
     @State private var purchaseDate = Date()
     @State private var category: ItemCategory = .other
     @State private var iconName = "bag.fill"
-    @State private var showingSoftPaywall = false
     @State private var showError = false
     @State private var errorMessage = ""
     @State private var selectedPhotoItem: PhotosPickerItem?
@@ -269,7 +268,7 @@ struct AddItemView: View {
             } message: {
                 Text(errorMessage)
             }
-            .sheet(isPresented: $showingPaywall) {
+            .fullScreenCover(isPresented: $showingPaywall) {
                 PaywallView(store: store)
             }
         }

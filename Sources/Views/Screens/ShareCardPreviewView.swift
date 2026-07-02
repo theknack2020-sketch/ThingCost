@@ -112,7 +112,7 @@ struct ShareCardPreviewView: View {
                     }
                 }
             }
-            .sheet(isPresented: $showingPaywall) {
+            .fullScreenCover(isPresented: $showingPaywall) {
                 PaywallView(store: store)
             }
         }

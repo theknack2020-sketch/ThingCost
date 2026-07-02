@@ -279,7 +279,7 @@ struct SettingsView: View {
             }
             .navigationTitle("settings")
             .navigationBarTitleDisplayMode(.large)
-            .sheet(isPresented: $showingPaywall) {
+            .fullScreenCover(isPresented: $showingPaywall) {
                 PaywallView(store: store)
             }
             .task {

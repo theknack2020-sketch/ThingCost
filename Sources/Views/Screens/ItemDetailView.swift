@@ -13,6 +13,7 @@ struct ItemDetailView: View {
     @Environment(\.dismiss) private var dismiss
     @Environment(\.modelContext) private var modelContext
     @Environment(StoreService.self) private var store
+    @Environment(\.accessibilityReduceMotion) private var reduceMotion
 
     private var currencyCode: String {
         Locale.current.currency?.identifier ?? "USD"
@@ -24,43 +25,43 @@ struct ItemDetailView: View {
                 headerCard
                 worthScoreCard
                     .opacity(headerAppeared ? 1.0 : 0.0)
-                    .offset(y: headerAppeared ? 0 : 20)
-                    .animation(.spring(response: 0.5, dampingFraction: 0.8).delay(0.15), value: headerAppeared)
+                    .offset(y: reduceMotion ? 0 : (headerAppeared ? 0 : 20))
+                    .animation(reduceMotion ? nil : .spring(response: 0.5, dampingFraction: 0.8).delay(0.15), value: headerAppeared)
 
                 TipView(LogUseTip())
                     .tipBackground(.blue.opacity(0.06))
 
                 useTrackingCard
                     .opacity(headerAppeared ? 1.0 : 0.0)
-                    .offset(y: headerAppeared ? 0 : 20)
-                    .animation(.spring(response: 0.5, dampingFraction: 0.8).delay(0.2), value: headerAppeared)
+                    .offset(y: reduceMotion ? 0 : (headerAppeared ? 0 : 20))
+                    .animation(reduceMotion ? nil : .spring(response: 0.5, dampingFraction: 0.8).delay(0.2), value: headerAppeared)
                 costBreakdownCard
                     .opacity(headerAppeared ? 1.0 : 0.0)
-                    .offset(y: headerAppeared ? 0 : 20)
-                    .animation(.spring(response: 0.5, dampingFraction: 0.8).delay(0.25), value: headerAppeared)
+                    .offset(y: reduceMotion ? 0 : (headerAppeared ? 0 : 20))
+                    .animation(reduceMotion ? nil : .spring(response: 0.5, dampingFraction: 0.8).delay(0.25), value: headerAppeared)
                 costChartCard
                     .opacity(headerAppeared ? 1.0 : 0.0)
-                    .offset(y: headerAppeared ? 0 : 20)
-                    .animation(.spring(response: 0.5, dampingFraction: 0.8).delay(0.3), value: headerAppeared)
+                    .offset(y: reduceMotion ? 0 : (headerAppeared ? 0 : 20))
+                    .animation(reduceMotion ? nil : .spring(response: 0.5, dampingFraction: 0.8).delay(0.3), value: headerAppeared)
                 milestonesCard
                     .opacity(headerAppeared ? 1.0 : 0.0)
-                    .offset(y: headerAppeared ? 0 : 20)
-                    .animation(.spring(response: 0.5, dampingFraction: 0.8).delay(0.35), value: headerAppeared)
+                    .offset(y: reduceMotion ? 0 : (headerAppeared ? 0 : 20))
+                    .animation(reduceMotion ? nil : .spring(response: 0.5, dampingFraction: 0.8).delay(0.35), value: headerAppeared)
 
                 // Warranty card
                 if item.warrantyExpirationDate != nil {
                     warrantyCard
                         .opacity(headerAppeared ? 1.0 : 0.0)
-                        .offset(y: headerAppeared ? 0 : 20)
-                        .animation(.spring(response: 0.5, dampingFraction: 0.8).delay(0.4), value: headerAppeared)
+                        .offset(y: reduceMotion ? 0 : (headerAppeared ? 0 : 20))
+                        .animation(reduceMotion ? nil : .spring(response: 0.5, dampingFraction: 0.8).delay(0.4), value: headerAppeared)
                 }
 
                 // Receipt card
                 if item.hasReceipt {
                     receiptCard
                         .opacity(headerAppeared ? 1.0 : 0.0)
-                        .offset(y: headerAppeared ? 0 : 20)
-                        .animation(.spring(response: 0.5, dampingFraction: 0.8).delay(0.45), value: headerAppeared)
+                        .offset(y: reduceMotion ? 0 : (headerAppeared ? 0 : 20))
+                        .animation(reduceMotion ? nil : .spring(response: 0.5, dampingFraction: 0.8).delay(0.45), value: headerAppeared)
                 }
             }
             .padding()
@@ -96,7 +97,7 @@ struct ItemDetailView: View {
         .sheet(isPresented: $showingShareSheet) {
             ShareCardPreviewView(item: item)
         }
-        .sheet(isPresented: $showingPaywall) {
+        .fullScreenCover(isPresented: $showingPaywall) {
             PaywallView(store: store)
         }
     }

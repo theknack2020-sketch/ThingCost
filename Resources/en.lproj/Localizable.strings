@@ -216,6 +216,7 @@
 "paywall_feat_photos" = "Item Photos";
 "paywall_feat_usage" = "Use Tracking";
 "paywall_feat_widget" = "Widgets";
+"paywall_feat_currencies" = "Currencies";
 
 /* Notification Content */
 "notification_daily_title" = "How much did your stuff cost today?";

@@ -24,7 +24,7 @@ struct AchievementPopup: View {
                             .offset(confettiOffset(for: index))
                             .opacity(confettiVisible ? 0 : 1)
                             .animation(
-                                .easeOut(duration: 1.0).delay(Double(index) * 0.05),
+                                .spring(response: 0.8, dampingFraction: 0.6).delay(Double(index) * 0.05),
                                 value: confettiVisible
                             )
                     }
@@ -91,10 +91,10 @@ struct AchievementPopup: View {
     }
 
     private func dismiss() {
-        withAnimation(.easeIn(duration: 0.2)) {
+        withAnimation(.spring(response: 0.25, dampingFraction: 0.9)) {
             appeared = false
         }
-        DispatchQueue.main.asyncAfter(deadline: .now() + 0.25) {
+        DispatchQueue.main.asyncAfter(deadline: .now() + 0.3) {
             onDismiss()
         }
     }

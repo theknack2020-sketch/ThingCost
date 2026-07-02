@@ -25,10 +25,10 @@ struct ItemRowView: View {
                             .foregroundStyle(.quaternary)
                         HStack(spacing: 2) {
                             Image(systemName: "hand.tap.fill")
-                                .font(.system(size: 9))
+                                .font(.caption2)
                             Text("\(item.useCount)")
                         }
-                        .font(.caption)
+                        .font(.caption2)
                         .foregroundStyle(.secondary)
                     }
 
@@ -38,16 +38,16 @@ struct ItemRowView: View {
                             .foregroundStyle(.quaternary)
                         HStack(spacing: 2) {
                             Image(systemName: "shield.checkered")
-                                .font(.system(size: 9))
+                                .font(.caption2)
                             Text("\(item.warrantyDaysRemaining ?? 0)d")
                         }
-                        .font(.caption)
+                        .font(.caption2)
                         .foregroundStyle(.green)
                     }
 
                     if item.hasReceipt {
                         Image(systemName: "doc.text.fill")
-                            .font(.system(size: 9))
+                            .font(.caption2)
                             .foregroundStyle(.blue.opacity(0.6))
                     }
                 }
@@ -137,11 +137,12 @@ struct WorthBadge: View {
     var body: some View {
         HStack(spacing: 3) {
             Image(systemName: worthIcon)
-                .font(.system(size: 8, weight: .bold))
+                .font(.caption2.weight(.bold))
             Text("\(score)")
-                .font(.system(size: 10, weight: .bold, design: .rounded))
+                .font(.caption2.weight(.bold))
+                .fontDesign(.rounded)
             Text(label)
-                .font(.system(size: 9, weight: .medium))
+                .font(.caption2.weight(.medium))
         }
         .foregroundStyle(color)
         .padding(.horizontal, 6)

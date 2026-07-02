@@ -1,6 +1,9 @@
 import Foundation
 import Observation
+import os
 import StoreKit
+
+private let logger = Logger(subsystem: "com.ufukozdemir.thingcost", category: "StoreService")
 
 @Observable
 @MainActor
@@ -34,8 +37,11 @@ final class StoreService {
         isPro || currentCount < freeItemLimit
     }
 
+    /// NOTE: This property needs a currentCount parameter to be useful.
+    /// Use `remainingFreeSlots(currentCount:)` instead.
+    @available(*, deprecated, message: "Use remainingFreeSlots(currentCount:) instead")
     var remainingFreeItems: Int {
-        max(freeItemLimit - 0, 0)
+        freeItemLimit
     }
 
     func remainingFreeSlots(currentCount: Int) -> Int {
@@ -99,7 +105,7 @@ final class StoreService {
             let products = try await Product.products(for: [productID])
             product = products.first
         } catch {
-            print("[StoreService] Failed to load products: \(error)")
+            logger.error("Failed to load products: \(error.localizedDescription)")
         }
     }
 

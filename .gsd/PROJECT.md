@@ -15,8 +15,8 @@ Quality update complete. All HARD STOP violations fixed. Premium polish applied 
 - **Bundle ID:** com.theknack.thingcost
 - **Localization:** English only (TR removed)
 - **Privacy:** PrivacyInfo.xcprivacy present
-- **Monetization:** Freemium — 3 items free, unlimited via one-time IAP ($2.99)
-- **Pro gates:** 8 feature gates matching comparison table 1:1
+- **Monetization:** Freemium — 5 items free, unlimited via one-time IAP ($2.99)
+- **Pro gates:** 10 feature gates matching comparison table 1:1
 - **Build:** Clean, zero errors on iPhone + iPad
 
 ## Architecture / Key Patterns
@@ -25,7 +25,7 @@ Quality update complete. All HARD STOP violations fixed. Premium polish applied 
 - **Architecture:** MVVM with @Observable (medium complexity, good testability)
 - **Persistence:** SwiftData (local, no cloud sync for v1)
 - **Notifications:** Local notifications for daily reminders, streak alerts, cost milestones
-- **Monetization:** Freemium — 3 items free, unlimited via one-time IAP ($2.99)
+- **Monetization:** Freemium — 5 items free, unlimited via one-time IAP ($2.99)
 - **Sharing:** Custom rendered share cards (ImageRenderer)
 - **Haptics:** HapticManager singleton wired to all views (39 refs)
 - **Sound:** SoundManager with 5 system sounds + toggle

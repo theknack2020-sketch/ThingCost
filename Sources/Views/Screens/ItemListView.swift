@@ -57,7 +57,7 @@ struct ItemListView: View {
         .sheet(item: $editingItem) { item in
             EditItemView(item: item)
         }
-        .sheet(isPresented: $showingPaywall) {
+        .fullScreenCover(isPresented: $showingPaywall) {
             PaywallView(store: store)
         }
         .onReceive(NotificationCenter.default.publisher(for: .showPaywall)) { _ in
@@ -125,7 +125,7 @@ struct ItemListView: View {
     private var iPadPlaceholder: some View {
         VStack(spacing: 16) {
             Image(systemName: "arrow.left.circle")
-                .font(.system(size: 50))
+                .font(.largeTitle)
                 .foregroundStyle(
                     LinearGradient(
                         colors: [.blue.opacity(0.5), .purple.opacity(0.3)],
@@ -202,9 +202,10 @@ struct ItemListView: View {
                                 Image(systemName: "lock.fill")
                                     .font(.system(size: 8))
                                     .foregroundStyle(.white)
-                                    .padding(2)
+                                    .padding(3)
                                     .background(.blue, in: Circle())
                                     .offset(x: 4, y: -4)
+                                    .accessibilityHidden(true)
                             }
                         }
                     }
@@ -232,10 +233,12 @@ struct ItemListView: View {
 
     private func checkAchievements() {
         let categoryCount = Set(items.map(\.category)).count
+        let cheapest = items.map(\.dailyCost).min()
         if let achievement = achievementManager.checkAndUnlock(
             itemCount: items.count,
             streak: streakManager.currentStreak,
-            categoryCount: categoryCount
+            categoryCount: categoryCount,
+            cheapestDailyCost: cheapest
         ) {
             unlockedAchievement = achievement
             showAchievementPopup = true
@@ -405,7 +408,7 @@ struct ItemListView: View {
                                 colors: [
                                     Color(red: 0.25, green: 0.35, blue: 0.85),
                                     Color(red: 0.50, green: 0.30, blue: 0.80),
-                                    Color(red: 0.65, green: 0.35, blue: 0.75)
+                                    Color(red: 0.65, green: 0.35, blue: 0.75),
                                 ],
                                 startPoint: .topLeading,
                                 endPoint: .bottomTrailing
