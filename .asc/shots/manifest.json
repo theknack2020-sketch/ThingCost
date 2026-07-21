@@ -1,0 +1,59 @@
+{
+  "panels": [
+    {
+      "id": "01-hero",
+      "caption": "$1,000 phone = $2.74 a day",
+      "sub": "See the true daily cost of everything",
+      "uiState": "detail",
+      "heroIndex": 2,
+      "bgVariant": "sky",
+      "settle": 6
+    },
+    {
+      "id": "02-worth",
+      "caption": "Worth it? The score knows",
+      "sub": "Every purchase rated 0–100",
+      "uiState": "list",
+      "heroIndex": null,
+      "bgVariant": "violet",
+      "settle": 5
+    },
+    {
+      "id": "03-widget",
+      "caption": "Your daily cost, always visible",
+      "sub": "New home screen widget",
+      "uiState": "widget",
+      "heroIndex": null,
+      "bgVariant": "mist",
+      "settle": 4
+    },
+    {
+      "id": "04-dashboard",
+      "caption": "All your spending, one glance",
+      "sub": "Totals, categories, worth overview",
+      "uiState": "dashboard",
+      "heroIndex": null,
+      "bgVariant": "deep",
+      "settle": 5
+    },
+    {
+      "id": "05-share",
+      "caption": "Share your worth score",
+      "sub": "3 card styles for social",
+      "uiState": "share",
+      "heroIndex": 1,
+      "bgVariant": "sky",
+      "settle": 6
+    },
+    {
+      "id": "06-pro",
+      "caption": "Log uses. See real cost.",
+      "sub": "Cost per use, projections & more",
+      "uiState": "detail",
+      "heroIndex": 3,
+      "bgVariant": "violet",
+      "settle": 6
+    }
+  ],
+  "_notes": "uiState 'widget' = raw home-screen capture (no app launch; widget must be placed on the home screen first). heroIndex maps into items sorted by PRICE DESC: 0=MacBook Air 1199, 1=Herman Miller 1095, 2=iPhone 15 Pro 999, 3=Espresso Machine 699, 4=Sony WH-1000XM5 399, 5=Winter Jacket 189, 6=Nike Air Max 160, 7=Kindle 139."
+}
