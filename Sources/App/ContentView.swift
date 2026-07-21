@@ -4,6 +4,7 @@ struct ContentView: View {
     @AppStorage("hasCompletedOnboarding") private var hasCompletedOnboarding = false
     @State private var selectedTab: AppTab = .items
     @State private var showAddItemAfterOnboarding = false
+    @State private var reviewManager = ReviewManager.shared
 
     var body: some View {
         Group {
@@ -42,6 +43,15 @@ struct ContentView: View {
         .tint(.blue)
         .sheet(isPresented: $showAddItemAfterOnboarding) {
             AddItemView()
+        }
+        .sheet(isPresented: Binding(
+            get: { reviewManager.pendingPrePrompt },
+            set: { reviewManager.pendingPrePrompt = $0 }
+        )) {
+            ReviewPrePromptView(
+                onLove: { reviewManager.lovedIt() },
+                onFeedback: { reviewManager.notForMe() }
+            )
         }
     }
 }

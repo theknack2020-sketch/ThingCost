@@ -240,7 +240,7 @@ struct SettingsView: View {
                     HStack {
                         Text("version")
                         Spacer()
-                        Text("1.0.0")
+                        Text(Bundle.main.infoDictionary?["CFBundleShortVersionString"] as? String ?? "1.0")
                             .foregroundStyle(.secondary)
                     }
                 } header: {
@@ -284,7 +284,6 @@ struct SettingsView: View {
             }
             .task {
                 notificationsAuthorized = await NotificationManager.shared.isAuthorized()
-                Analytics.screenViewed(.settings)
             }
         }
     }

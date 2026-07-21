@@ -122,7 +122,6 @@ struct ShareCardPreviewView: View {
     private func shareCard() {
         guard store.isShareStyleAvailable(selectedStyle) else { return }
         guard let image = ShareService.renderShareCard(item: item, style: selectedStyle) else { return }
-        Analytics.shareCardCreated(style: selectedStyle.rawValue)
         AchievementManager.shared.markShared()
         ShareService.shareImage(image)
     }

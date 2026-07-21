@@ -70,19 +70,14 @@ struct PaywallView: View {
                 if isUnlimited {
                     HapticManager.shared.celebrate()
                     SoundManager.shared.playCelebrate()
-                    Analytics.purchaseCompleted()
                     dismiss()
                 }
             }
             .onChange(of: store.purchaseState) { _, newState in
-                if case let .failed(message) = newState {
+                if case .failed = newState {
                     HapticManager.shared.error()
                     SoundManager.shared.playError()
-                    Analytics.purchaseFailed(error: message)
                 }
-            }
-            .onAppear {
-                Analytics.paywallViewed(trigger: "direct")
             }
         }
     }

@@ -1,6 +1,7 @@
 import PhotosUI
 import SwiftData
 import SwiftUI
+import WidgetKit
 
 struct EditItemView: View {
     @Environment(\.dismiss) private var dismiss
@@ -331,7 +332,7 @@ struct EditItemView: View {
         item.warrantyExpirationDate = hasWarranty ? warrantyDate : nil
         do {
             try modelContext.save()
-            Analytics.itemEdited()
+            WidgetCenter.shared.reloadAllTimelines()
             // Retention: editing an item counts as daily activity
             StreakManager.shared.recordActivity()
             NotificationManager.shared.scheduleStreakAtRisk()

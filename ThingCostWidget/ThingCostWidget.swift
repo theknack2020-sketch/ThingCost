@@ -47,13 +47,12 @@ struct CostProvider: TimelineProvider {
         completion(Timeline(entries: [entry], policy: .after(nextUpdate)))
     }
 
-    @MainActor
     private func fetchEntry() -> CostEntry {
         let currencyCode = Locale.current.currency?.identifier ?? "USD"
 
         do {
-            let container = try ModelContainer(for: Item.self)
-            let context = container.mainContext
+            let container = SharedStore.makeContainer()
+            let context = ModelContext(container)
             let descriptor = FetchDescriptor<Item>(sortBy: [SortDescriptor(\.createdAt, order: .reverse)])
             let items = try context.fetch(descriptor)
 
@@ -206,12 +205,7 @@ struct ThingCostWidget: Widget {
 
     var body: some WidgetConfiguration {
         StaticConfiguration(kind: kind, provider: CostProvider()) { entry in
-            if #available(iOSApplicationExtension 17.0, *) {
-                WidgetView(entry: entry)
-            } else {
-                WidgetView(entry: entry)
-                    .padding()
-            }
+            WidgetView(entry: entry)
         }
         .configurationDisplayName("Daily Cost")
         .description("See the total daily cost of everything you own.")

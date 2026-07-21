@@ -1,15 +1,16 @@
 import SwiftData
 import SwiftUI
-import TelemetryDeck
 import TipKit
+import WidgetKit
 
 @main
 struct ThingCostApp: App {
     @State private var store = StoreService.shared
     @AppStorage("appTheme") private var appTheme: String = AppTheme.system.rawValue
+    @Environment(\.scenePhase) private var scenePhase
+    private let modelContainer: ModelContainer
 
     init() {
-        Analytics.configure()
         try? Tips.configure([
             .datastoreLocation(.applicationDefault),
         ])
@@ -17,12 +18,14 @@ struct ThingCostApp: App {
             UserDefaults.standard.removeObject(forKey: "hasCompletedOnboarding")
         }
         if CommandLine.arguments.contains("--reset-data") {
-            let url = URL.applicationSupportDirectory.appending(path: "default.store")
-            try? FileManager.default.removeItem(at: url)
+            SharedStore.wipeAllStores()
         }
         if CommandLine.arguments.contains("--skip-onboarding") {
             UserDefaults.standard.set(true, forKey: "hasCompletedOnboarding")
         }
+        SharedStore.migrateLegacyStoreIfNeeded()
+        modelContainer = SharedStore.makeContainer()
+        DemoData.seedIfRequested(into: modelContainer)
     }
 
     private var selectedTheme: AppTheme {
@@ -48,7 +51,12 @@ struct ThingCostApp: App {
                         NotificationManager.shared.scheduleStreakAtRisk()
                     }
                 }
+                .onChange(of: scenePhase) { _, newPhase in
+                    if newPhase == .background {
+                        WidgetCenter.shared.reloadAllTimelines()
+                    }
+                }
         }
-        .modelContainer(for: Item.self)
+        .modelContainer(modelContainer)
     }
 }

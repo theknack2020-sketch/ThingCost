@@ -161,7 +161,6 @@ struct ItemDetailView: View {
         .shadow(color: .black.opacity(0.05), radius: 8, y: 4)
         .onAppear { headerAppeared = true }
         .onAppear {
-            Analytics.screenViewed(.itemDetail)
             LogUseTip.viewCount += 1
             ShareCardTip.viewCount += 1
         }
@@ -274,7 +273,6 @@ struct ItemDetailView: View {
                     try? modelContext.save()
                     // Retention: logging use counts as daily activity
                     StreakManager.shared.recordActivity()
-                    Analytics.useLogged(itemName: item.name)
                 } label: {
                     HStack(spacing: 8) {
                         Image(systemName: "hand.tap.fill")

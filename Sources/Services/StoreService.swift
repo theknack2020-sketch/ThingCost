@@ -147,10 +147,8 @@ final class StoreService {
             await checkEntitlements()
             if isUnlimited {
                 restoreResultMessage = String(localized: "paywall_purchase_restored")
-                Analytics.restoreCompleted(found: true)
             } else {
                 restoreResultMessage = String(localized: "paywall_no_purchase_found")
-                Analytics.restoreCompleted(found: false)
             }
             showRestoreResult = true
         } catch {

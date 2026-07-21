@@ -18,11 +18,6 @@ settings:
     MARKETING_VERSION: "1.1.0"
     CURRENT_PROJECT_VERSION: "6"
 
-packages:
-  TelemetryDeck:
-    url: https://github.com/TelemetryDeck/SwiftSDK
-    from: "2.0.0"
-
 targets:
   ThingCost:
     type: application
@@ -32,7 +27,13 @@ targets:
       - path: Resources
         buildPhase: resources
     dependencies:
-      - package: TelemetryDeck
+      - target: ThingCostWidget
+        embed: true
+    entitlements:
+      path: Sources/ThingCost.entitlements
+      properties:
+        com.apple.security.application-groups:
+          - group.com.ufukozdemir.thingcost
     info:
       path: Sources/Info.plist
       properties:
@@ -49,6 +50,29 @@ targets:
     settings:
       base:
         PRODUCT_BUNDLE_IDENTIFIER: com.ufukozdemir.thingcost
+
+  ThingCostWidget:
+    type: app-extension
+    platform: iOS
+    sources:
+      - ThingCostWidget
+      - path: Sources/Models/Item.swift
+      - path: Sources/Shared/SharedStore.swift
+    entitlements:
+      path: ThingCostWidget/ThingCostWidget.entitlements
+      properties:
+        com.apple.security.application-groups:
+          - group.com.ufukozdemir.thingcost
+    info:
+      path: ThingCostWidget/Info.plist
+      properties:
+        CFBundleDisplayName: ThingCost
+        NSExtension:
+          NSExtensionPointIdentifier: com.apple.widgetkit-extension
+    settings:
+      base:
+        PRODUCT_BUNDLE_IDENTIFIER: com.ufukozdemir.thingcost.widget
+        SKIP_INSTALL: YES
 
   ThingCostTests:
     type: bundle.unit-test

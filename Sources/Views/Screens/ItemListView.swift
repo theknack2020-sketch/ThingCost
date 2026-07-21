@@ -1,5 +1,6 @@
 import SwiftData
 import SwiftUI
+import WidgetKit
 import TipKit
 
 struct ItemListView: View {
@@ -79,9 +80,7 @@ struct ItemListView: View {
             Text("error_export_failed")
         }
         .onAppear {
-            Analytics.screenViewed(.itemList)
             streakManager.recordActivity()
-            Analytics.streakRecorded(days: streakManager.currentStreak)
             NotificationManager.shared.scheduleStreakAtRisk()
             NotificationManager.shared.scheduleWarrantyReminders(for: items)
             checkAchievements()
@@ -242,7 +241,6 @@ struct ItemListView: View {
         ) {
             unlockedAchievement = achievement
             showAchievementPopup = true
-            Analytics.achievementUnlocked(name: achievement.rawValue)
             ReviewManager.shared.requestReviewIfAppropriate()
         }
     }
@@ -464,7 +462,6 @@ struct ItemListView: View {
                     Button(role: .destructive) {
                         HapticManager.shared.delete()
                         SoundManager.shared.playDelete()
-                        Analytics.itemDeleted()
                         withAnimation(.spring(response: 0.4, dampingFraction: 0.8)) {
                             if selectedItem?.id == item.id {
                                 selectedItem = nil
@@ -472,6 +469,7 @@ struct ItemListView: View {
                             modelContext.delete(item)
                             do {
                                 try modelContext.save()
+                                WidgetCenter.shared.reloadAllTimelines()
                             } catch {
                                 showDeleteError = true
                             }
@@ -522,7 +520,6 @@ struct ItemListView: View {
             try csv.write(to: tempURL, atomically: true, encoding: .utf8)
             csvExportURL = tempURL
             showExportShareSheet = true
-            Analytics.csvExported()
         } catch {
             showExportError = true
         }
