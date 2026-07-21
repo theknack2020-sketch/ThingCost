@@ -11,9 +11,16 @@ struct ThingCostApp: App {
     private let modelContainer: ModelContainer
 
     init() {
-        try? Tips.configure([
-            .datastoreLocation(.applicationDefault),
-        ])
+        #if DEBUG
+            let tipsEnabled = !ScreenshotTour.isActive
+        #else
+            let tipsEnabled = true
+        #endif
+        if tipsEnabled {
+            try? Tips.configure([
+                .datastoreLocation(.applicationDefault),
+            ])
+        }
         if CommandLine.arguments.contains("--reset-onboarding") {
             UserDefaults.standard.removeObject(forKey: "hasCompletedOnboarding")
         }

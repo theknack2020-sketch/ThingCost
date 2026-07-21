@@ -80,12 +80,18 @@ struct ItemListView: View {
             Text("error_export_failed")
         }
         .onAppear {
+            #if DEBUG
+                guard !ScreenshotTour.isActive else { return }
+            #endif
             streakManager.recordActivity()
             NotificationManager.shared.scheduleStreakAtRisk()
             NotificationManager.shared.scheduleWarrantyReminders(for: items)
             checkAchievements()
         }
         .onChange(of: items.count) {
+            #if DEBUG
+                guard !ScreenshotTour.isActive else { return }
+            #endif
             checkAchievements()
         }
         .overlay {

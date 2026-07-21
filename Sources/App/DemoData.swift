@@ -7,7 +7,8 @@ import SwiftUI
 enum DemoData {
     @MainActor
     static func seedIfRequested(into container: ModelContainer) {
-        guard CommandLine.arguments.contains("--demoData") else { return }
+        let args = CommandLine.arguments
+        guard args.contains("--demoData") || args.contains("-demoData") else { return }
         let context = ModelContext(container)
         let existing = (try? context.fetchCount(FetchDescriptor<Item>())) ?? 0
         guard existing == 0 else { return }
