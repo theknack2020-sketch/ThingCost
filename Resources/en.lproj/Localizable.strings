@@ -130,7 +130,6 @@
 "paywall_feat_themes" = "Themes";
 "paywall_feat_export" = "CSV Export";
 "paywall_feat_projections" = "Projections";
-"paywall_feat_support" = "Priority Support";
 "paywall_purchase_restored" = "Purchase restored successfully!";
 "paywall_no_purchase_found" = "No previous purchase found.";
 "paywall_restore_failed" = "Restore failed. Check your connection and try again.";

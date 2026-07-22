@@ -34,7 +34,6 @@ struct PaywallView: View {
         ComparisonRow(feature: "paywall_feat_themes", icon: "paintpalette.fill", freeValue: "2", proValue: "All", freeIsLimited: true),
         ComparisonRow(feature: "paywall_feat_export", icon: "arrow.down.doc.fill", freeValue: "—", proValue: "✓", freeIsLimited: true),
         ComparisonRow(feature: "paywall_feat_projections", icon: "sparkles", freeValue: "6 mo", proValue: "∞", freeIsLimited: true),
-        ComparisonRow(feature: "paywall_feat_support", icon: "bolt.heart.fill", freeValue: "—", proValue: "✓", freeIsLimited: true),
     ]
 
     var body: some View {

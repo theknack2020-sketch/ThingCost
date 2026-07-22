@@ -23,6 +23,12 @@
 
         static var isActive: Bool { state != nil }
 
+        /// When set, the capture runs with Pro unlocked so panels show unlocked
+        /// value (e.g. active use-logging) instead of a locked price wall.
+        static var proUnlocked: Bool {
+            ProcessInfo.processInfo.arguments.contains("-proUnlocked")
+        }
+
         /// Index into the item list sorted by daily cost (descending) — panels must
         /// never share hero content (duplicate-raw lint).
         static var heroIndex: Int {

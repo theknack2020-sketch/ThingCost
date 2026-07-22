@@ -204,4 +204,12 @@ final class StoreService {
             return item
         }
     }
+
+    #if DEBUG
+        /// Screenshot pipeline only: forces the Pro/unlocked state so store shots
+        /// show unlocked value instead of a price wall. Never called in Release.
+        func debugForceUnlimited() {
+            isUnlimited = true
+        }
+    #endif
 }

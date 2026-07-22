@@ -36,7 +36,37 @@ struct ThingCostApp: App {
         do {
             return try ModelContainer(for: Item.self)
         } catch {
-            fatalError("Failed to create ModelContainer: \(error)")
+            // Recovery: a corrupt store (e.g. a partial WAL after the process was
+            // killed mid-save) would otherwise crash the app on every launch.
+            // Move the store + sidecars aside and retry once with a fresh store
+            // so the app opens instead of bricking.
+            moveCorruptStoreAside()
+            do {
+                return try ModelContainer(for: Item.self)
+            } catch {
+                // Last resort: an in-memory store keeps the app usable for this
+                // session rather than a hard crash on launch.
+                do {
+                    let config = ModelConfiguration(isStoredInMemoryOnly: true)
+                    return try ModelContainer(for: Item.self, configurations: config)
+                } catch {
+                    fatalError("Failed to create any ModelContainer: \(error)")
+                }
+            }
+        }
+    }
+
+    /// Renames the on-disk store and its sidecars to a `.corrupt-<timestamp>`
+    /// suffix so a fresh store can be created without deleting the user's data
+    /// outright (the backup copy can still be inspected/recovered).
+    private static func moveCorruptStoreAside() {
+        let fm = FileManager.default
+        let stamp = Int(Date().timeIntervalSince1970)
+        for name in [".default_SUPPORT", "default.store-wal", "default.store-shm", "default.store"] {
+            let url = URL.applicationSupportDirectory.appending(path: name)
+            guard fm.fileExists(atPath: url.path) else { continue }
+            let backup = URL.applicationSupportDirectory.appending(path: "\(name).corrupt-\(stamp)")
+            try? fm.moveItem(at: url, to: backup)
         }
     }
 
@@ -61,6 +91,11 @@ struct ThingCostApp: App {
                 .task {
                     await store.loadProducts()
                     await store.checkEntitlements()
+                    #if DEBUG
+                        if ScreenshotTour.proUnlocked {
+                            store.debugForceUnlimited()
+                        }
+                    #endif
                 }
                 .task {
                     await store.listenForTransactions()
