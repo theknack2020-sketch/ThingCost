@@ -5,6 +5,7 @@ struct PaywallView: View {
     @Environment(\.accessibilityReduceMotion) private var reduceMotion
     @State private var heroAppeared = false
     @State private var shimmerOffset: CGFloat = -200
+    @State private var showPendingAlert = false
     let store: StoreService
 
     // MARK: - Comparison Data
@@ -82,7 +83,15 @@ struct PaywallView: View {
                 if case .failed = newState {
                     HapticManager.shared.error()
                     SoundManager.shared.playError()
+                } else if case .pending = newState {
+                    HapticManager.shared.tap()
+                    showPendingAlert = true
                 }
+            }
+            .alert("Purchase Pending", isPresented: $showPendingAlert) {
+                Button("OK", role: .cancel) {}
+            } message: {
+                Text("Your purchase is waiting for approval (for example Ask to Buy or your bank). It will unlock automatically once approved — no need to buy again.")
             }
         }
     }
