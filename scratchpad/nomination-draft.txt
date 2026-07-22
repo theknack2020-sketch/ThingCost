@@ -1,7 +1,0 @@
-ThingCost turns an invisible number into a habit: the true daily cost of everything you own.
-
-Add what you paid and when, and ThingCost shows the cost per day — that $1,000 phone is really $2.74/day, and dropping. Our signature Worth It Score (0–100) weighs price, ownership time, and how often you actually use each item, so buyers finally see whether a purchase earned its keep.
-
-The 1.2 update doubles down on trust: we removed every trace of analytics — the app now collects zero data, all on-device, no account — and added an honest, two-way rating prompt. Monetization is a single one-time purchase, never a subscription.
-
-In a category crowded with lookalike trackers, ThingCost's Worth It Score and privacy-first, pay-once stance make it the honest pick for mindful spenders.
