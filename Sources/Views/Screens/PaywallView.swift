@@ -258,7 +258,7 @@ struct PaywallView: View {
                     .frame(width: 70)
             }
             .font(.caption.weight(.semibold))
-            .foregroundStyle(.white.opacity(0.5))
+            .foregroundStyle(.white.opacity(0.7))
             .padding(.horizontal, 16)
             .padding(.vertical, 12)
 
@@ -276,7 +276,7 @@ struct PaywallView: View {
                         // Feature icon
                         Image(systemName: row.icon)
                             .font(.system(size: 11))
-                            .foregroundStyle(.white.opacity(0.4))
+                            .foregroundStyle(.white.opacity(0.7))
                             .frame(width: 18)
 
                         Text(row.feature)

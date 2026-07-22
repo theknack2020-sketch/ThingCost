@@ -77,21 +77,6 @@ final class StoreService {
         return days <= 180
     }
 
-    /// Advanced charts require Pro
-    var canAccessAdvancedCharts: Bool {
-        isPro
-    }
-
-    /// Custom categories require Pro
-    var canUseCustomCategories: Bool {
-        isPro
-    }
-
-    /// Multiple currency support requires Pro
-    var canUseMultipleCurrencies: Bool {
-        isPro
-    }
-
     /// Use logging requires Pro (free users see the score but can't log uses)
     var canLogUses: Bool {
         isPro
