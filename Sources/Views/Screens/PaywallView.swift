@@ -16,6 +16,14 @@ struct PaywallView: View {
         let freeValue: String
         let proValue: String
         let freeIsLimited: Bool
+
+        /// Combined VoiceOver label so the Free/Pro columns keep their meaning.
+        var accessibilityText: String {
+            let name = String(localized: feature)
+            let free = freeValue == "—" ? "not included" : freeValue
+            let pro = proValue == "✓" ? "included" : proValue
+            return "\(name). Free: \(free). Pro: \(pro)."
+        }
     }
 
     private let comparisonRows: [ComparisonRow] = [
@@ -276,7 +284,7 @@ struct PaywallView: View {
                                     .foregroundStyle(.red.opacity(0.6))
                             } else {
                                 Text(row.freeValue)
-                                    .foregroundStyle(.white.opacity(0.35))
+                                    .foregroundStyle(.white.opacity(0.7))
                             }
                         }
                         .font(.caption)
@@ -299,7 +307,8 @@ struct PaywallView: View {
                     }
                     .padding(.horizontal, 16)
                     .padding(.vertical, 11)
-                    .accessibilityElement(children: .combine)
+                    .accessibilityElement(children: .ignore)
+                    .accessibilityLabel(row.accessibilityText)
                 }
             }
         }
@@ -467,7 +476,7 @@ struct PaywallView: View {
         VStack(spacing: 4) {
             Text("No subscription. Pay once, own forever.")
                 .font(.caption2)
-                .foregroundStyle(.white.opacity(0.35))
+                .foregroundStyle(.white.opacity(0.7))
 
             HStack(spacing: 4) {
                 if let url = Self.privacyURL {
@@ -481,7 +490,7 @@ struct PaywallView: View {
                 }
             }
             .font(.caption2)
-            .foregroundStyle(.white.opacity(0.3))
+            .foregroundStyle(.white.opacity(0.7))
         }
         .padding(.top, 8)
     }

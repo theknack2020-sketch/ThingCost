@@ -460,7 +460,7 @@ struct ItemListView: View {
                     removal: .opacity
                 ))
                 .animation(
-                    .spring(response: 0.4, dampingFraction: 0.8).delay(Double(index) * 0.05),
+                    .spring(response: 0.4, dampingFraction: 0.8).delay(Double(min(index, 12)) * 0.05),
                     value: items.count
                 )
                 .swipeActions(edge: .trailing, allowsFullSwipe: true) {

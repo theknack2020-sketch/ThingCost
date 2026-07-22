@@ -1,1 +1,0 @@
-expense,savings,price,spending,money,finance,budget,per use,ownership,depreciation,item,value,log

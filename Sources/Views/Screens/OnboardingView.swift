@@ -59,11 +59,30 @@ struct OnboardingView: View {
                     .padding(.bottom, 12)
             }
 
-            // Confetti overlay
-            if showConfetti {
+            // Confetti overlay (skipped under Reduce Motion)
+            if showConfetti, !reduceMotion {
                 ConfettiOverlay()
                     .allowsHitTesting(false)
                     .ignoresSafeArea()
+            }
+
+            // Persistent Skip — reachable from the first page, not just the last
+            if currentPage < totalPages - 1 {
+                VStack {
+                    HStack {
+                        Spacer()
+                        Button("Skip") {
+                            HapticManager.shared.tap()
+                            hasCompletedOnboarding = true
+                        }
+                        .font(.subheadline.weight(.medium))
+                        .foregroundStyle(.secondary)
+                        .padding(.trailing, 20)
+                        .padding(.top, 8)
+                        .accessibilityLabel("Skip onboarding")
+                    }
+                    Spacer()
+                }
             }
         }
     }
@@ -153,7 +172,7 @@ struct OnboardingView: View {
     private func finishAndOpenAddItem() {
         HapticManager.shared.celebrate()
         SoundManager.shared.playCelebrate()
-        showConfetti = true
+        showConfetti = !reduceMotion
 
         Task { @MainActor in
             try? await Task.sleep(for: .seconds(1.2))
