@@ -31,6 +31,9 @@ struct ItemDetailView: View {
                 TipView(LogUseTip())
                     .tipBackground(.blue.opacity(0.06))
 
+                TipView(ShareCardTip())
+                    .tipBackground(.blue.opacity(0.06))
+
                 useTrackingCard
                     .opacity(headerAppeared ? 1.0 : 0.0)
                     .offset(y: reduceMotion ? 0 : (headerAppeared ? 0 : 20))
@@ -79,7 +82,6 @@ struct ItemDetailView: View {
                             .labelStyle(.iconOnly)
                     }
                     .accessibilityIdentifier("shareButton")
-                    .popoverTip(ShareCardTip())
                     Button {
                         HapticManager.shared.tap()
                         showingEditSheet = true

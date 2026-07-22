@@ -128,10 +128,8 @@
 "paywall_feat_items" = "Items";
 "paywall_feat_share" = "Share Cards";
 "paywall_feat_themes" = "Themes";
-"paywall_feat_charts" = "Charts";
 "paywall_feat_export" = "CSV Export";
 "paywall_feat_projections" = "Projections";
-"paywall_feat_categories" = "Categories";
 "paywall_feat_support" = "Priority Support";
 "paywall_purchase_restored" = "Purchase restored successfully!";
 "paywall_no_purchase_found" = "No previous purchase found.";
@@ -215,7 +213,6 @@
 /* Paywall - New features */
 "paywall_feat_photos" = "Item Photos";
 "paywall_feat_usage" = "Use Tracking";
-"paywall_feat_currencies" = "Currencies";
 
 /* Notification Content */
 "notification_daily_title" = "How much did your stuff cost today?";

@@ -2,6 +2,7 @@ import SwiftUI
 
 struct PaywallView: View {
     @Environment(\.dismiss) private var dismiss
+    @Environment(\.accessibilityReduceMotion) private var reduceMotion
     @State private var heroAppeared = false
     @State private var shimmerOffset: CGFloat = -200
     let store: StoreService
@@ -23,11 +24,8 @@ struct PaywallView: View {
         ComparisonRow(feature: "paywall_feat_usage", icon: "hand.tap.fill", freeValue: "View only", proValue: "Log uses", freeIsLimited: true),
         ComparisonRow(feature: "paywall_feat_share", icon: "square.and.arrow.up", freeValue: "1 style", proValue: "All 3", freeIsLimited: true),
         ComparisonRow(feature: "paywall_feat_themes", icon: "paintpalette.fill", freeValue: "2", proValue: "All", freeIsLimited: true),
-        ComparisonRow(feature: "paywall_feat_charts", icon: "chart.bar.fill", freeValue: "Basic", proValue: "All", freeIsLimited: true),
         ComparisonRow(feature: "paywall_feat_export", icon: "arrow.down.doc.fill", freeValue: "—", proValue: "✓", freeIsLimited: true),
         ComparisonRow(feature: "paywall_feat_projections", icon: "sparkles", freeValue: "6 mo", proValue: "∞", freeIsLimited: true),
-        ComparisonRow(feature: "paywall_feat_categories", icon: "folder.fill", freeValue: "Standard", proValue: "+ Custom", freeIsLimited: true),
-        ComparisonRow(feature: "paywall_feat_currencies", icon: "dollarsign.circle.fill", freeValue: "1", proValue: "All", freeIsLimited: true),
         ComparisonRow(feature: "paywall_feat_support", icon: "bolt.heart.fill", freeValue: "—", proValue: "✓", freeIsLimited: true),
     ]
 
@@ -384,6 +382,7 @@ struct PaywallView: View {
                         .offset(x: shimmerOffset)
                         .mask(RoundedRectangle(cornerRadius: 16))
                         .onAppear {
+                            guard !reduceMotion else { return }
                             withAnimation(
                                 .linear(duration: 2.5)
                                     .repeatForever(autoreverses: false)

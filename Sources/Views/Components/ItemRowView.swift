@@ -81,10 +81,6 @@ struct ItemRowView: View {
         .accessibilityElement(children: .combine)
         .accessibilityLabel("\(item.name), \(item.dailyCost.compactCurrency(code: currencyCode)) per day, owned \(item.daysOwned) days, worth score \(item.worthScore)")
         .accessibilityHint("Double tap to view details")
-        .accessibilityActions {
-            Button("Edit") {}
-            Button("Delete", role: .destructive) {}
-        }
     }
 
     // MARK: - Thumbnail

@@ -20,6 +20,7 @@ final class StreakManager {
         let today = Calendar.current.startOfDay(for: Date())
         let formatter = ISO8601DateFormatter()
         formatter.formatOptions = [.withFullDate]
+        formatter.timeZone = .current
         let todayStr = formatter.string(from: today)
 
         guard todayStr != lastActiveDateString else { return } // Already recorded today
@@ -43,6 +44,7 @@ final class StreakManager {
     var isActiveToday: Bool {
         let formatter = ISO8601DateFormatter()
         formatter.formatOptions = [.withFullDate]
+        formatter.timeZone = .current
         return lastActiveDateString == formatter.string(from: Calendar.current.startOfDay(for: Date()))
     }
 

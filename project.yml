@@ -26,10 +26,14 @@ targets:
       - Sources
       - path: Resources
         buildPhase: resources
+        excludes:
+          - Store.storekit
     info:
       path: Sources/Info.plist
       properties:
         CFBundleDisplayName: ThingCost
+        CFBundleShortVersionString: $(MARKETING_VERSION)
+        CFBundleVersion: $(CURRENT_PROJECT_VERSION)
         ITSAppUsesNonExemptEncryption: false
         UILaunchScreen: {}
         UISupportedInterfaceOrientations:
