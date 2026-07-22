@@ -139,7 +139,9 @@ struct SettingsView: View {
                     }
                     .accessibilityLabel("Enable streak alert notifications")
                     .onChange(of: streakAlertsEnabled) { _, enabled in
-                        if !enabled {
+                        if enabled {
+                            Task { _ = await NotificationManager.shared.requestPermission() }
+                        } else {
                             NotificationManager.shared.cancelStreakAtRisk()
                         }
                     }

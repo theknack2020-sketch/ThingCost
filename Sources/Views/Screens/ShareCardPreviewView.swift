@@ -108,8 +108,9 @@ struct ShareCardPreviewView: View {
                         dismiss()
                     } label: {
                         Label("Close share preview", systemImage: "xmark")
-                            .labelStyle(.titleOnly)
+                            .labelStyle(.iconOnly)
                     }
+                    .accessibilityLabel("Close share preview")
                 }
             }
             .fullScreenCover(isPresented: $showingPaywall) {

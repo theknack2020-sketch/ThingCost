@@ -87,8 +87,9 @@ struct ItemDetailView: View {
                         showingEditSheet = true
                     } label: {
                         Label("Edit item", systemImage: "pencil")
-                            .labelStyle(.titleOnly)
+                            .labelStyle(.iconOnly)
                     }
+                    .accessibilityLabel("Edit item")
                     .accessibilityIdentifier("editButton")
                 }
             }

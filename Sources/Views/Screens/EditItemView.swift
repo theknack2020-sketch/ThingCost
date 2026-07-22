@@ -155,6 +155,11 @@ struct EditItemView: View {
 
                 Section {
                     Toggle("Warranty", isOn: $hasWarranty.animation(.spring(response: 0.3, dampingFraction: 0.8)))
+                        .onChange(of: hasWarranty) { _, isOn in
+                            if isOn {
+                                Task { _ = await NotificationManager.shared.requestPermission() }
+                            }
+                        }
                         .accessibilityLabel("Has warranty")
 
                     if hasWarranty {
