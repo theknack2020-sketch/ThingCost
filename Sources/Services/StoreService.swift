@@ -13,6 +13,9 @@ final class StoreService {
     private(set) var isUnlimited = false
     private(set) var product: Product?
     private(set) var purchaseState: PurchaseState = .idle
+    /// True when the last product fetch failed — lets the paywall show a
+    /// retryable error state instead of an infinite spinner.
+    private(set) var productLoadFailed = false
 
     private let productID = "com.ufukozdemir.thingcost.unlimited.v2"
     private let freeItemLimit = 5
@@ -104,8 +107,10 @@ final class StoreService {
         do {
             let products = try await Product.products(for: [productID])
             product = products.first
+            productLoadFailed = products.first == nil
         } catch {
             logger.error("Failed to load products: \(error.localizedDescription)")
+            productLoadFailed = true
         }
     }
 

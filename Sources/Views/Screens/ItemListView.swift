@@ -515,7 +515,8 @@ struct ItemListView: View {
             dateFormatter.dateStyle = .short
             let date = dateFormatter.string(from: item.purchaseDate)
             let cpuStr = item.costPerUse.map { String(format: "%.2f", $0) } ?? ""
-            return "\"\(item.name)\",\(item.price),\(date),\(item.category.rawValue),\(item.daysOwned),\(String(format: "%.2f", item.dailyCost)),\(String(format: "%.2f", item.monthlyCost)),\(String(format: "%.2f", item.yearlyCost)),\(item.useCount),\(cpuStr),\(item.worthScore)"
+            let safeName = item.name.replacingOccurrences(of: "\"", with: "\"\"")
+            return "\"\(safeName)\",\(item.price),\(date),\(item.category.rawValue),\(item.daysOwned),\(String(format: "%.2f", item.dailyCost)),\(String(format: "%.2f", item.monthlyCost)),\(String(format: "%.2f", item.yearlyCost)),\(item.useCount),\(cpuStr),\(item.worthScore)"
         }.joined(separator: "\n")
 
         let csv = header + rows

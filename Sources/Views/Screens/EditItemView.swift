@@ -223,7 +223,7 @@ struct EditItemView: View {
                     }
                 }
 
-                if let price = Double(priceText), price > 0 {
+                if let price = priceText.localizedDecimalValue, price > 0 {
                     Section("current_cost") {
                         let daysOwned = max(Calendar.current.dateComponents([.day], from: purchaseDate, to: Date()).day ?? 1, 1)
                         let dailyCost = price / Double(daysOwned)
@@ -294,7 +294,7 @@ struct EditItemView: View {
 
     private var isValid: Bool {
         let trimmedName = name.trimmingCharacters(in: .whitespaces)
-        guard !trimmedName.isEmpty, let price = Double(priceText) else { return false }
+        guard !trimmedName.isEmpty, let price = priceText.localizedDecimalValue else { return false }
         return price > 0
     }
 
@@ -320,7 +320,7 @@ struct EditItemView: View {
     }
 
     private func saveItem() {
-        guard let price = Double(priceText), price > 0 else { return }
+        guard let price = priceText.localizedDecimalValue, price > 0 else { return }
         item.name = name.trimmingCharacters(in: .whitespaces)
         item.price = price
         item.purchaseDate = purchaseDate

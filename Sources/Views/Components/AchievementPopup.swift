@@ -4,6 +4,7 @@ struct AchievementPopup: View {
     let achievement: Achievement
     let onDismiss: () -> Void
 
+    @Environment(\.accessibilityReduceMotion) private var reduceMotion
     @State private var appeared = false
     @State private var confettiVisible = false
 
@@ -15,24 +16,26 @@ struct AchievementPopup: View {
                 .onTapGesture { dismiss() }
 
             VStack(spacing: 16) {
-                // Confetti particles
+                // Confetti particles (skipped under Reduce Motion)
                 ZStack {
-                    ForEach(0 ..< 12, id: \.self) { index in
-                        Circle()
-                            .fill(confettiColor(for: index))
-                            .frame(width: 8, height: 8)
-                            .offset(confettiOffset(for: index))
-                            .opacity(confettiVisible ? 0 : 1)
-                            .animation(
-                                .spring(response: 0.8, dampingFraction: 0.6).delay(Double(index) * 0.05),
-                                value: confettiVisible
-                            )
+                    if !reduceMotion {
+                        ForEach(0 ..< 12, id: \.self) { index in
+                            Circle()
+                                .fill(confettiColor(for: index))
+                                .frame(width: 8, height: 8)
+                                .offset(confettiOffset(for: index))
+                                .opacity(confettiVisible ? 0 : 1)
+                                .animation(
+                                    .spring(response: 0.8, dampingFraction: 0.6).delay(Double(index) * 0.05),
+                                    value: confettiVisible
+                                )
+                        }
                     }
 
                     Image(systemName: achievement.icon)
                         .font(.system(size: 50))
                         .foregroundStyle(achievement.color.gradient)
-                        .symbolEffect(.bounce, value: appeared)
+                        .symbolEffect(.bounce, value: reduceMotion ? false : appeared)
                 }
                 .frame(height: 80)
 
@@ -77,7 +80,7 @@ struct AchievementPopup: View {
             .frame(maxWidth: 320)
             .background(.ultraThinMaterial, in: RoundedRectangle(cornerRadius: 24, style: .continuous))
             .shadow(color: .black.opacity(0.2), radius: 20, y: 10)
-            .scaleEffect(appeared ? 1.0 : 0.6)
+            .scaleEffect(reduceMotion ? 1.0 : (appeared ? 1.0 : 0.6))
             .opacity(appeared ? 1.0 : 0)
         }
         .onAppear {

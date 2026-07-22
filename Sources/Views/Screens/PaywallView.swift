@@ -341,6 +341,24 @@ struct PaywallView: View {
                         .font(.caption)
                         .foregroundStyle(.white.opacity(0.5))
                         .tracking(0.5)
+                } else if store.productLoadFailed {
+                    VStack(spacing: 10) {
+                        Text("Couldn't load the price")
+                            .font(.subheadline.weight(.medium))
+                            .foregroundStyle(.white.opacity(0.85))
+                        Button {
+                            HapticManager.shared.tap()
+                            Task { await store.loadProducts() }
+                        } label: {
+                            Label("Try Again", systemImage: "arrow.clockwise")
+                                .font(.subheadline.weight(.semibold))
+                                .foregroundStyle(.white)
+                                .padding(.horizontal, 16)
+                                .padding(.vertical, 8)
+                                .background(.white.opacity(0.15), in: Capsule())
+                        }
+                    }
+                    .padding(.vertical, 12)
                 } else {
                     ProgressView()
                         .tint(.white)
