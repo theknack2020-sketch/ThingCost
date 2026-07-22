@@ -205,7 +205,7 @@
 | # | Bulgu | Dosya | Detay |
 |---|-------|-------|-------|
 | C1 | **TelemetryDeck APP_ID placeholder** | Analytics.swift:98 | `"YOUR_TELEMETRYDECK_APP_ID"` — analytics hiç çalışmıyor. Env var da boş olabilir. |
-| C2 | **Widget isPro gate yok** | ThingCostWidget.swift | Paywall'da "Widget: Basic → All sizes" vaadi var ama widget'ta sıfır gate. Tüm kullanıcılar tüm widget'lara erişiyor = Q4 ihlali. |
+| C2 | ~~**Widget isPro gate yok**~~ ✅ RESOLVED 2026-07-22 | — | Widget komple kaldırıldı (owner kararı); paywall'da widget vaadi de yok. Bulgu geçersiz. |
 | C3 | **Dynamic Type desteği yok** | Proje geneli | 38 yerde `.system(size:)` + 0 `@ScaledMetric` + 0 `relativeTo` = a11y accessibility sizes'da kırılacak. Apple rejection riski. |
 | C4 | **Bundle ID: project.yml `com.ufukozdemir`** | project.yml:33 | CLAUDE.md'de copyright TheKnack ama bundle `com.ufukozdemir`. ASC'de zaten kayıtlıysa değiştirilemez — tutarsızlığı belgele. |
 

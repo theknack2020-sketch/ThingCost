@@ -26,14 +26,16 @@ deliberately counters. No credible lifetime-unlock anchor sits below us.
 
 ## Decision: raise lifetime unlock $2.99 → **$4.99** (USD tier; other territories via Apple equalization)
 
-Rationale:
-1. **13.8% paid conversion at $2.99** signals underpricing — buyers are value-driven, not price-driven.
-2. v1.2.0 adds a **real home-screen widget**, and the Pro bundle already carries photos, use logging,
-   3 share styles, themes, charts, CSV, unlimited projections, custom categories, multi-currency.
-3. Anti-subscription wedge tolerates a higher one-time price (vs iAsset's recurring cost, $4.99 once is
-   still cheap).
-4. Portfolio consistency: NoBuy $4.99 lifetime; dB Meter Lifetime $39.99. $2.99 was the portfolio floor.
-5. Sales volume is tiny (4 lifetime) → experiment risk ≈ zero; revenue upside +67%/sale.
+Rationale (all market-derived — no house-anchor copying, per pricing doctrine 2026-07-22):
+1. **13.8% paid conversion at $2.99** signals underpricing — buyers here are value-driven, not
+   price-driven. A $2.99→$4.99 move tests real willingness-to-pay against near-zero volume risk.
+2. **The Pro bundle is deep for the niche:** unlimited items, photos, use logging, 3 share styles,
+   themes, advanced charts, CSV export, unlimited projections, custom categories, multi-currency —
+   far more than the direct clones (Daily Penny, iAsset) offer at their unlock tiers.
+3. **Anti-subscription wedge tolerates a higher one-time price.** The only traction anchor in the
+   niche (iAsset) is a recurring subscription; against that, $4.99 *once* reads as the cheap, honest
+   option — and no credible lifetime-unlock competitor sits below us.
+4. Sales volume is tiny (4 lifetime to date) → experiment risk ≈ zero; revenue upside +67%/sale.
 
 No product-structure change: same non-consumable, no new SKU, price schedule update only (no review needed).
 

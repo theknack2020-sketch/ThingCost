@@ -26,6 +26,9 @@
 - D007: Category color centralized as extension on ItemCategory
 - D008: EN/TR localization via .strings files
 - D009: Theme system/light/dark with @AppStorage persistence
+- D010 (2026-07-22, supersedes D006): Widget removed entirely — deemed unnecessary for this app.
+  App returns to the default SwiftData store; no App Group, no widget extension. The widget was
+  never shipped to any user (1.2.0 never left the build machine).
 
 ## Blockers
 
