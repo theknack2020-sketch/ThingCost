@@ -1,13 +1,11 @@
 import SwiftData
 import SwiftUI
 import TipKit
-import WidgetKit
 
 @main
 struct ThingCostApp: App {
     @State private var store = StoreService.shared
     @AppStorage("appTheme") private var appTheme: String = AppTheme.system.rawValue
-    @Environment(\.scenePhase) private var scenePhase
     private let modelContainer: ModelContainer
 
     init() {
@@ -25,14 +23,30 @@ struct ThingCostApp: App {
             UserDefaults.standard.removeObject(forKey: "hasCompletedOnboarding")
         }
         if CommandLine.arguments.contains("--reset-data") {
-            SharedStore.wipeAllStores()
+            Self.wipeStore()
         }
         if CommandLine.arguments.contains("--skip-onboarding") {
             UserDefaults.standard.set(true, forKey: "hasCompletedOnboarding")
         }
-        SharedStore.migrateLegacyStoreIfNeeded()
-        modelContainer = SharedStore.makeContainer()
+        modelContainer = Self.makeContainer()
         DemoData.seedIfRequested(into: modelContainer)
+    }
+
+    private static func makeContainer() -> ModelContainer {
+        do {
+            return try ModelContainer(for: Item.self)
+        } catch {
+            fatalError("Failed to create ModelContainer: \(error)")
+        }
+    }
+
+    /// Removes the store and its sidecars so `--reset-data` runs start truly
+    /// empty (UI tests + screenshot pipeline depend on this).
+    private static func wipeStore() {
+        let fm = FileManager.default
+        for name in [".default_SUPPORT", "default.store-wal", "default.store-shm", "default.store"] {
+            try? fm.removeItem(at: URL.applicationSupportDirectory.appending(path: name))
+        }
     }
 
     private var selectedTheme: AppTheme {
@@ -56,11 +70,6 @@ struct ThingCostApp: App {
                     ReviewManager.shared.recordAppOpen()
                     if UserDefaults.standard.bool(forKey: "streakAlertsEnabled") {
                         NotificationManager.shared.scheduleStreakAtRisk()
-                    }
-                }
-                .onChange(of: scenePhase) { _, newPhase in
-                    if newPhase == .background {
-                        WidgetCenter.shared.reloadAllTimelines()
                     }
                 }
         }

@@ -15,8 +15,8 @@ settings:
   base:
     SWIFT_VERSION: "6.0"
     DEVELOPMENT_TEAM: 99H9NJ6Z6J
-    MARKETING_VERSION: "1.1.0"
-    CURRENT_PROJECT_VERSION: "6"
+    MARKETING_VERSION: "1.2.0"
+    CURRENT_PROJECT_VERSION: "7"
 
 targets:
   ThingCost:
@@ -26,14 +26,6 @@ targets:
       - Sources
       - path: Resources
         buildPhase: resources
-    dependencies:
-      - target: ThingCostWidget
-        embed: true
-    entitlements:
-      path: Sources/ThingCost.entitlements
-      properties:
-        com.apple.security.application-groups:
-          - group.com.ufukozdemir.thingcost
     info:
       path: Sources/Info.plist
       properties:
@@ -50,29 +42,6 @@ targets:
     settings:
       base:
         PRODUCT_BUNDLE_IDENTIFIER: com.ufukozdemir.thingcost
-
-  ThingCostWidget:
-    type: app-extension
-    platform: iOS
-    sources:
-      - ThingCostWidget
-      - path: Sources/Models/Item.swift
-      - path: Sources/Shared/SharedStore.swift
-    entitlements:
-      path: ThingCostWidget/ThingCostWidget.entitlements
-      properties:
-        com.apple.security.application-groups:
-          - group.com.ufukozdemir.thingcost
-    info:
-      path: ThingCostWidget/Info.plist
-      properties:
-        CFBundleDisplayName: ThingCost
-        NSExtension:
-          NSExtensionPointIdentifier: com.apple.widgetkit-extension
-    settings:
-      base:
-        PRODUCT_BUNDLE_IDENTIFIER: com.ufukozdemir.thingcost.widget
-        SKIP_INSTALL: YES
 
   ThingCostTests:
     type: bundle.unit-test

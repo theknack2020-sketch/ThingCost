@@ -1,7 +1,6 @@
 import PhotosUI
 import SwiftData
 import SwiftUI
-import WidgetKit
 
 struct AddItemView: View {
     @Environment(\.modelContext) private var modelContext
@@ -320,7 +319,6 @@ struct AddItemView: View {
         do {
             modelContext.insert(item)
             try modelContext.save()
-            WidgetCenter.shared.reloadAllTimelines()
             ReviewManager.shared.recordItemAdded()
             AddFirstItemTip.hasAddedItem = true
         } catch {

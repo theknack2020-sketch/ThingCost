@@ -1,6 +1,5 @@
 import SwiftData
 import SwiftUI
-import WidgetKit
 import TipKit
 
 struct ItemListView: View {
@@ -475,7 +474,6 @@ struct ItemListView: View {
                             modelContext.delete(item)
                             do {
                                 try modelContext.save()
-                                WidgetCenter.shared.reloadAllTimelines()
                             } catch {
                                 showDeleteError = true
                             }

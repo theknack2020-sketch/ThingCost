@@ -35,6 +35,8 @@ AuthKey_*.p8
 
 # App Store screenshots (large PNGs, don't track in git)
 fastlane/screenshots/
+.asc/shots/raw/
+.asc/shots/final/
 
 # build artifacts (2026-07-03)
 build_sim/
